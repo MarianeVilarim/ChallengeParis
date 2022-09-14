@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC18329F28D2434500E14AA3 /* GeraCodigoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC18329E28D2434500E14AA3 /* GeraCodigoView.swift */; };
+		BC1832A128D2537E00E14AA3 /* DigitaCodigoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1832A028D2537E00E14AA3 /* DigitaCodigoView.swift */; };
+		BC1832A328D2539500E14AA3 /* ContaAniversarioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1832A228D2539500E14AA3 /* ContaAniversarioView.swift */; };
+		BC1832A528D2540200E14AA3 /* ContaMemoriaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1832A428D2540200E14AA3 /* ContaMemoriaView.swift */; };
 		BC85E0B228CFC3C400A11930 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85E0B128CFC3C400A11930 /* AppDelegate.swift */; };
 		BC85E0B428CFC3C400A11930 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85E0B328CFC3C400A11930 /* SceneDelegate.swift */; };
-		BC85E0B628CFC3C400A11930 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85E0B528CFC3C400A11930 /* ViewController.swift */; };
+		BC85E0B628CFC3C400A11930 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85E0B528CFC3C400A11930 /* HomeViewController.swift */; };
 		BC85E0BB28CFC3C500A11930 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC85E0BA28CFC3C500A11930 /* Assets.xcassets */; };
 		BC85E0BE28CFC3C500A11930 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC85E0BC28CFC3C500A11930 /* LaunchScreen.storyboard */; };
 		BC85E0CA28CFC73000A11930 /* UIView+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85E0C928CFC73000A11930 /* UIView+Preview.swift */; };
@@ -17,19 +21,28 @@
 		BC85E0CE28CFCC6800A11930 /* ExibeRelatosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85E0CD28CFCC6800A11930 /* ExibeRelatosView.swift */; };
 		BC85E0D028CFCC8700A11930 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85E0CF28CFCC8700A11930 /* HomeView.swift */; };
 		BC85E0D228CFCCDF00A11930 /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85E0D128CFCCDF00A11930 /* CardsView.swift */; };
-		BC85E0D428CFCD6F00A11930 /* ForumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85E0D328CFCD6F00A11930 /* ForumView.swift */; };
+		BC85E0D428CFCD6F00A11930 /* ForumFestinhaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85E0D328CFCD6F00A11930 /* ForumFestinhaView.swift */; };
 		BC85E0D728CFCE3500A11930 /* Relatos.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85E0D628CFCE3500A11930 /* Relatos.swift */; };
 		BC85E0D928CFCF3500A11930 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85E0D828CFCF3500A11930 /* Usuario.swift */; };
 		BC85E0DB28CFCF6900A11930 /* Memoria.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85E0DA28CFCF6900A11930 /* Memoria.swift */; };
 		BC85E0DD28CFCF7900A11930 /* Forum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85E0DC28CFCF7900A11930 /* Forum.swift */; };
 		BC85E0DF28CFCFBD00A11930 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85E0DE28CFCFBD00A11930 /* Cards.swift */; };
+		BCCD830428D10D3800F64366 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCD830328D10D3800F64366 /* TabBarController.swift */; };
+		BCCD830628D110E200F64366 /* JogosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCD830528D110E200F64366 /* JogosViewController.swift */; };
+		BCCD830828D1110C00F64366 /* RegistrosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCD830728D1110C00F64366 /* RegistrosViewController.swift */; };
+		BCCD830A28D1113F00F64366 /* SalvosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCD830928D1113F00F64366 /* SalvosViewController.swift */; };
+		BCCD830C28D123E200F64366 /* RelatosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCD830B28D123E200F64366 /* RelatosViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC18329E28D2434500E14AA3 /* GeraCodigoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeraCodigoView.swift; sourceTree = "<group>"; };
+		BC1832A028D2537E00E14AA3 /* DigitaCodigoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitaCodigoView.swift; sourceTree = "<group>"; };
+		BC1832A228D2539500E14AA3 /* ContaAniversarioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContaAniversarioView.swift; sourceTree = "<group>"; };
+		BC1832A428D2540200E14AA3 /* ContaMemoriaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContaMemoriaView.swift; sourceTree = "<group>"; };
 		BC85E0AE28CFC3C400A11930 /* ChallengeParis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChallengeParis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC85E0B128CFC3C400A11930 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC85E0B328CFC3C400A11930 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BC85E0B528CFC3C400A11930 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BC85E0B528CFC3C400A11930 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BC85E0BA28CFC3C500A11930 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC85E0BD28CFC3C500A11930 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC85E0BF28CFC3C500A11930 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -38,12 +51,17 @@
 		BC85E0CD28CFCC6800A11930 /* ExibeRelatosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExibeRelatosView.swift; sourceTree = "<group>"; };
 		BC85E0CF28CFCC8700A11930 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		BC85E0D128CFCCDF00A11930 /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
-		BC85E0D328CFCD6F00A11930 /* ForumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumView.swift; sourceTree = "<group>"; };
+		BC85E0D328CFCD6F00A11930 /* ForumFestinhaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumFestinhaView.swift; sourceTree = "<group>"; };
 		BC85E0D628CFCE3500A11930 /* Relatos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relatos.swift; sourceTree = "<group>"; };
 		BC85E0D828CFCF3500A11930 /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
 		BC85E0DA28CFCF6900A11930 /* Memoria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memoria.swift; sourceTree = "<group>"; };
 		BC85E0DC28CFCF7900A11930 /* Forum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forum.swift; sourceTree = "<group>"; };
 		BC85E0DE28CFCFBD00A11930 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
+		BCCD830328D10D3800F64366 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		BCCD830528D110E200F64366 /* JogosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JogosViewController.swift; sourceTree = "<group>"; };
+		BCCD830728D1110C00F64366 /* RegistrosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrosViewController.swift; sourceTree = "<group>"; };
+		BCCD830928D1113F00F64366 /* SalvosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalvosViewController.swift; sourceTree = "<group>"; };
+		BCCD830B28D123E200F64366 /* RelatosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatosViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +75,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC1832A628D2540B00E14AA3 /* RegistrosViews */ = {
+			isa = PBXGroup;
+			children = (
+				BC85E0D328CFCD6F00A11930 /* ForumFestinhaView.swift */,
+				BC1832A428D2540200E14AA3 /* ContaMemoriaView.swift */,
+				BC18329E28D2434500E14AA3 /* GeraCodigoView.swift */,
+				BC1832A028D2537E00E14AA3 /* DigitaCodigoView.swift */,
+				BC1832A228D2539500E14AA3 /* ContaAniversarioView.swift */,
+			);
+			path = RegistrosViews;
+			sourceTree = "<group>";
+		};
 		BC85E0A528CFC3C400A11930 = {
 			isa = PBXGroup;
 			children = (
@@ -96,7 +126,7 @@
 				BC85E0CD28CFCC6800A11930 /* ExibeRelatosView.swift */,
 				BC85E0CF28CFCC8700A11930 /* HomeView.swift */,
 				BC85E0D128CFCCDF00A11930 /* CardsView.swift */,
-				BC85E0D328CFCD6F00A11930 /* ForumView.swift */,
+				BC1832A628D2540B00E14AA3 /* RegistrosViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -116,7 +146,12 @@
 		BC85E0E128CFD16800A11930 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BC85E0B528CFC3C400A11930 /* ViewController.swift */,
+				BCCD830328D10D3800F64366 /* TabBarController.swift */,
+				BC85E0B528CFC3C400A11930 /* HomeViewController.swift */,
+				BCCD830528D110E200F64366 /* JogosViewController.swift */,
+				BCCD830728D1110C00F64366 /* RegistrosViewController.swift */,
+				BCCD830928D1113F00F64366 /* SalvosViewController.swift */,
+				BCCD830B28D123E200F64366 /* RelatosViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -191,11 +226,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC85E0B628CFC3C400A11930 /* ViewController.swift in Sources */,
-				BC85E0D428CFCD6F00A11930 /* ForumView.swift in Sources */,
+				BCCD830628D110E200F64366 /* JogosViewController.swift in Sources */,
+				BC85E0B628CFC3C400A11930 /* HomeViewController.swift in Sources */,
+				BCCD830A28D1113F00F64366 /* SalvosViewController.swift in Sources */,
+				BCCD830828D1110C00F64366 /* RegistrosViewController.swift in Sources */,
+				BCCD830C28D123E200F64366 /* RelatosViewController.swift in Sources */,
+				BC85E0D428CFCD6F00A11930 /* ForumFestinhaView.swift in Sources */,
+				BC1832A528D2540200E14AA3 /* ContaMemoriaView.swift in Sources */,
 				BC85E0D028CFCC8700A11930 /* HomeView.swift in Sources */,
+				BCCD830428D10D3800F64366 /* TabBarController.swift in Sources */,
 				BC85E0DF28CFCFBD00A11930 /* Cards.swift in Sources */,
 				BC85E0D228CFCCDF00A11930 /* CardsView.swift in Sources */,
+				BC1832A328D2539500E14AA3 /* ContaAniversarioView.swift in Sources */,
 				BC85E0D728CFCE3500A11930 /* Relatos.swift in Sources */,
 				BC85E0CA28CFC73000A11930 /* UIView+Preview.swift in Sources */,
 				BC85E0DB28CFCF6900A11930 /* Memoria.swift in Sources */,
@@ -203,6 +245,8 @@
 				BC85E0DD28CFCF7900A11930 /* Forum.swift in Sources */,
 				BC85E0CE28CFCC6800A11930 /* ExibeRelatosView.swift in Sources */,
 				BC85E0B228CFC3C400A11930 /* AppDelegate.swift in Sources */,
+				BC1832A128D2537E00E14AA3 /* DigitaCodigoView.swift in Sources */,
+				BC18329F28D2434500E14AA3 /* GeraCodigoView.swift in Sources */,
 				BC85E0B428CFC3C400A11930 /* SceneDelegate.swift in Sources */,
 				BC85E0D928CFCF3500A11930 /* Usuario.swift in Sources */,
 			);

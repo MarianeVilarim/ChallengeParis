@@ -19,9 +19,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
                 //Agora criamos uma UIWindow para ser gerenciada pela windowScene criada anteriormente.
-                window.rootViewController = ViewController()
-                self.window = window
-                window.makeKeyAndVisible()
+        let tabBarController = TabBarController()
+        let homeNavigation = UINavigationController (rootViewController: HomeViewController())
+        let jogosNavigation = UINavigationController (rootViewController: JogosViewController())
+        let registrosNavigation = UINavigationController (rootViewController: RegistrosViewController())
+        let salvosNavigation = UINavigationController (rootViewController: SalvosViewController())
+        tabBarController.viewControllers = [homeNavigation, jogosNavigation, registrosNavigation, salvosNavigation]
+        
+        window.rootViewController = tabBarController
+        self.window = window
+        window.makeKeyAndVisible()
         
     }
 
