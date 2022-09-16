@@ -250,8 +250,8 @@ class ContaAniversarioView: UIView {
             headerStackView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([headerStackView.heightAnchor.constraint(equalToConstant: 72),
                                          headerStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-                                         headerStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                                         headerStackView.trailingAnchor.constraint(equalTo: trailingAnchor)
+                                         headerStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                                         headerStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
                                          
             ])
             
@@ -300,9 +300,9 @@ class ContaAniversarioView: UIView {
             
             buttonsStackView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([buttonsStackView.topAnchor.constraint(equalTo: headerStackView.bottomAnchor, constant: 10),
-                                         buttonsStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                                         buttonsStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                                         buttonsStackView.bottomAnchor.constraint(equalTo: bottomAnchor)
+                                         buttonsStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                                         buttonsStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+                                         buttonsStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
             ])
             
 
@@ -340,16 +340,24 @@ class ContaAniversarioView: UIView {
 
             scrollView.translatesAutoresizingMaskIntoConstraints = false
             contentView.translatesAutoresizingMaskIntoConstraints = false
-            
-            scrollView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-                    scrollView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
-                    scrollView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-                    scrollView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-                    
-                    contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-                    contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-                    contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-                    contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+            NSLayoutConstraint.activate([scrollView.centerXAnchor.constraint(equalTo: centerXAnchor),
+                                         scrollView.widthAnchor.constraint(equalTo: widthAnchor),
+                                         scrollView.topAnchor.constraint(equalTo: topAnchor),
+                                         scrollView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            ])
+//            scrollView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+//                    scrollView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+//                    scrollView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+//                    scrollView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+            NSLayoutConstraint.activate([contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+                                         contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+                                         contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+                                         contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+            ])
+//                    contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+//                    contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+//                    contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+//                    contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
                 }
 
         
