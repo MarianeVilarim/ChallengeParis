@@ -13,6 +13,7 @@
 		BC1832A528D2540200E14AA3 /* ContaMemoriaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1832A428D2540200E14AA3 /* ContaMemoriaView.swift */; };
 		BC1832A828D25AB300E14AA3 /* PedeCodigoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1832A728D25AB300E14AA3 /* PedeCodigoView.swift */; };
 		BC1832AA28D48DC700E14AA3 /* ContaAniversarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1832A928D48DC700E14AA3 /* ContaAniversarioViewController.swift */; };
+		BC1832AC28D4F98B00E14AA3 /* GeraCodigoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1832AB28D4F98B00E14AA3 /* GeraCodigoViewController.swift */; };
 		BC85E0B228CFC3C400A11930 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85E0B128CFC3C400A11930 /* AppDelegate.swift */; };
 		BC85E0B428CFC3C400A11930 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85E0B328CFC3C400A11930 /* SceneDelegate.swift */; };
 		BC85E0B628CFC3C400A11930 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85E0B528CFC3C400A11930 /* HomeViewController.swift */; };
@@ -43,6 +44,7 @@
 		BC1832A428D2540200E14AA3 /* ContaMemoriaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContaMemoriaView.swift; sourceTree = "<group>"; };
 		BC1832A728D25AB300E14AA3 /* PedeCodigoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedeCodigoView.swift; sourceTree = "<group>"; };
 		BC1832A928D48DC700E14AA3 /* ContaAniversarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContaAniversarioViewController.swift; sourceTree = "<group>"; };
+		BC1832AB28D4F98B00E14AA3 /* GeraCodigoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeraCodigoViewController.swift; sourceTree = "<group>"; };
 		BC85E0AE28CFC3C400A11930 /* ChallengeParis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChallengeParis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC85E0B128CFC3C400A11930 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC85E0B328CFC3C400A11930 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				BCCD830928D1113F00F64366 /* SalvosViewController.swift */,
 				BCCD830728D1110C00F64366 /* RegistrosViewController.swift */,
 				BC1832A928D48DC700E14AA3 /* ContaAniversarioViewController.swift */,
+				BC1832AB28D4F98B00E14AA3 /* GeraCodigoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				BC85E0DF28CFCFBD00A11930 /* Cards.swift in Sources */,
 				BC85E0D228CFCCDF00A11930 /* CardsView.swift in Sources */,
 				BC1832A328D2539500E14AA3 /* ContaAniversarioView.swift in Sources */,
+				BC1832AC28D4F98B00E14AA3 /* GeraCodigoViewController.swift in Sources */,
 				BC85E0D728CFCE3500A11930 /* Relatos.swift in Sources */,
 				BC1832A828D25AB300E14AA3 /* PedeCodigoView.swift in Sources */,
 				BC85E0CA28CFC73000A11930 /* UIView+Preview.swift in Sources */,

@@ -14,7 +14,8 @@ class ContaAniversarioViewController: UIViewController {
         let primeiraView = ContaAniversarioView()
         self.view = primeiraView
         
-
+        primeiraView.compartilharRoleButton.addTarget(self, action: #selector(didUserTapButton), for: .touchUpInside)
+      
         // Do any additional setup after loading the view.
     }
     
@@ -37,6 +38,10 @@ class ContaAniversarioViewController: UIViewController {
     }
     */
 
+    @objc func didUserTapButton() {
+        print("chamou")
+        navigationController?.pushViewController(GeraCodigoViewController(), animated: true)
+    }
 }
 
 

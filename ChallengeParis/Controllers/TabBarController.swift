@@ -44,8 +44,8 @@ class TabBarController: UITabBarController {
         items[3].selectedImage = UIImage(systemName: "bookmark.fill")
 
         
-        tabBar.layer.shadowOffset = CGSize(width: 0, height: -0.5)
-        tabBar.layer.shadowRadius = 0
+        tabBar.layer.shadowOffset = CGSize(width: 0, height: -1)
+        tabBar.layer.shadowRadius = 1
         tabBar.layer.shadowColor = UIColor.black.cgColor
         tabBar.layer.shadowOpacity = 0.3
     }
