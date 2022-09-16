@@ -9,10 +9,8 @@ import UIKit
 
 class ForumView: UIView {
     
-    func setup(titulo: String, memoria: Int) -> UITableViewCell {
-       // let tituloForum = "Festa de \(Relato.titulo)"
-        return UITableViewCell()
-    }
+    let backgroundView = UIImageView(image: UIImage(named: "background"))
+    
     
     /*
     // Only override draw() if you perform custom drawing.

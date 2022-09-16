@@ -8,6 +8,9 @@
 import UIKit
 
 class DigitaCodigoView: UIView {
+    
+    let backgroundView = UIImageView(image: UIImage(named: "background"))
+
 
     /*
     // Only override draw() if you perform custom drawing.

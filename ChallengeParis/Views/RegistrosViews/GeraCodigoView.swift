@@ -9,6 +9,8 @@ import UIKit
 
 class GeraCodigoView: UIView {
 
+    let backgroundView = UIImageView(image: UIImage(named: "background"))
+
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

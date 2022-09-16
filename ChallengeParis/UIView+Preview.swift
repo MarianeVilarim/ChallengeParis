@@ -11,15 +11,15 @@ import SwiftUI
 extension UIView {
     @available(iOS 13, *)
     private struct Preview: UIViewRepresentable {
-        let view: UIView
+        let whiteView: UIView
         
-        func makeUIView(context: Context) -> UIView { view }
+        func makeUIView(context: Context) -> UIView { whiteView }
         func updateUIView(_ uiView: UIView, context: Context) { }
     }
     
     @available(iOS 13, *)
     func showPreview() -> some View {
-        Preview(view: self)
+        Preview(whiteView: self)
     }
 }
 #endif

@@ -11,6 +11,8 @@
 		BC1832A128D2537E00E14AA3 /* DigitaCodigoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1832A028D2537E00E14AA3 /* DigitaCodigoView.swift */; };
 		BC1832A328D2539500E14AA3 /* ContaAniversarioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1832A228D2539500E14AA3 /* ContaAniversarioView.swift */; };
 		BC1832A528D2540200E14AA3 /* ContaMemoriaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1832A428D2540200E14AA3 /* ContaMemoriaView.swift */; };
+		BC1832A828D25AB300E14AA3 /* PedeCodigoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1832A728D25AB300E14AA3 /* PedeCodigoView.swift */; };
+		BC1832AA28D48DC700E14AA3 /* ContaAniversarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1832A928D48DC700E14AA3 /* ContaAniversarioViewController.swift */; };
 		BC85E0B228CFC3C400A11930 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85E0B128CFC3C400A11930 /* AppDelegate.swift */; };
 		BC85E0B428CFC3C400A11930 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85E0B328CFC3C400A11930 /* SceneDelegate.swift */; };
 		BC85E0B628CFC3C400A11930 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85E0B528CFC3C400A11930 /* HomeViewController.swift */; };
@@ -39,6 +41,8 @@
 		BC1832A028D2537E00E14AA3 /* DigitaCodigoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitaCodigoView.swift; sourceTree = "<group>"; };
 		BC1832A228D2539500E14AA3 /* ContaAniversarioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContaAniversarioView.swift; sourceTree = "<group>"; };
 		BC1832A428D2540200E14AA3 /* ContaMemoriaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContaMemoriaView.swift; sourceTree = "<group>"; };
+		BC1832A728D25AB300E14AA3 /* PedeCodigoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedeCodigoView.swift; sourceTree = "<group>"; };
+		BC1832A928D48DC700E14AA3 /* ContaAniversarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContaAniversarioViewController.swift; sourceTree = "<group>"; };
 		BC85E0AE28CFC3C400A11930 /* ChallengeParis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChallengeParis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC85E0B128CFC3C400A11930 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC85E0B328CFC3C400A11930 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +87,7 @@
 				BC18329E28D2434500E14AA3 /* GeraCodigoView.swift */,
 				BC1832A028D2537E00E14AA3 /* DigitaCodigoView.swift */,
 				BC1832A228D2539500E14AA3 /* ContaAniversarioView.swift */,
+				BC1832A728D25AB300E14AA3 /* PedeCodigoView.swift */,
 			);
 			path = RegistrosViews;
 			sourceTree = "<group>";
@@ -149,9 +154,10 @@
 				BCCD830328D10D3800F64366 /* TabBarController.swift */,
 				BC85E0B528CFC3C400A11930 /* HomeViewController.swift */,
 				BCCD830528D110E200F64366 /* JogosViewController.swift */,
-				BCCD830728D1110C00F64366 /* RegistrosViewController.swift */,
-				BCCD830928D1113F00F64366 /* SalvosViewController.swift */,
 				BCCD830B28D123E200F64366 /* RelatosViewController.swift */,
+				BCCD830928D1113F00F64366 /* SalvosViewController.swift */,
+				BCCD830728D1110C00F64366 /* RegistrosViewController.swift */,
+				BC1832A928D48DC700E14AA3 /* ContaAniversarioViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -239,6 +245,7 @@
 				BC85E0D228CFCCDF00A11930 /* CardsView.swift in Sources */,
 				BC1832A328D2539500E14AA3 /* ContaAniversarioView.swift in Sources */,
 				BC85E0D728CFCE3500A11930 /* Relatos.swift in Sources */,
+				BC1832A828D25AB300E14AA3 /* PedeCodigoView.swift in Sources */,
 				BC85E0CA28CFC73000A11930 /* UIView+Preview.swift in Sources */,
 				BC85E0DB28CFCF6900A11930 /* Memoria.swift in Sources */,
 				BC85E0CC28CFC73B00A11930 /* UIViewController+Preview.swift in Sources */,
@@ -248,6 +255,7 @@
 				BC1832A128D2537E00E14AA3 /* DigitaCodigoView.swift in Sources */,
 				BC18329F28D2434500E14AA3 /* GeraCodigoView.swift in Sources */,
 				BC85E0B428CFC3C400A11930 /* SceneDelegate.swift in Sources */,
+				BC1832AA28D48DC700E14AA3 /* ContaAniversarioViewController.swift in Sources */,
 				BC85E0D928CFCF3500A11930 /* Usuario.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
