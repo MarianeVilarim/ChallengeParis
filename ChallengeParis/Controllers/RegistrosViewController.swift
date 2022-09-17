@@ -27,7 +27,8 @@ class RegistrosViewController: UIViewController {
         self.view = primeiraView
         view.backgroundColor = .systemPurple
         
-        primeiraView.compartilharRoleButton.addTarget(self, action: #selector(didUserTapButton), for: .touchUpInside)
+        primeiraView.compartilharRoleButton.addTarget(self, action: #selector(didUserTapRegistrarRole), for: .touchUpInside)
+        primeiraView.tenhoCodigoButton.addTarget(self, action: #selector(didUserTapTenhoCodigo), for: .touchUpInside)
       
         
     }
@@ -84,11 +85,15 @@ class RegistrosViewController: UIViewController {
 //
 //    }
     
-    @objc func didUserTapButton() {
+    @objc func didUserTapRegistrarRole() {
         print("chamou")
         navigationController?.pushViewController(ContaAniversarioViewController(), animated: true)
     }
-
+    
+    @objc func didUserTapTenhoCodigo() {
+        print("chamou")
+        navigationController?.pushViewController(DigitaCodigoViewController(), animated: true)
+    }
 }
 
 // MARK: - Preview
