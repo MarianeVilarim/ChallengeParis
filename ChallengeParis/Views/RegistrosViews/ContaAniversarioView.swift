@@ -320,6 +320,7 @@ class ContaAniversarioView: UIView {
         
         compartilharRoleButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+            compartilharRoleButton.topAnchor.constraint(equalTo: relatoTexto.bottomAnchor, constant: 24),
             compartilharRoleButton.leadingAnchor.constraint(equalTo: compartilharRoleButtonContainer.leadingAnchor),
             compartilharRoleButton.trailingAnchor.constraint(equalTo: compartilharRoleButtonContainer.trailingAnchor),
             compartilharRoleButton.heightAnchor.constraint(equalToConstant: 48),

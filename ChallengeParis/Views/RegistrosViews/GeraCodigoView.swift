@@ -26,7 +26,7 @@ class GeraCodigoView: UIView {
     
     let whiteView = UIView()
     let compartilharRoleButton = UIButton(configuration: .filled())
-    let tenhoCodigoButton = UIButton(configuration: .plain())
+  
     
     let titleLabelContainer = UIView()
     let subtitleLabelContainer = UIView()
@@ -37,9 +37,15 @@ class GeraCodigoView: UIView {
     let headerStackView = UIStackView()
     let buttonsStackView = UIStackView()
     
+    let displayCodigo = UILabel()
+    let copiaCodigoButton = UIButton(configuration: .plain())
+    let codigoEBotaoStackView = UIStackView()
+    
+    let fecharECodigoStackView = UIStackView()
+    
     let stackView = UIStackView()
-
-
+    
+    
     
     
     override init(frame: CGRect) {
@@ -52,7 +58,7 @@ class GeraCodigoView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
- 
+    
     func setupViewsHierarchy() {
         addSubview(backgroundView)
         addSubview(stackView)
@@ -63,38 +69,43 @@ class GeraCodigoView: UIView {
         buttonsStackView.backgroundColor = .white
         
         headerStackView.addArrangedSubview(titleLabelContainer)
-    
+        
         
         titleLabelContainer.addSubview(titleLabel)
         titleLabelContainer.addSubview(subtitleLabel)
         
-        compartilharRoleButtonContainer.addSubview(compartilharRoleButton)
-        compartilharRoleButtonContainer.addSubview(tenhoCodigoButton)
+        codigoEBotaoStackView.addArrangedSubview(displayCodigo)
+        codigoEBotaoStackView.addArrangedSubview(copiaCodigoButton)
+    
+        compartilharRoleButtonContainer.addSubview(fecharECodigoStackView)
+        
         buttonsStackView.addArrangedSubview(compartilharRoleButtonContainer)
-
-       
+        
+        fecharECodigoStackView.addArrangedSubview(codigoEBotaoStackView)
+        
+        fecharECodigoStackView.addArrangedSubview(compartilharRoleButton)
     }
-
+    
     func setupViewsAttributes() {
         
         backgroundView.contentMode = .scaleAspectFill
         
         stackView.axis = .vertical
         stackView.alignment = .fill
-        stackView.spacing = 50
+        stackView.spacing = 40
         stackView.distribution = .fillEqually
         
         headerStackView.axis = .vertical
         headerStackView.alignment = .fill
         headerStackView.spacing = 1
         headerStackView.distribution = .fillEqually
-
         
-        titleLabel.text = "Fala para a galera!"
+        
+        titleLabel.text = "Código ativo!"
         titleLabel.textColor = UIColor.white
         titleLabel.textAlignment = .left
         
-        subtitleLabel.text = "Inspire outras pessoas contando sobre o seu dia especial e ganhe um espaço para registrar as memórias dos amigos"
+        subtitleLabel.text = "Manda para o teu amigo fofoqueiro"
         subtitleLabel.textColor = .white
         subtitleLabel.numberOfLines = 0
         subtitleLabel.sizeToFit()
@@ -107,41 +118,55 @@ class GeraCodigoView: UIView {
         buttonsStackView.axis = .vertical
         buttonsStackView.alignment = .center
         buttonsStackView.spacing = 8
-//
-//
+        //
+        //
         compartilharRoleButton.tintColor = .purple
-        compartilharRoleButton.setTitle("Compartilhar meu rolê!", for: .normal)
+        compartilharRoleButton.setTitle("Fechar", for: .normal)
         compartilharRoleButton.setTitleColor(.white, for: .normal)
         compartilharRoleButton.titleLabel?.tintColor = .white
-    
-        var  configuration = UIButton.Configuration.filled()
-        configuration.cornerStyle = .capsule
-        compartilharRoleButton.configuration = configuration
 //
-        tenhoCodigoButton.tintColor = .white
-        tenhoCodigoButton.setTitle("Tenho um código", for: .normal)
-        tenhoCodigoButton.setTitleColor(.purple, for: .normal)
-        tenhoCodigoButton.backgroundColor = .white
+//        var  configuration = UIButton.Configuration.filled()
+//        configuration.cornerStyle = .capsule
+//        compartilharRoleButton.configuration = configuration
+        //
+//        tenhoCodigoButton.tintColor = .white
+//        tenhoCodigoButton.setTitle("Tenho um código", for: .normal)
+//        tenhoCodigoButton.setTitleColor(.purple, for: .normal)
+//        tenhoCodigoButton.backgroundColor = .white
         
+        displayCodigo.text = defineCodigo()
+        displayCodigo.textColor = .secondaryLabel
+        displayCodigo.textAlignment = .justified
+        displayCodigo.isUserInteractionEnabled = true
+        displayCodigo.contentMode = .scaleAspectFit
+//        displayCodigo.backgroundColor = .gray
+        
+        
+        
+//        
 //
-
-//
-
-//
-//        headerStackView.contentMode = .scaleAspectFit
-//        buttonsStackView.contentMode = .scaleAspectFit
-//
-
-//
-//        whiteView.backgroundColor = .white
-//
-//        compartilharRoleButton.contentMode = .scaleAspectFit
-//        tenhoCodigoButton.contentMode = .scaleAspectFit
-//        titleLabel.contentMode = .scaleAspectFit
-//        subtitleLabel.contentMode = .scaleAspectFit
-
-
-
+        copiaCodigoButton.setImage(UIImage(named: "paste"), for: .normal)
+        copiaCodigoButton.setTitleColor(.purple, for: .normal)
+        copiaCodigoButton.contentMode = .scaleAspectFill
+//        copiaCodigoButton.backgroundColor = .gray
+        
+        codigoEBotaoStackView.spacing = 1
+        codigoEBotaoStackView.axis = .horizontal
+        codigoEBotaoStackView.alignment = .center
+        codigoEBotaoStackView.contentMode = .scaleAspectFit
+        codigoEBotaoStackView.backgroundColor = .lightGray
+        codigoEBotaoStackView.layer.masksToBounds = true
+        codigoEBotaoStackView.layer.cornerRadius = 8
+        
+        fecharECodigoStackView.spacing = 84
+        fecharECodigoStackView.axis = .vertical
+        fecharECodigoStackView.alignment = .fill
+        
+    }
+    
+    func defineCodigo() -> String {
+        let codigo = "aeiou123"
+        return "  \(codigo)"
     }
     
     func setupConstraints() {
@@ -151,12 +176,12 @@ class GeraCodigoView: UIView {
                                      backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
                                      backgroundView.bottomAnchor.constraint(equalTo: bottomAnchor)
                                     ])
-
+        
         stackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
                                      stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
                                      stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                                     stackView.bottomAnchor.constraint(equalTo: bottomAnchor)
+                                     stackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
                                     ])
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -181,32 +206,58 @@ class GeraCodigoView: UIView {
             compartilharRoleButtonContainer.bottomAnchor.constraint(equalTo: buttonsStackView.bottomAnchor, constant: -52)
         ])
         
-        compartilharRoleButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            compartilharRoleButton.leadingAnchor.constraint(equalTo: compartilharRoleButtonContainer.leadingAnchor),
-            compartilharRoleButton.trailingAnchor.constraint(equalTo: compartilharRoleButtonContainer.trailingAnchor),
-            compartilharRoleButton.heightAnchor.constraint(equalToConstant: 48)
+        
+        codigoEBotaoStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([codigoEBotaoStackView.topAnchor.constraint(equalTo: compartilharRoleButtonContainer.topAnchor, constant: 16)
+                                  
+//                                     codigoEBotaoStackView.bottomAnchor.constraint(equalTo: compartilharRoleButton.topAnchor, constant: 104)
         ])
         
-        tenhoCodigoButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            tenhoCodigoButton.leadingAnchor.constraint(equalTo: compartilharRoleButtonContainer.leadingAnchor),
-            tenhoCodigoButton.trailingAnchor.constraint(equalTo: compartilharRoleButtonContainer.trailingAnchor),
-            tenhoCodigoButton.heightAnchor.constraint(equalToConstant: 48),
-            tenhoCodigoButton.topAnchor.constraint(equalTo: compartilharRoleButton.bottomAnchor, constant: 8)
+//        compartilharRoleButton.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+////            compartilharRoleButton.topAnchor.constraint(equalTo: codigoEBotaoStackView.bottomAnchor, constant: 104),
+//            compartilharRoleButton.leadingAnchor.constraint(equalTo: compartilharRoleButtonContainer.leadingAnchor),
+//            compartilharRoleButton.trailingAnchor.constraint(equalTo: compartilharRoleButtonContainer.trailingAnchor),
+//            compartilharRoleButton.heightAnchor.constraint(equalToConstant: 48),
+//            compartilharRoleButton.bottomAnchor.constraint(equalTo: buttonsStackView.bottomAnchor, constant: -18)
+//        ])
+        
+        fecharECodigoStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([fecharECodigoStackView.topAnchor.constraint(equalTo: compartilharRoleButtonContainer.topAnchor, constant: 106),
+                                     fecharECodigoStackView.leadingAnchor.constraint(equalTo: compartilharRoleButtonContainer.leadingAnchor, constant: 43),
+                                     fecharECodigoStackView.trailingAnchor.constraint(equalTo: compartilharRoleButtonContainer.trailingAnchor, constant: -43)
+                                     
+                                    
+            ])
+        
+        displayCodigo.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([displayCodigo.heightAnchor.constraint(equalTo: copiaCodigoButton.heightAnchor),
         ])
         
-//
+//        buttonsStackView.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            buttonsStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+//        ])
+        
 //        tenhoCodigoButton.translatesAutoresizingMaskIntoConstraints = false
 //        NSLayoutConstraint.activate([
-//            tenhoCodigoButton.widthAnchor.constraint(equalToConstant: 200),
-//            tenhoCodigoButton.heightAnchor.constraint(equalToConstant: 40)
+//            tenhoCodigoButton.leadingAnchor.constraint(equalTo: compartilharRoleButtonContainer.leadingAnchor),
+//            tenhoCodigoButton.trailingAnchor.constraint(equalTo: compartilharRoleButtonContainer.trailingAnchor),
+//            tenhoCodigoButton.heightAnchor.constraint(equalToConstant: 48),
+//            tenhoCodigoButton.topAnchor.constraint(equalTo: compartilharRoleButton.bottomAnchor, constant: 8)
 //        ])
-       
-
-
+        
+        //
+        //        tenhoCodigoButton.translatesAutoresizingMaskIntoConstraints = false
+        //        NSLayoutConstraint.activate([
+        //            tenhoCodigoButton.widthAnchor.constraint(equalToConstant: 200),
+        //            tenhoCodigoButton.heightAnchor.constraint(equalToConstant: 40)
+        //        ])
+        
+        
+        
     }
-
+    
 }
 
 // MARK: - Preview
