@@ -48,7 +48,7 @@ class ContaAniversarioView: UIView {
     
     let scrollView = UIScrollView()
     let contentView = UIView()
-   // let testView = UIView()
+    // let testView = UIView()
     
     
     
@@ -240,7 +240,7 @@ class ContaAniversarioView: UIView {
             titleLabel.topAnchor.constraint(equalTo: titleLabelContainer.topAnchor, constant: 24),
             titleLabel.leadingAnchor.constraint(equalTo: titleLabelContainer.leadingAnchor, constant: 32),
             titleLabel.trailingAnchor.constraint(equalTo: titleLabelContainer.trailingAnchor, constant: -74),
-//            titleLabel.bottomAnchor.constraint(equalTo: subtitleLabel.topAnchor, constant: )
+            //            titleLabel.bottomAnchor.constraint(equalTo: subtitleLabel.topAnchor, constant: )
         ])
         
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -366,10 +366,10 @@ class ContaAniversarioView: UIView {
         //                    contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
         
         
-//        testView.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([testView.heightAnchor.constraint(equalToConstant: 60),
-//                                     testView.topAnchor.constraint(equalTo: compartilharRoleButton.bottomAnchor, constant: 1)])
-//
+        //        testView.translatesAutoresizingMaskIntoConstraints = false
+        //        NSLayoutConstraint.activate([testView.heightAnchor.constraint(equalToConstant: 60),
+        //                                     testView.topAnchor.constraint(equalTo: compartilharRoleButton.bottomAnchor, constant: 1)])
+        //
     }
 }
 // MARK: - Preview
@@ -407,10 +407,10 @@ extension ContaAniversarioView: UIPickerViewDataSource, UIPickerViewDelegate, UI
         categoriaTextField.resignFirstResponder()
     }
     
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        return textField.resignFirstResponder()
-//
-//    }
+    //    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    //        return textField.resignFirstResponder()
+    //
+    //    }
     func textViewDidBeginEditing(_ textView: UITextView) {
         if relatoTexto.textColor == UIColor.lightGray {
             relatoTexto.text = nil
