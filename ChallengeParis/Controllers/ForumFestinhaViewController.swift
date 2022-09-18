@@ -18,6 +18,7 @@ class ForumFestinhaViewController: UIViewController {
         
         self.navigationItem.titleView?.tintColor = .white
         navigationController?.navigationBar.prefersLargeTitles = true
+        
         // Do any additional setup after loading the view.
     }
     

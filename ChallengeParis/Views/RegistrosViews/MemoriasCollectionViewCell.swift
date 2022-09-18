@@ -19,6 +19,8 @@ class MemoriasCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = .lightGray
+        contentView.layer.masksToBounds = true
+        contentView.layer.cornerRadius = 20
         setViewHierarchy()
         setViewAtributes()
         setConstraints()
@@ -47,7 +49,7 @@ class MemoriasCollectionViewCell: UICollectionViewCell {
     func setViewAtributes(){
         
         buttonENome.axis = .horizontal
-        buttonENome.spacing = 120
+        buttonENome.spacing = 90
         buttonENome.contentMode = .scaleAspectFit
         
         stackETexto.axis = .vertical
@@ -73,7 +75,7 @@ class MemoriasCollectionViewCell: UICollectionViewCell {
         stackETexto.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([stackETexto.topAnchor.constraint(equalTo: topAnchor),
                                      stackETexto.leadingAnchor.constraint(equalTo: leadingAnchor),
-                                     stackETexto.trailingAnchor.constraint(equalTo: trailingAnchor),
+                                     stackETexto.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
                                      stackETexto.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }

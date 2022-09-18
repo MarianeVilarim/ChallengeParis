@@ -71,7 +71,7 @@ class ForumFestinhaView: UIView {
         memoriasCollectionView.dataSource = self
         memoriasCollectionView.delegate = self
         layout.scrollDirection = UICollectionView.ScrollDirection.vertical
-        layout.itemSize = CGSize(width: 309, height: 145)
+        layout.itemSize = CGSize(width: 280, height: 145)
 
         memoriasCollectionView.setCollectionViewLayout(layout, animated: true)
         
