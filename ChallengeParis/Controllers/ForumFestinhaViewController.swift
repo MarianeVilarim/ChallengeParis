@@ -18,7 +18,8 @@ class ForumFestinhaViewController: UIViewController {
         
         self.navigationItem.titleView?.tintColor = .white
         navigationController?.navigationBar.prefersLargeTitles = true
-        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(addTapped))
+      
         // Do any additional setup after loading the view.
     }
     
@@ -33,4 +34,9 @@ class ForumFestinhaViewController: UIViewController {
     }
     */
 
+    @objc func addTapped(){
+        
+        navigationController?.pushViewController(ContaMemoriaViewController(), animated: true)
+        
+    }
 }
