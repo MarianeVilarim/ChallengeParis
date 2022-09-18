@@ -16,6 +16,7 @@
 		BC1832AC28D4F98B00E14AA3 /* GeraCodigoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1832AB28D4F98B00E14AA3 /* GeraCodigoViewController.swift */; };
 		BC1832AE28D670EA00E14AA3 /* ForumFestinhaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1832AD28D670EA00E14AA3 /* ForumFestinhaViewController.swift */; };
 		BC1832B028D675A800E14AA3 /* DigitaCodigoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1832AF28D675A800E14AA3 /* DigitaCodigoViewController.swift */; };
+		BC7B0D2128D776A100913F2F /* MemoriasCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7B0D2028D776A100913F2F /* MemoriasCollectionViewCell.swift */; };
 		BC85E0B228CFC3C400A11930 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85E0B128CFC3C400A11930 /* AppDelegate.swift */; };
 		BC85E0B428CFC3C400A11930 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85E0B328CFC3C400A11930 /* SceneDelegate.swift */; };
 		BC85E0B628CFC3C400A11930 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85E0B528CFC3C400A11930 /* HomeViewController.swift */; };
@@ -49,6 +50,7 @@
 		BC1832AB28D4F98B00E14AA3 /* GeraCodigoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeraCodigoViewController.swift; sourceTree = "<group>"; };
 		BC1832AD28D670EA00E14AA3 /* ForumFestinhaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumFestinhaViewController.swift; sourceTree = "<group>"; };
 		BC1832AF28D675A800E14AA3 /* DigitaCodigoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitaCodigoViewController.swift; sourceTree = "<group>"; };
+		BC7B0D2028D776A100913F2F /* MemoriasCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoriasCollectionViewCell.swift; sourceTree = "<group>"; };
 		BC85E0AE28CFC3C400A11930 /* ChallengeParis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChallengeParis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC85E0B128CFC3C400A11930 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC85E0B328CFC3C400A11930 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				BC1832A028D2537E00E14AA3 /* DigitaCodigoView.swift */,
 				BC1832A228D2539500E14AA3 /* ContaAniversarioView.swift */,
 				BC1832A728D25AB300E14AA3 /* PedeCodigoView.swift */,
+				BC7B0D2028D776A100913F2F /* MemoriasCollectionViewCell.swift */,
 			);
 			path = RegistrosViews;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				BC1832A328D2539500E14AA3 /* ContaAniversarioView.swift in Sources */,
 				BC1832AC28D4F98B00E14AA3 /* GeraCodigoViewController.swift in Sources */,
 				BC1832B028D675A800E14AA3 /* DigitaCodigoViewController.swift in Sources */,
+				BC7B0D2128D776A100913F2F /* MemoriasCollectionViewCell.swift in Sources */,
 				BC85E0D728CFCE3500A11930 /* Relatos.swift in Sources */,
 				BC1832A828D25AB300E14AA3 /* PedeCodigoView.swift in Sources */,
 				BC85E0CA28CFC73000A11930 /* UIView+Preview.swift in Sources */,

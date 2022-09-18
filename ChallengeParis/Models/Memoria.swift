@@ -7,6 +7,7 @@
 
 import Foundation
 struct Memoria: Codable {
-    var tituloRelato: String!
+    var nomePessoa: String!
+    var textoMemoria: String!
     
 }

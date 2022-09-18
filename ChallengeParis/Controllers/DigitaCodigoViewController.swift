@@ -14,6 +14,7 @@ class DigitaCodigoViewController: UIViewController {
         let primeiraView = DigitaCodigoView()
         self.view = primeiraView
         // Do any additional setup after loading the view.
+        primeiraView.compartilharRoleButton.addTarget(self, action: #selector(didUserTapButton), for: .touchUpInside)
     }
     
 
@@ -26,5 +27,8 @@ class DigitaCodigoViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @objc func didUserTapButton() {
+        print("chamou")
+        navigationController?.pushViewController(ForumFestinhaViewController(), animated: true)
+    }
 }
