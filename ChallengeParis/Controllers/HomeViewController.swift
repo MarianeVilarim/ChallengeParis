@@ -15,7 +15,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //self.view = primeiraView
-         view.backgroundColor = .systemPurple
+        let primeiraView = ExibeRelatosView()
+        self.view = primeiraView
         
     }
 
