@@ -28,7 +28,6 @@ class DigitaCodigoView: UIView {
     let buttonsStackView = UIStackView()
     
     let displayCodigo = UITextField()
-//    let copiaCodigoButton = UIButton(configuration: .plain())
     let codigoEBotaoStackView = UIStackView()
     
     let fecharECodigoStackView = UIStackView()
@@ -128,7 +127,6 @@ class DigitaCodigoView: UIView {
         displayCodigo.placeholder = "  Digita aqui teu código"
         displayCodigo.textColor = .secondaryLabel
         displayCodigo.textAlignment = .justified
-        displayCodigo.isUserInteractionEnabled = true
         displayCodigo.contentMode = .scaleAspectFit
 //        displayCodigo.backgroundColor = .gray
         
@@ -204,14 +202,6 @@ class DigitaCodigoView: UIView {
 //                                     codigoEBotaoStackView.bottomAnchor.constraint(equalTo: compartilharRoleButton.topAnchor, constant: 104)
         ])
         
-//        compartilharRoleButton.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-////            compartilharRoleButton.topAnchor.constraint(equalTo: codigoEBotaoStackView.bottomAnchor, constant: 104),
-//            compartilharRoleButton.leadingAnchor.constraint(equalTo: compartilharRoleButtonContainer.leadingAnchor),
-//            compartilharRoleButton.trailingAnchor.constraint(equalTo: compartilharRoleButtonContainer.trailingAnchor),
-//            compartilharRoleButton.heightAnchor.constraint(equalToConstant: 48),
-//            compartilharRoleButton.bottomAnchor.constraint(equalTo: buttonsStackView.bottomAnchor, constant: -18)
-//        ])
         
         fecharECodigoStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([fecharECodigoStackView.topAnchor.constraint(equalTo: compartilharRoleButtonContainer.topAnchor, constant: 106),
@@ -221,31 +211,10 @@ class DigitaCodigoView: UIView {
                                     
             ])
         
-//        displayCodigo.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([displayCodigo.heightAnchor.constraint(equalTo: copiaCodigoButton.heightAnchor),
-//        ])
+        displayCodigo.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([displayCodigo.heightAnchor.constraint(equalToConstant: 40)])
         
-//        buttonsStackView.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            buttonsStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
-//        ])
-        
-//        tenhoCodigoButton.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            tenhoCodigoButton.leadingAnchor.constraint(equalTo: compartilharRoleButtonContainer.leadingAnchor),
-//            tenhoCodigoButton.trailingAnchor.constraint(equalTo: compartilharRoleButtonContainer.trailingAnchor),
-//            tenhoCodigoButton.heightAnchor.constraint(equalToConstant: 48),
-//            tenhoCodigoButton.topAnchor.constraint(equalTo: compartilharRoleButton.bottomAnchor, constant: 8)
-//        ])
-        
-        //
-        //        tenhoCodigoButton.translatesAutoresizingMaskIntoConstraints = false
-        //        NSLayoutConstraint.activate([
-        //            tenhoCodigoButton.widthAnchor.constraint(equalToConstant: 200),
-        //            tenhoCodigoButton.heightAnchor.constraint(equalToConstant: 40)
-        //        ])
-        
-        
+
         
     }
     
