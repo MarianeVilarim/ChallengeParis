@@ -215,7 +215,8 @@ class ContaAniversarioView: UIView {
         relatoTexto.textAlignment = .left
         relatoTexto.contentMode = .scaleAspectFill
         relatoTexto.sizeToFit()
-        relatoTexto.text = "Comecei meu dia.../ Eu comi.../ Também me reuni com.../ Fomos a... /Mais tarde, ... "
+        
+//        relatoTexto.text = "Comecei meu dia.../ Eu comi.../ Também me reuni com.../ Fomos a... /Mais tarde, ... "
         relatoTexto.textColor = UIColor.lightGray
         relatoTexto.font?.withSize(16)
         

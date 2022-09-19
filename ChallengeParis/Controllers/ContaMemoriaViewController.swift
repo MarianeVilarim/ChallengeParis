@@ -13,10 +13,16 @@ class ContaMemoriaViewController: UIViewController {
         super.viewDidLoad()
         let primeiraView = ContaMemoriaView()
         self.view = primeiraView
+        primeiraView.cabuetarButton.addTarget(self, action: #selector(didUserTapButton), for: .touchUpInside)
+        
+
         // Do any additional setup after loading the view.
     }
     
-
+    @objc func didUserTapButton() {
+        print("chamou")
+        navigationController?.pushViewController(ForumFestinhaViewController(), animated: true)
+    }
     /*
     // MARK: - Navigation
 
