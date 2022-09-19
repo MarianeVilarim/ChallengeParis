@@ -17,13 +17,11 @@ class ContaAniversarioView: UIView {
     
     let whiteView = UIView()
     let compartilharRoleButton = UIButton(configuration: .filled())
-    //  let tenhoCodigoButton = UIButton(configuration: .plain())
     
     let titleLabelContainer = UIView()
     let subtitleLabelContainer = UIView()
     
     let compartilharRoleButtonContainer = UIView()
-    //  let tenhoCodigoButtonContainer = UIView()
     
     let headerStackView = UIStackView()
     let buttonsStackView = UIStackView()
@@ -34,6 +32,8 @@ class ContaAniversarioView: UIView {
     // let precosContainer = UIView()
     let precosStackView = UIStackView()
     
+    let nomeAutor = UITextField()
+    let idadeAutor = UITextField()
     let tituloAniversario = UITextField()
     let localAniversario = UITextField()
     
@@ -48,7 +48,6 @@ class ContaAniversarioView: UIView {
     
     let scrollView = UIScrollView()
     let contentView = UIView()
-    // let testView = UIView()
     
     
     
@@ -106,6 +105,8 @@ class ContaAniversarioView: UIView {
         compartilharRoleButtonContainer.addSubview(anexarImagemAniver)
         compartilharRoleButtonContainer.addSubview(precosStackView)
         
+        compartilharRoleButtonContainer.addSubview(nomeAutor)
+        compartilharRoleButtonContainer.addSubview(idadeAutor)
         compartilharRoleButtonContainer.addSubview(tituloAniversario)
         compartilharRoleButtonContainer.addSubview(localAniversario)
         compartilharRoleButtonContainer.addSubview(categoriaTextField)
@@ -190,22 +191,42 @@ class ContaAniversarioView: UIView {
         precosStackView.distribution = .fillEqually
         precosStackView.spacing = 42
         
-        tituloAniversario.placeholder = "Título"
+        tituloAniversario.placeholder = "Título do relato"
         tituloAniversario.tintColor = .label
         tituloAniversario.textColor = .secondaryLabel
         tituloAniversario.textAlignment = .left
+        tituloAniversario.layer.masksToBounds = true
+        tituloAniversario.layer.cornerRadius = 10
         
+        nomeAutor.placeholder = "Seu nome"
+        nomeAutor.tintColor = .label
+        nomeAutor.textColor = .secondaryLabel
+        nomeAutor.textAlignment = .left
+        nomeAutor.layer.masksToBounds = true
+        nomeAutor.layer.cornerRadius = 10
+//        nomeAutor.backgroundColor = .lightGray
+        
+        idadeAutor.placeholder = "Sua idade"
+        idadeAutor.tintColor = .label
+        idadeAutor.textColor = .secondaryLabel
+        idadeAutor.textAlignment = .left
+        idadeAutor.layer.masksToBounds = true
+        idadeAutor.layer.cornerRadius = 10
         
         localAniversario.placeholder = "Local"
         localAniversario.tintColor = .label
         localAniversario.textColor = .secondaryLabel
         localAniversario.textAlignment = .left
+        localAniversario.layer.masksToBounds = true
+        localAniversario.layer.cornerRadius = 10
         
         
         categoriaTextField.placeholder = "Categoria"
         categoriaTextField.tintColor = .label
         categoriaTextField.textColor = .secondaryLabel
         categoriaTextField.textAlignment = .left
+        categoriaTextField.layer.masksToBounds = true
+        categoriaTextField.layer.cornerRadius = 10
         
         
         //
@@ -215,8 +236,10 @@ class ContaAniversarioView: UIView {
         relatoTexto.textAlignment = .left
         relatoTexto.contentMode = .scaleAspectFill
         relatoTexto.sizeToFit()
+        relatoTexto.layer.masksToBounds = true
+        relatoTexto.layer.cornerRadius = 10
         
-//        relatoTexto.text = "Comecei meu dia.../ Eu comi.../ Também me reuni com.../ Fomos a... /Mais tarde, ... "
+        relatoTexto.text = "Comecei meu dia.../ Eu comi.../ Também me reuni com.../ Fomos a... /Mais tarde, ... "
         relatoTexto.textColor = UIColor.lightGray
         relatoTexto.font?.withSize(16)
         
@@ -275,27 +298,42 @@ class ContaAniversarioView: UIView {
                                      
                                     ])
         
+        nomeAutor.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([nomeAutor.topAnchor.constraint(equalTo: precosStackView.bottomAnchor, constant: 24),
+                                     nomeAutor.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 45),
+                                     nomeAutor.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45),
+                                     
+                                    ])
+        
+        idadeAutor.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([idadeAutor.topAnchor.constraint(equalTo: nomeAutor.bottomAnchor, constant: 24),
+                                     idadeAutor.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 45),
+                                     idadeAutor.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45),
+                                     
+                                    ])
+        
         tituloAniversario.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([tituloAniversario.topAnchor.constraint(equalTo: precosStackView.bottomAnchor, constant: 24),
+        NSLayoutConstraint.activate([tituloAniversario.topAnchor.constraint(equalTo: idadeAutor.bottomAnchor, constant: 24),
                                      tituloAniversario.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 45),
                                      tituloAniversario.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45),
                                      
                                     ])
         
         localAniversario.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([localAniversario.topAnchor.constraint(equalTo: tituloAniversario.bottomAnchor, constant: 16),
+        NSLayoutConstraint.activate([localAniversario.topAnchor.constraint(equalTo: tituloAniversario.bottomAnchor, constant: 24),
                                      localAniversario.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 45),
                                      localAniversario.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45)
                                     ])
         
+        
         categoriaTextField.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([categoriaTextField.topAnchor.constraint(equalTo: localAniversario.bottomAnchor, constant: 16),
+        NSLayoutConstraint.activate([categoriaTextField.topAnchor.constraint(equalTo: localAniversario.bottomAnchor, constant: 24),
                                      categoriaTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 45),
                                      categoriaTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45)
                                     ])
         
         relatoTexto.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([relatoTexto.topAnchor.constraint(equalTo: categoriaTextField.bottomAnchor, constant: 16),
+        NSLayoutConstraint.activate([relatoTexto.topAnchor.constraint(equalTo: categoriaTextField.bottomAnchor, constant: 24),
                                      relatoTexto.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 45),
                                      relatoTexto.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45),
                                      relatoTexto.heightAnchor.constraint(equalToConstant: 152),

@@ -10,6 +10,7 @@ import UIKit
 class SalvosViewController: UIViewController {
 
     let primeiraView: UIView! = ExibeRelatosView()
+//    let primeiraView: UIView! = PopUp()
 
     override func viewDidLoad() {
         super.viewDidLoad()

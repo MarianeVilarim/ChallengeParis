@@ -57,7 +57,11 @@ class MemoriasCollectionViewCell: UICollectionViewCell {
         stackETexto.contentMode = .scaleAspectFit
         
         nomeLabel.textColor = .secondaryLabel
+        nomeLabel.numberOfLines = 0
+        nomeLabel.sizeToFit()
         memoriaTexto.textColor = .secondaryLabel
+        memoriaTexto.numberOfLines = 0
+        memoriaTexto.sizeToFit()
         likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
         likeButton.setImage(UIImage(systemName: "heart.fill"), for: .selected)
         

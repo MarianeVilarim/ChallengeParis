@@ -19,7 +19,7 @@
 		BC7B0D2128D776A100913F2F /* MemoriasCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7B0D2028D776A100913F2F /* MemoriasCollectionViewCell.swift */; };
 		BC7B0D2328D7E38D00913F2F /* ContaMemoriaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7B0D2228D7E38D00913F2F /* ContaMemoriaViewController.swift */; };
 		BC7B0D2528D810B300913F2F /* MemoriaTelaCheiaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7B0D2428D810B300913F2F /* MemoriaTelaCheiaView.swift */; };
-		BC7B0D2728D810C900913F2F /* PopUpErro.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7B0D2628D810C900913F2F /* PopUpErro.swift */; };
+		BC7B0D2728D810C900913F2F /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7B0D2628D810C900913F2F /* PopUp.swift */; };
 		BC7B0D2928D8142F00913F2F /* RelatosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7B0D2828D8142F00913F2F /* RelatosCollectionViewCell.swift */; };
 		BC85E0B228CFC3C400A11930 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85E0B128CFC3C400A11930 /* AppDelegate.swift */; };
 		BC85E0B428CFC3C400A11930 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85E0B328CFC3C400A11930 /* SceneDelegate.swift */; };
@@ -57,7 +57,7 @@
 		BC7B0D2028D776A100913F2F /* MemoriasCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoriasCollectionViewCell.swift; sourceTree = "<group>"; };
 		BC7B0D2228D7E38D00913F2F /* ContaMemoriaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContaMemoriaViewController.swift; sourceTree = "<group>"; };
 		BC7B0D2428D810B300913F2F /* MemoriaTelaCheiaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoriaTelaCheiaView.swift; sourceTree = "<group>"; };
-		BC7B0D2628D810C900913F2F /* PopUpErro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpErro.swift; sourceTree = "<group>"; };
+		BC7B0D2628D810C900913F2F /* PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
 		BC7B0D2828D8142F00913F2F /* RelatosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatosCollectionViewCell.swift; sourceTree = "<group>"; };
 		BC85E0AE28CFC3C400A11930 /* ChallengeParis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChallengeParis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC85E0B128CFC3C400A11930 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 				BC1832A228D2539500E14AA3 /* ContaAniversarioView.swift */,
 				BC1832A728D25AB300E14AA3 /* PedeCodigoView.swift */,
 				BC7B0D2428D810B300913F2F /* MemoriaTelaCheiaView.swift */,
-				BC7B0D2628D810C900913F2F /* PopUpErro.swift */,
+				BC7B0D2628D810C900913F2F /* PopUp.swift */,
 			);
 			path = RegistrosViews;
 			sourceTree = "<group>";
@@ -279,7 +279,7 @@
 				BC7B0D2528D810B300913F2F /* MemoriaTelaCheiaView.swift in Sources */,
 				BC85E0DB28CFCF6900A11930 /* Memoria.swift in Sources */,
 				BC7B0D2328D7E38D00913F2F /* ContaMemoriaViewController.swift in Sources */,
-				BC7B0D2728D810C900913F2F /* PopUpErro.swift in Sources */,
+				BC7B0D2728D810C900913F2F /* PopUp.swift in Sources */,
 				BC85E0CC28CFC73B00A11930 /* UIViewController+Preview.swift in Sources */,
 				BC85E0DD28CFCF7900A11930 /* Forum.swift in Sources */,
 				BC85E0CE28CFCC6800A11930 /* ExibeRelatosView.swift in Sources */,
