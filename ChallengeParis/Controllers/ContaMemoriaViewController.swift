@@ -19,8 +19,14 @@ class ContaMemoriaViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     @objc func didUserTapButton() {
         print("chamou")
+        let festinhaView = ForumFestinhaView()
+        festinhaView.memoriasCollectionView.reloadData()
         navigationController?.pushViewController(ForumFestinhaViewController(), animated: true)
     }
     /*

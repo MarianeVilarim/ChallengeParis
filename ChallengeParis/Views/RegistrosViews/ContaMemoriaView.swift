@@ -188,7 +188,7 @@ extension ContaMemoriaView: UITextFieldDelegate, UITextViewDelegate {
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if memoriaTextView.textColor == UIColor.lightGray {
+        if memoriaTextView.textColor == UIColor.secondaryLabel {
             memoriaTextView.text = nil
             memoriaTextView.textColor = UIColor.black
         }
@@ -197,7 +197,7 @@ extension ContaMemoriaView: UITextFieldDelegate, UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         if memoriaTextView.text.isEmpty {
             memoriaTextView.text = "O que o aniversariante deveria saber? Fato engraçado que poucos viram?"
-            memoriaTextView.textColor = UIColor.lightGray
+            memoriaTextView.textColor = UIColor.secondaryLabel
         }
     }
 }
