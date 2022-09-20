@@ -21,8 +21,8 @@ class TabBarController: UITabBarController {
 
     private func setupTabBarController() {
         tabBar.backgroundColor = .white
-        tabBar.unselectedItemTintColor = .purple
-        tabBar.tintColor = .purple
+        tabBar.unselectedItemTintColor = UIColor(named: "onboardingPurple")
+        tabBar.tintColor = UIColor(named: "onboardingPurple")
     
         guard let items = tabBar.items else { return }
         items[0].title = "Home"

@@ -60,6 +60,7 @@ class RelatosCollectionViewCell: UICollectionViewCell {
         memoriaTexto.textColor = .secondaryLabel
         likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
         likeButton.setImage(UIImage(systemName: "heart.fill"), for: .selected)
+        likeButton.tintColor = UIColor.systemOrange
         
         
     }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		104A4AAC28DA4E2A00BB2F59 /* Sora-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 104A4AAB28DA4E2A00BB2F59 /* Sora-Regular.ttf */; };
+		104A4AAE28DA4E6E00BB2F59 /* Sora-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 104A4AAD28DA4E6E00BB2F59 /* Sora-SemiBold.ttf */; };
 		BC18329F28D2434500E14AA3 /* GeraCodigoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC18329E28D2434500E14AA3 /* GeraCodigoView.swift */; };
 		BC1832A128D2537E00E14AA3 /* DigitaCodigoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1832A028D2537E00E14AA3 /* DigitaCodigoView.swift */; };
 		BC1832A328D2539500E14AA3 /* ContaAniversarioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1832A228D2539500E14AA3 /* ContaAniversarioView.swift */; };
@@ -45,6 +47,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		104A4AAB28DA4E2A00BB2F59 /* Sora-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-Regular.ttf"; sourceTree = "<group>"; };
+		104A4AAD28DA4E6E00BB2F59 /* Sora-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-SemiBold.ttf"; sourceTree = "<group>"; };
 		BC18329E28D2434500E14AA3 /* GeraCodigoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeraCodigoView.swift; sourceTree = "<group>"; };
 		BC1832A028D2537E00E14AA3 /* DigitaCodigoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitaCodigoView.swift; sourceTree = "<group>"; };
 		BC1832A228D2539500E14AA3 /* ContaAniversarioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContaAniversarioView.swift; sourceTree = "<group>"; };
@@ -134,6 +138,8 @@
 				BC85E0B328CFC3C400A11930 /* SceneDelegate.swift */,
 				BC85E0E128CFD16800A11930 /* Controllers */,
 				BC85E0BA28CFC3C500A11930 /* Assets.xcassets */,
+				104A4AAB28DA4E2A00BB2F59 /* Sora-Regular.ttf */,
+				104A4AAD28DA4E6E00BB2F59 /* Sora-SemiBold.ttf */,
 				BC85E0BC28CFC3C500A11930 /* LaunchScreen.storyboard */,
 				BC85E0BF28CFC3C500A11930 /* Info.plist */,
 				BC85E0C928CFC73000A11930 /* UIView+Preview.swift */,
@@ -245,6 +251,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC85E0BE28CFC3C500A11930 /* LaunchScreen.storyboard in Resources */,
+				104A4AAC28DA4E2A00BB2F59 /* Sora-Regular.ttf in Resources */,
+				104A4AAE28DA4E6E00BB2F59 /* Sora-SemiBold.ttf in Resources */,
 				BC85E0BB28CFC3C500A11930 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -69,9 +69,12 @@ class ContaMemoriaView: UIView {
         
         titleLabel.textColor = .white
         titleLabel.text = "Cabueta aí!"
+        titleLabel.font = UIFont(name: "Sora-SemiBold", size: 24)
+
         
         subtitleLabel.textColor = .white
-        subtitleLabel.text = "Dá teu buzu do que rolou na festa"
+        subtitleLabel.text = "Dá teu bizu do que rolou na festa"
+        subtitleLabel.font = UIFont(name: "Sora-Regular", size: 16)
         
         nomeTextField.placeholder = "Seu nome"
         nomeTextField.layer.masksToBounds = true
@@ -86,7 +89,7 @@ class ContaMemoriaView: UIView {
         memoriaTextView.textColor = .secondaryLabel
         
         cabuetarButton.setTitle("Cabuetar!", for: .normal)
-        cabuetarButton.tintColor = .purple
+        cabuetarButton.tintColor = UIColor(named: "onboardingPurple")
         cabuetarButton.setTitleColor(.white, for: .normal)
         cabuetarButton.layer.masksToBounds = true
         cabuetarButton.layer.cornerRadius = 10

@@ -13,7 +13,16 @@ class ForumFestinhaViewController: UIViewController {
         super.viewDidLoad()
         let primeiraView = ForumFestinhaView()
         self.view = primeiraView
-        self.navigationItem.title = "Festinha de Fulana"
+        
+        let labelForumFestinhaView = UILabel()
+        labelForumFestinhaView.text = "Festinha de Fulana"
+        labelForumFestinhaView.textColor = .white
+        labelForumFestinhaView.font = UIFont(name: "Sora-SemiBold", size: 16)
+
+        //subtitleLabel.font = UIFont(name: "Sora-Regular", size: 16)
+
+        
+        self.navigationItem.titleView = labelForumFestinhaView
         self.navigationController?.navigationBar.tintColor = .white
         
         self.navigationItem.titleView?.tintColor = .white

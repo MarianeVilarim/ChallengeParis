@@ -83,10 +83,12 @@ class PedeCodigoView: UIView {
         
         titleLabel.text = "Fala para a galera!"
         titleLabel.textColor = UIColor.white
+        titleLabel.font = UIFont(name: "Sora-SemiBold", size: 24)
         titleLabel.textAlignment = .left
         
         subtitleLabel.text = "Inspire outras pessoas contando sobre o seu dia especial e ganhe um espaço para registrar as memórias dos amigos"
         subtitleLabel.textColor = .white
+        subtitleLabel.font = UIFont(name: "Sora-Regular", size: 16)
         subtitleLabel.numberOfLines = 0
         subtitleLabel.sizeToFit()
         subtitleLabel.textAlignment = .left
@@ -100,7 +102,7 @@ class PedeCodigoView: UIView {
         buttonsStackView.spacing = 8
 //
 //
-        compartilharRoleButton.tintColor = .purple
+        compartilharRoleButton.tintColor = UIColor(named: "onboardingPurple")
         compartilharRoleButton.setTitle("Compartilhar meu rolê!", for: .normal)
         compartilharRoleButton.setTitleColor(.white, for: .normal)
         compartilharRoleButton.titleLabel?.tintColor = .white
@@ -111,7 +113,7 @@ class PedeCodigoView: UIView {
 //
         tenhoCodigoButton.tintColor = .white
         tenhoCodigoButton.setTitle("Tenho um código", for: .normal)
-        tenhoCodigoButton.setTitleColor(.purple, for: .normal)
+        tenhoCodigoButton.setTitleColor(UIColor(named: "onboardingPurple"), for: .normal)
         tenhoCodigoButton.backgroundColor = .white
         
 //

@@ -26,7 +26,15 @@ class SalvosViewController: UIViewController {
         
         //atribuicao da view inicializada no inicio da funcao
         self.view = primeiraView
-        self.navigationItem.title = "Salvos"
+        let labelSalvos = UILabel()
+            labelSalvos.backgroundColor = .clear
+            labelSalvos.numberOfLines = 2
+            labelSalvos.font = UIFont( name:"Sora-SemiBold", size: 24)
+            labelSalvos.textAlignment = .center
+            labelSalvos.textColor = .white
+            labelSalvos.text = "Salvos"
+            self.navigationItem.titleView = labelSalvos
+        
         self.navigationItem.titleView?.tintColor = .white
         navigationController?.navigationBar.prefersLargeTitles = true
 

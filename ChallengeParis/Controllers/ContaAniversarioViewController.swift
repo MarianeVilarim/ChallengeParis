@@ -14,6 +14,11 @@ class ContaAniversarioViewController: UIViewController {
         let primeiraView = ContaAniversarioView()
         self.view = primeiraView
         
+        for family in UIFont.familyNames.sorted() {
+            let names = UIFont.fontNames(forFamilyName: family)
+            print("Family: \(family) Font names: \(names)")
+        }
+        
         primeiraView.compartilharRoleButton.addTarget(self, action: #selector(didUserTapButton), for: .touchUpInside)
       
         // Do any additional setup after loading the view.

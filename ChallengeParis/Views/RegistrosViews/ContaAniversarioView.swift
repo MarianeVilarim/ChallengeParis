@@ -142,10 +142,12 @@ class ContaAniversarioView: UIView {
         precosStackView.distribution = .fillEqually
         
         titleLabel.text = "Foi o seu aniversário"
+        titleLabel.font = UIFont(name: "Sora-SemiBold", size: 24)
         titleLabel.textColor = UIColor.white
         titleLabel.textAlignment = .left
         
         subtitleLabel.text = "Diz aí pra gente como foi tua festa"
+        subtitleLabel.font = UIFont(name: "Sora-Regular", size: 16)
         subtitleLabel.textColor = .white
         subtitleLabel.numberOfLines = 0
         subtitleLabel.sizeToFit()
@@ -159,7 +161,7 @@ class ContaAniversarioView: UIView {
         buttonsStackView.spacing = 8
         //
         //
-        compartilharRoleButton.tintColor = .purple
+        compartilharRoleButton.tintColor = UIColor(named: "onboardingPurple")
         compartilharRoleButton.setTitle("Compartilhar meu rolê!", for: .normal)
         compartilharRoleButton.setTitleColor(.white, for: .normal)
         compartilharRoleButton.titleLabel?.tintColor = .white
@@ -175,15 +177,15 @@ class ContaAniversarioView: UIView {
         
         
         precoBaratoButton.setTitle("$", for: .normal)
-        precoBaratoButton.tintColor = .purple
+        precoBaratoButton.tintColor = UIColor(named: "onboardingPurple")
         precoBaratoButton.setTitleColor(.white, for: .normal)
         
         precoMedioButton.setTitle("$$", for: .normal)
-        precoMedioButton.tintColor = .purple
+        precoMedioButton.tintColor = UIColor(named: "onboardingPurple")
         precoMedioButton.setTitleColor(.white, for: .normal)
         
         precoCaroButton.setTitle("$$$", for: .normal)
-        precoCaroButton.tintColor = .purple
+        precoCaroButton.tintColor = UIColor(named: "onboardingPurple")
         precoCaroButton.setTitleColor(.white, for: .normal)
         
         anexarImagemAniver.setImage(UIImage(named: "Image"), for: .normal)
@@ -261,17 +263,18 @@ class ContaAniversarioView: UIView {
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: titleLabelContainer.topAnchor, constant: 24),
+            titleLabel.topAnchor.constraint(equalTo: titleLabelContainer.topAnchor, constant: 15),
             titleLabel.leadingAnchor.constraint(equalTo: titleLabelContainer.leadingAnchor, constant: 32),
             titleLabel.trailingAnchor.constraint(equalTo: titleLabelContainer.trailingAnchor, constant: -74),
             //            titleLabel.bottomAnchor.constraint(equalTo: subtitleLabel.topAnchor, constant: )
+            
         ])
         
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             subtitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             subtitleLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8)
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4)
             
         ])
         

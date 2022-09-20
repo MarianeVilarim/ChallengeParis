@@ -91,11 +91,14 @@ class DigitaCodigoView: UIView {
         
         
         titleLabel.text = "Digite seu código!"
+        titleLabel.font = UIFont(name: "Sora-SemiBold", size: 24)
         titleLabel.textColor = UIColor.white
         titleLabel.textAlignment = .left
         
         subtitleLabel.text = "Chegou a hora de cabuetar o rolê"
         subtitleLabel.textColor = .white
+        subtitleLabel.font = UIFont(name: "Sora-Regular", size: 16)
+        subtitleLabel.textColor = UIColor.white
         subtitleLabel.numberOfLines = 0
         subtitleLabel.sizeToFit()
         subtitleLabel.textAlignment = .left
@@ -109,7 +112,7 @@ class DigitaCodigoView: UIView {
         buttonsStackView.spacing = 8
         //
         //
-        compartilharRoleButton.tintColor = .purple
+        compartilharRoleButton.tintColor = UIColor(named: "onboardingPurple")
         compartilharRoleButton.setTitle("Entrar", for: .normal)
         compartilharRoleButton.setTitleColor(.white, for: .normal)
         compartilharRoleButton.titleLabel?.tintColor = .white

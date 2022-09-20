@@ -103,10 +103,13 @@ class GeraCodigoView: UIView {
         
         titleLabel.text = "Código ativo!"
         titleLabel.textColor = UIColor.white
+        titleLabel.font = UIFont(name: "Sora-SemiBold", size: 24)
+
         titleLabel.textAlignment = .left
         
         subtitleLabel.text = "Manda para o teu amigo fofoqueiro"
         subtitleLabel.textColor = .white
+        subtitleLabel.font = UIFont(name: "Sora-Regular", size: 16)
         subtitleLabel.numberOfLines = 0
         subtitleLabel.sizeToFit()
         subtitleLabel.textAlignment = .left
@@ -120,7 +123,7 @@ class GeraCodigoView: UIView {
         buttonsStackView.spacing = 8
         //
         //
-        compartilharRoleButton.tintColor = .purple
+        compartilharRoleButton.tintColor = UIColor(named: "onboardingPurple")
         compartilharRoleButton.setTitle("Fechar", for: .normal)
         compartilharRoleButton.setTitleColor(.white, for: .normal)
         compartilharRoleButton.titleLabel?.tintColor = .white
