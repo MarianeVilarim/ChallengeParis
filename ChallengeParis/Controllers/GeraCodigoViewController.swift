@@ -8,11 +8,20 @@
 import UIKit
 
 class GeraCodigoViewController: UIViewController {
-
+    
+    var codigoDaSalinha: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let iCloud = CloudKitViewController()
+        self.codigoDaSalinha = iCloud.codigoSalinha
+        
         let primeiraView = GeraCodigoView()
+        primeiraView.displayCodigo.text = codigoDaSalinha
+        
         self.view = primeiraView
+        
         primeiraView.compartilharRoleButton.addTarget(self, action: #selector(didUserTapButton), for: .touchUpInside)
 
 
@@ -27,5 +36,8 @@ class GeraCodigoViewController: UIViewController {
         print("chamou")
         navigationController?.pushViewController(ForumFestinhaViewController(), animated: true)
     }
+    
+    
+    
 
 }

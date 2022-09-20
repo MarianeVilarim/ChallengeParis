@@ -18,6 +18,7 @@ class ContaMemoriaView: UIView {
     let nomeTextField = UITextField()
     let memoriaTextView = UITextView()
     let cabuetarButton = UIButton(configuration: .filled())
+    var memoria = Memoria()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -156,6 +157,27 @@ class ContaMemoriaView: UIView {
         NSLayoutConstraint.activate([subtitleLabel.leadingAnchor.constraint(equalTo: headerStackView.leadingAnchor, constant: 32)
         ])
     }
+    
+    func constructMemoria() {
+        self.memoria.nomePessoa = nomeTextField.text
+        self.memoria.textoMemoria = memoriaTextView.text
+        self.memoria.curtidas = 0
+        self.memoria.codigo = ""
+        let iCloud = CloudKitViewController()
+        iCloud.addMemoria(memoria: memoria)
+    }
+    
+    private func setupAdditionalConfiguration() {
+        //MARK: - Outras configurações
+        cabuetarButton.addTarget(self, action: #selector(tappedButton), for: .touchUpInside)
+    }
+    
+    @objc func tappedButton (sender: UIButton) {
+        constructMemoria()
+       
+        
+    }
+
 }
 
 

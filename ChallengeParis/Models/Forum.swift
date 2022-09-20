@@ -8,5 +8,8 @@
 import Foundation
 struct Forum: Codable {
     var tituloForum: String!
+    var codigo: String!
     
+    let generatedNumbers: [String] = [""]
+
 }

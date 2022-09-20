@@ -41,7 +41,7 @@ class ContaAniversarioView: UIView {
     let categoriaTextField = UITextField()
     
     let anexarImagemAniver = UIButton()
-    let categorias = ["restaurante", "praia", "bar", "cultural", "casa"]
+    let categorias = ["Restaurante", "Praia", "Bar", "Cultural", "Casa", "Parque/Ar livre"]
     
     let relatoTexto = UITextView()
     
@@ -49,9 +49,12 @@ class ContaAniversarioView: UIView {
     let scrollView = UIScrollView()
     let contentView = UIView()
     
+    let iCloud = CloudKitViewController()
+
+   
+
     
-    
-    
+    let arrayPrecos = ["Barato", "Medio", "Caro"]
     
     
     
@@ -168,15 +171,11 @@ class ContaAniversarioView: UIView {
         configuration.cornerStyle = .capsule
         compartilharRoleButton.configuration = configuration
         
-        //            tenhoCodigoButton.tintColor = .white
-        //            tenhoCodigoButton.setTitle("Tenho um código", for: .normal)
-        //            tenhoCodigoButton.setTitleColor(.purple, for: .normal)
-        //            tenhoCodigoButton.backgroundColor = .white
-        
         
         precoBaratoButton.setTitle("$", for: .normal)
         precoBaratoButton.tintColor = .purple
         precoBaratoButton.setTitleColor(.white, for: .normal)
+        precoBaratoButton.setTitleShadowColor(.lightGray, for: .selected)
         
         precoMedioButton.setTitle("$$", for: .normal)
         precoMedioButton.tintColor = .purple
@@ -366,20 +365,7 @@ class ContaAniversarioView: UIView {
             compartilharRoleButton.bottomAnchor.constraint(equalTo: compartilharRoleButtonContainer.bottomAnchor, constant: -52)
         ])
         
-        //            tenhoCodigoButton.translatesAutoresizingMaskIntoConstraints = false
-        //            NSLayoutConstraint.activate([
-        //                tenhoCodigoButton.leadingAnchor.constraint(equalTo: compartilharRoleButtonContainer.leadingAnchor),
-        //                tenhoCodigoButton.trailingAnchor.constraint(equalTo: compartilharRoleButtonContainer.trailingAnchor),
-        //                tenhoCodigoButton.heightAnchor.constraint(equalToConstant: 48),
-        //                tenhoCodigoButton.topAnchor.constraint(equalTo: compartilharRoleButton.bottomAnchor, constant: 8)
-        //            ])
         
-        //
-        //        tenhoCodigoButton.translatesAutoresizingMaskIntoConstraints = false
-        //        NSLayoutConstraint.activate([
-        //            tenhoCodigoButton.widthAnchor.constraint(equalToConstant: 200),
-        //            tenhoCodigoButton.heightAnchor.constraint(equalToConstant: 40)
-        //        ])
         
         
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -389,26 +375,84 @@ class ContaAniversarioView: UIView {
                                      scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
                                      scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
                                     ])
-        //            scrollView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        //                    scrollView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
-        //                    scrollView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        //                    scrollView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        
         NSLayoutConstraint.activate([contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
                                      contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
                                      contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
                                      contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
                                      contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor)
                                     ])
-        //                    contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-        //                    contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-        //                    contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-        //                    contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+   
+    }
+    
+    func generateRandomNumber() -> Int {
+        let randomInt = Int.random(in: 0..<100000)
+        return randomInt
+        
+
+    }
+    
+    func turnRandomNumberIntoString() -> String {
+        let randomNumber = generateRandomNumber()
+        return String(randomNumber)
+    }
+    
+    func buttonSelection() {
+        if precoBaratoButton.isSelected {
+            precoMedioButton.isSelected = false
+            precoCaroButton.isSelected = false
+            
+        } else if precoMedioButton.isSelected {
+            precoBaratoButton.isSelected = false
+            precoCaroButton.isSelected = false
+
+
+        }else if precoCaroButton.isSelected {
+            precoBaratoButton.isSelected = false
+            precoMedioButton.isSelected = false
+
+
+    }
+    }
+    
+    func definePreco() -> String {
+        if precoBaratoButton.isSelected {
+            return arrayPrecos[0]
+
+        } else if precoMedioButton.isSelected {
+            return arrayPrecos[1]
+
+        }else if precoCaroButton.isSelected {
+            return arrayPrecos[2]
+
+    }
+        return arrayPrecos[1]
+    }
+    
+    private func setupAdditionalConfiguration() {
+        //MARK: - Outras configurações
+        compartilharRoleButton.addTarget(self, action: #selector(tappedButton), for: .touchUpInside)
+    }
+    
+    @objc func tappedButton (sender: UIButton) {
+        print("apertou o botão")
+        constructRelato()
+    }
+    
+    func constructRelato(){
+        var relato = Relatos()
+        relato.tituloRelato = tituloAniversario.text
+        relato.relatoTexto = relatoTexto.text
+        relato.codigo = turnRandomNumberIntoString()
+        relato.categoria = categoriaTextField.text
+        buttonSelection()
+        relato.preco = definePreco()
+        relato.Autor = nomeAutor.text
+        relato.idadeAutor = idadeAutor.text
+        relato.curtidas = 0
+        iCloud.AddRelato(relato: relato)
         
         
-        //        testView.translatesAutoresizingMaskIntoConstraints = false
-        //        NSLayoutConstraint.activate([testView.heightAnchor.constraint(equalToConstant: 60),
-        //                                     testView.topAnchor.constraint(equalTo: compartilharRoleButton.bottomAnchor, constant: 1)])
-        //
     }
 }
 // MARK: - Preview
@@ -423,7 +467,8 @@ struct ContaAniversarioView_Preview: PreviewProvider {
             ContaAniversarioView().showPreview().previewDevice("iPhone SE (3rd generation)")
             ContaAniversarioView().showPreview().previewDevice("iPhone SE (3rd generation)").previewInterfaceOrientation(.landscapeLeft)
         }
-    }
+   }
+
 }
 #endif
 
@@ -446,10 +491,7 @@ extension ContaAniversarioView: UIPickerViewDataSource, UIPickerViewDelegate, UI
         categoriaTextField.resignFirstResponder()
     }
     
-    //    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    //        return textField.resignFirstResponder()
-    //
-    //    }
+ 
     func textViewDidBeginEditing(_ textView: UITextView) {
         if relatoTexto.textColor == UIColor.lightGray {
             relatoTexto.text = nil
@@ -465,3 +507,4 @@ extension ContaAniversarioView: UIPickerViewDataSource, UIPickerViewDelegate, UI
     }
     
 }
+

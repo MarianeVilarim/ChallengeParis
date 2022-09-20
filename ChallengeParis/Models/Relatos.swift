@@ -8,5 +8,12 @@
 import Foundation
 struct Relatos: Codable {
     var tituloRelato: String!
+    var Autor: String!
+    var idadeAutor: String!
+    var curtidas: Int!
+    var relatoTexto: String!
+    var categoria: String!
+    var preco: String!
+    var codigo: String!
     
 }
