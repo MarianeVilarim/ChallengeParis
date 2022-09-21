@@ -285,4 +285,15 @@ class CloudKitViewController: UIViewController {
         
     }
     
+    func UpdateLikesRelatos(){
+        
+    }
+    
+    func UpdateLikesMemorias(){
+        
+    }
+    
+    func RelatosSalvos(){
+        //Não da pra fazer sem a concepcão de um usuario 
+    }
 }
