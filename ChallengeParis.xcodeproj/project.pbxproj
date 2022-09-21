@@ -140,6 +140,29 @@
 			path = RelatosViews;
 			sourceTree = "<group>";
 		};
+		BC4F40E228DB49800091A15D /* Relatos */ = {
+			isa = PBXGroup;
+			children = (
+				BC85E0B528CFC3C400A11930 /* HomeViewController.swift */,
+				BCCD830B28D123E200F64366 /* RelatosViewController.swift */,
+				BC4F40D828DAA0400091A15D /* RelatoExpandidoViewController.swift */,
+			);
+			path = Relatos;
+			sourceTree = "<group>";
+		};
+		BC4F40E328DB49900091A15D /* Registros */ = {
+			isa = PBXGroup;
+			children = (
+				BCCD830728D1110C00F64366 /* RegistrosViewController.swift */,
+				BC1832A928D48DC700E14AA3 /* ContaAniversarioViewController.swift */,
+				BC1832AB28D4F98B00E14AA3 /* GeraCodigoViewController.swift */,
+				BC1832AD28D670EA00E14AA3 /* ForumFestinhaViewController.swift */,
+				BC1832AF28D675A800E14AA3 /* DigitaCodigoViewController.swift */,
+				BC7B0D2228D7E38D00913F2F /* ContaMemoriaViewController.swift */,
+			);
+			path = Registros;
+			sourceTree = "<group>";
+		};
 		BC85E0A528CFC3C400A11930 = {
 			isa = PBXGroup;
 			children = (
@@ -205,17 +228,10 @@
 			isa = PBXGroup;
 			children = (
 				BCCD830328D10D3800F64366 /* TabBarController.swift */,
-				BC85E0B528CFC3C400A11930 /* HomeViewController.swift */,
-				BCCD830B28D123E200F64366 /* RelatosViewController.swift */,
-				BC4F40D828DAA0400091A15D /* RelatoExpandidoViewController.swift */,
+				BC4F40E228DB49800091A15D /* Relatos */,
 				BCCD830528D110E200F64366 /* JogosViewController.swift */,
 				BCCD830928D1113F00F64366 /* SalvosViewController.swift */,
-				BCCD830728D1110C00F64366 /* RegistrosViewController.swift */,
-				BC1832A928D48DC700E14AA3 /* ContaAniversarioViewController.swift */,
-				BC1832AB28D4F98B00E14AA3 /* GeraCodigoViewController.swift */,
-				BC1832AD28D670EA00E14AA3 /* ForumFestinhaViewController.swift */,
-				BC1832AF28D675A800E14AA3 /* DigitaCodigoViewController.swift */,
-				BC7B0D2228D7E38D00913F2F /* ContaMemoriaViewController.swift */,
+				BC4F40E328DB49900091A15D /* Registros */,
 				BCD5198D28DA34020007F30C /* CloudKitViewController.swift */,
 			);
 			path = Controllers;

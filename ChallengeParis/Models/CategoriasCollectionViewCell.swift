@@ -68,5 +68,7 @@ class CategoriasCollectionViewCell: UICollectionViewCell {
     }
     
     
-    
+    func didSelect(indexPath: NSIndexPath ) {
+        // perform some actions here
+      }
 }

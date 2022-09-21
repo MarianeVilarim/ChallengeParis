@@ -80,6 +80,10 @@ class CloudKitViewController: UIViewController {
     //        //quero ver se o numero gerado já existe no array
     //    }
     
+    func retornaCodigo() {
+        
+    }
+    
     func searchRelatos(search: String) {
         self.arrayRelatos.removeAll()
         
@@ -99,7 +103,6 @@ class CloudKitViewController: UIViewController {
         operation.queryCompletionBlock = { cursor, error in
             
             DispatchQueue.main.async {
-                self.searchRelatosLocal(search: search)
                 
             }
             
@@ -109,7 +112,9 @@ class CloudKitViewController: UIViewController {
         // MARK: Mais importante
     }
     
-    func searchRelatosLocal(search: String) {
+    func searchRelatosLocal(search: String) -> [CKRecord] {
+        searchRelatos(search: search)
+
         let predicate = NSPredicate(format: "Lugar contains[cd]", search)
         let query = CKQuery(recordType: "Relato", predicate: predicate)
         query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
@@ -131,10 +136,10 @@ class CloudKitViewController: UIViewController {
             }
             
         }
-        
+        return self.arrayRelatos
     }
     
-    func relatosPorCategoria(categoria: String) {
+    func relatosPorCategoria(categoria: String) -> [CKRecord]{
         self.arrayRelatos.removeAll()
         
         // MARK: Mais importante
@@ -158,12 +163,41 @@ class CloudKitViewController: UIViewController {
             DispatchQueue.main.async {
                 //mensagem de que nada foi encontrado
             }
-            
         }
-        
+        return self.arrayRelatos
+
     }
     
-    func relatosPorMaisCurtidos() {
+    func relatosPorLocal(local: String) -> [CKRecord]{
+        self.arrayRelatos.removeAll()
+        let predicate = NSPredicate(format: "Lugar contains[cd]", local)
+        let query = CKQuery(recordType: "Relato", predicate: predicate)
+        query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        
+        let operation = CKQueryOperation(query: query)
+        
+        operation.recordFetchedBlock = { record in
+            DispatchQueue.main.async {
+                self.arrayRelatos.append(record)
+                
+                //mandar o array pra compor as celulas
+                
+            }
+        }
+        operation.queryCompletionBlock = { cursor, error in
+            
+            DispatchQueue.main.async {
+                //mensagem de que nada foi encontrado
+            }
+            
+        }
+        return self.arrayRelatos
+
+    }
+    
+    
+    
+    func relatosPorMaisCurtidos() -> [CKRecord] {
         arrayRelatos.removeAll()
         
         let predicate = NSPredicate(value: true)
@@ -191,7 +225,7 @@ class CloudKitViewController: UIViewController {
         }
         
         
-        
+        return self.arrayRelatos
     }
     
     func relatosPorPreço(preco: String) {
@@ -249,7 +283,7 @@ class CloudKitViewController: UIViewController {
             
             // - MARK: Duvidas: como mandar informacoes a partir das respostas daqui pra interface?
             
-            func filtraMemoriasPorCodigo(codigo: String){
+            func filtraMemoriasPorCodigo(codigo: String) -> [CKRecord] {
                 //quero que as memorias mostradas na collectionview do forum sejam sempre do mesmo tipo de codigo (transportado pelas telinhas
                 //se nao houver nenhuma com o codigo, quero mostrar uma imagem padrao de que nao ha nenhuma mensagem
                 self.arrayMemorias.removeAll()
@@ -275,6 +309,7 @@ class CloudKitViewController: UIViewController {
                     }
                     
                 }
+                return self.arrayMemorias
             }
             
             

@@ -9,6 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     let homeView = HomeView()
+    var userInput: String = ""
     //array que lista todos os itens que existe na collection view categorias, os itens são as imagens que são puxadas dos assets como string e o nome das categorias que também são strings, porém é inserida manualmente.
     var categorias: [Categoria] = [
         Categoria(image: "Bar", descricao: "Restaurante"),
@@ -330,6 +331,17 @@ extension HomeViewController: UICollectionViewDataSource {
 
 extension HomeViewController : UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if let cell = collectionView.cellForItem(at: indexPath) as? CategoriasCollectionViewCell {
+            let label = cell.descricao
+            navigationController?.pushViewController(RelatosViewController(), animated: true)
+//            navigationController?.showDetailViewController(RelatosViewController(), sender: label)
+
+        }
+        
+    }
+    
 }
 
 extension HomeViewController: UITextFieldDelegate {
@@ -341,6 +353,24 @@ extension HomeViewController: UITextFieldDelegate {
     
 
 
+}
+
+extension HomeViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+            if let text = searchBar.text {
+                // here is text from the search bar
+                print(text)
+                let relatosViewController = RelatosViewController()
+
+                userInput = text
+                navigationController?.pushViewController(RelatosViewController(), animated: true)
+
+
+                // now you can call 'performSegue'
+//                performSegue(withIdentifier: relatosViewController.Identifier, sender: self)
+            }
+        }
+    
 }
 
 // MARK: - Preview
