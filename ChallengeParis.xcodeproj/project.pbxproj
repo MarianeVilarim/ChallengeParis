@@ -22,6 +22,11 @@
 		BC4F40DD28DB3DBE0091A15D /* CategoriasCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F40DC28DB3DBE0091A15D /* CategoriasCollectionViewCell.swift */; };
 		BC4F40DF28DB3DCB0091A15D /* EmAltaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F40DE28DB3DCB0091A15D /* EmAltaCollectionViewCell.swift */; };
 		BC4F40E128DB3EBC0091A15D /* MinhaFonte.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F40E028DB3EBC0091A15D /* MinhaFonte.swift */; };
+		BC4F40E528DB56560091A15D /* MemoriaExpandidaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F40E428DB56560091A15D /* MemoriaExpandidaViewController.swift */; };
+		BC4F40E728DB57C80091A15D /* DemoViewController 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F40E628DB57C80091A15D /* DemoViewController 2.swift */; };
+		BC4F40EB28DB581D0091A15D /* OnboardingInfo 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F40E828DB581D0091A15D /* OnboardingInfo 2.swift */; };
+		BC4F40EC28DB581D0091A15D /* OnboardingPagingViewController 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F40E928DB581D0091A15D /* OnboardingPagingViewController 2.swift */; };
+		BC4F40ED28DB581D0091A15D /* UIColor 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F40EA28DB581D0091A15D /* UIColor 2.swift */; };
 		BC7B0D2128D776A100913F2F /* MemoriasCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7B0D2028D776A100913F2F /* MemoriasCollectionViewCell.swift */; };
 		BC7B0D2328D7E38D00913F2F /* ContaMemoriaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7B0D2228D7E38D00913F2F /* ContaMemoriaViewController.swift */; };
 		BC7B0D2528D810B300913F2F /* MemoriaTelaCheiaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7B0D2428D810B300913F2F /* MemoriaTelaCheiaView.swift */; };
@@ -68,6 +73,11 @@
 		BC4F40DC28DB3DBE0091A15D /* CategoriasCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriasCollectionViewCell.swift; sourceTree = "<group>"; };
 		BC4F40DE28DB3DCB0091A15D /* EmAltaCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmAltaCollectionViewCell.swift; sourceTree = "<group>"; };
 		BC4F40E028DB3EBC0091A15D /* MinhaFonte.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinhaFonte.swift; sourceTree = "<group>"; };
+		BC4F40E428DB56560091A15D /* MemoriaExpandidaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoriaExpandidaViewController.swift; sourceTree = "<group>"; };
+		BC4F40E628DB57C80091A15D /* DemoViewController 2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DemoViewController 2.swift"; sourceTree = "<group>"; };
+		BC4F40E828DB581D0091A15D /* OnboardingInfo 2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OnboardingInfo 2.swift"; sourceTree = "<group>"; };
+		BC4F40E928DB581D0091A15D /* OnboardingPagingViewController 2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OnboardingPagingViewController 2.swift"; sourceTree = "<group>"; };
+		BC4F40EA28DB581D0091A15D /* UIColor 2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor 2.swift"; sourceTree = "<group>"; };
 		BC7B0D2028D776A100913F2F /* MemoriasCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoriasCollectionViewCell.swift; sourceTree = "<group>"; };
 		BC7B0D2228D7E38D00913F2F /* ContaMemoriaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContaMemoriaViewController.swift; sourceTree = "<group>"; };
 		BC7B0D2428D810B300913F2F /* MemoriaTelaCheiaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoriaTelaCheiaView.swift; sourceTree = "<group>"; };
@@ -159,8 +169,20 @@
 				BC1832AD28D670EA00E14AA3 /* ForumFestinhaViewController.swift */,
 				BC1832AF28D675A800E14AA3 /* DigitaCodigoViewController.swift */,
 				BC7B0D2228D7E38D00913F2F /* ContaMemoriaViewController.swift */,
+				BC4F40E428DB56560091A15D /* MemoriaExpandidaViewController.swift */,
 			);
 			path = Registros;
+			sourceTree = "<group>";
+		};
+		BC4F40EE28DB58AD0091A15D /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				BC4F40E828DB581D0091A15D /* OnboardingInfo 2.swift */,
+				BC4F40E928DB581D0091A15D /* OnboardingPagingViewController 2.swift */,
+				BC4F40EA28DB581D0091A15D /* UIColor 2.swift */,
+				BC4F40E628DB57C80091A15D /* DemoViewController 2.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		BC85E0A528CFC3C400A11930 = {
@@ -187,6 +209,7 @@
 				BCD5198F28DA34F40007F30C /* ChallengeParis.entitlements */,
 				BC85E0B128CFC3C400A11930 /* AppDelegate.swift */,
 				BC85E0B328CFC3C400A11930 /* SceneDelegate.swift */,
+				BC4F40EE28DB58AD0091A15D /* Onboarding */,
 				BC85E0E128CFD16800A11930 /* Controllers */,
 				BC85E0BA28CFC3C500A11930 /* Assets.xcassets */,
 				BC85E0BC28CFC3C500A11930 /* LaunchScreen.storyboard */,
@@ -321,6 +344,7 @@
 				BCCD830A28D1113F00F64366 /* SalvosViewController.swift in Sources */,
 				BCCD830828D1110C00F64366 /* RegistrosViewController.swift in Sources */,
 				BCCD830C28D123E200F64366 /* RelatosViewController.swift in Sources */,
+				BC4F40EB28DB581D0091A15D /* OnboardingInfo 2.swift in Sources */,
 				BC85E0D428CFCD6F00A11930 /* ForumFestinhaView.swift in Sources */,
 				BC4F40E128DB3EBC0091A15D /* MinhaFonte.swift in Sources */,
 				BC1832A528D2540200E14AA3 /* ContaMemoriaView.swift in Sources */,
@@ -336,7 +360,9 @@
 				BC1832B028D675A800E14AA3 /* DigitaCodigoViewController.swift in Sources */,
 				BC7B0D2128D776A100913F2F /* MemoriasCollectionViewCell.swift in Sources */,
 				BC4F40DD28DB3DBE0091A15D /* CategoriasCollectionViewCell.swift in Sources */,
+				BC4F40E528DB56560091A15D /* MemoriaExpandidaViewController.swift in Sources */,
 				BC85E0D728CFCE3500A11930 /* Relatos.swift in Sources */,
+				BC4F40ED28DB581D0091A15D /* UIColor 2.swift in Sources */,
 				BC1832A828D25AB300E14AA3 /* PedeCodigoView.swift in Sources */,
 				BC85E0CA28CFC73000A11930 /* UIView+Preview.swift in Sources */,
 				BC7B0D2528D810B300913F2F /* MemoriaTelaCheiaView.swift in Sources */,
@@ -351,6 +377,8 @@
 				BC85E0B228CFC3C400A11930 /* AppDelegate.swift in Sources */,
 				BC1832A128D2537E00E14AA3 /* DigitaCodigoView.swift in Sources */,
 				BC18329F28D2434500E14AA3 /* GeraCodigoView.swift in Sources */,
+				BC4F40E728DB57C80091A15D /* DemoViewController 2.swift in Sources */,
+				BC4F40EC28DB581D0091A15D /* OnboardingPagingViewController 2.swift in Sources */,
 				BC85E0B428CFC3C400A11930 /* SceneDelegate.swift in Sources */,
 				BC1832AA28D48DC700E14AA3 /* ContaAniversarioViewController.swift in Sources */,
 				BC85E0D928CFCF3500A11930 /* Usuario.swift in Sources */,

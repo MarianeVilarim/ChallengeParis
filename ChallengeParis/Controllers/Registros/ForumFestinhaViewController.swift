@@ -16,6 +16,8 @@ class ForumFestinhaViewController: UIViewController {
         self.navigationItem.title = "Festinha de Fulana"
         self.navigationController?.navigationBar.tintColor = .white
         
+        primeiraView.memoriasCollectionView.delegate = self
+        
         self.navigationItem.titleView?.tintColor = .white
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(addTapped))
@@ -37,6 +39,12 @@ class ForumFestinhaViewController: UIViewController {
     @objc func addTapped(){
         
         navigationController?.pushViewController(ContaMemoriaViewController(), animated: true)
+        
+    }
+}
+
+extension ForumFestinhaViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
     }
 }
