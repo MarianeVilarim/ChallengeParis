@@ -10,15 +10,18 @@ import UIKit
 import CloudKit
 
 class CloudKitViewController: UIViewController {
-    
-    let privateDatabase = CKContainer(identifier: "br.ufpe.cin.academy.mvpc.VouComerSeuBolo ").privateCloudDatabase
+    let privateDatabase = CKContainer(identifier: "br.ufpe.cin.academy.mvpc.VouComerSeuBolo").privateCloudDatabase
     var codigoSalinha: String = ""
+    
+    var arrayRelatos: [CKRecord] = []
+    var arrayMemorias: [CKRecord] = []
+    
     
     
     func AddRelato(relato: Relatos){
         
         //tentando verificar se existe um relato igual no sistema
-        let predicate = NSPredicate(format: "name == %@", relato.relatoTexto)
+        let predicate = NSPredicate(format: "Relato == ", relato.relatoTexto)
         let query = CKQuery(recordType: "Relato", predicate: predicate)
         let operation = CKQueryOperation(query: query)
         
@@ -54,11 +57,10 @@ class CloudKitViewController: UIViewController {
                                 //quero redirecionar pra tela de exibir codigo
                                 self.codigoSalinha = relato.codigo
                                 
-                            } else {
-                                //                                                           let alert = UIAlertController(title: "Eita", message: "Deu erro em alguma coisa...\n" + error!.localizedDescription, preferredStyle: .alert)
                                 
-                                //                                                           alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                                //                                                           self.present(alert,animated: true, completion: nil)
+                                
+                            } else {
+                                //                                                           let alert
                             }
                         }
                         
@@ -69,6 +71,7 @@ class CloudKitViewController: UIViewController {
         }
     }
     
+    
     //    func addGeneratedNumber() {
     //        //quero que os numeros gerados possam ser adicionados em um array futura consulta
     //    }
@@ -78,21 +81,148 @@ class CloudKitViewController: UIViewController {
     //    }
     
     func searchRelatos(search: String) {
+        self.arrayRelatos.removeAll()
+        
+        let search = search
+        let predicate = NSPredicate(format: "Relato contains[cd]", search)
+        let query = CKQuery(recordType: "Relato", predicate: predicate)
+        query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        
+        let operation = CKQueryOperation(query: query)
+        
+        operation.recordFetchedBlock = { record in
+            DispatchQueue.main.async {
+                self.arrayRelatos.append(record)
+                self.searchRelatosLocal(search: search)
+            }
+        }
+        operation.queryCompletionBlock = { cursor, error in
+            
+            DispatchQueue.main.async {
+                self.searchRelatosLocal(search: search)
+                
+            }
+            
+        }
+        
         //quero que o texto dos relatos OU o local do relato contenham a palavra procurada
         // MARK: Mais importante
     }
     
-    func relatosPorCategoria() {
+    func searchRelatosLocal(search: String) {
+        let predicate = NSPredicate(format: "Lugar contains[cd]", search)
+        let query = CKQuery(recordType: "Relato", predicate: predicate)
+        query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        
+        let operation = CKQueryOperation(query: query)
+        
+        operation.recordFetchedBlock = { record in
+            DispatchQueue.main.async {
+                self.arrayRelatos.append(record)
+                
+                //mandar o array pra compor as celulas
+                
+            }
+        }
+        operation.queryCompletionBlock = { cursor, error in
+            
+            DispatchQueue.main.async {
+                //mensagem de que nada foi encontrado
+            }
+            
+        }
+        
+    }
+    
+    func relatosPorCategoria(categoria: String) {
+        self.arrayRelatos.removeAll()
+        
         // MARK: Mais importante
-
+        
+        let predicate = NSPredicate(format: "Categoria == ", categoria)
+        let query = CKQuery(recordType: "Relato", predicate: predicate)
+        query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        
+        let operation = CKQueryOperation(query: query)
+        
+        operation.recordFetchedBlock = { record in
+            DispatchQueue.main.async {
+                self.arrayRelatos.append(record)
+                
+                //mandar o array pra compor as celulas
+                
+            }
+        }
+        operation.queryCompletionBlock = { cursor, error in
+            
+            DispatchQueue.main.async {
+                //mensagem de que nada foi encontrado
+            }
+            
+        }
+        
     }
     
     func relatosPorMaisCurtidos() {
+        arrayRelatos.removeAll()
+        
+        let predicate = NSPredicate(value: true)
+        
+        let query = CKQuery(recordType: "Relato", predicate: predicate)
+        query.sortDescriptors = [NSSortDescriptor(key: "curtidas", ascending: false)]
+        
+        
+        let operation = CKQueryOperation(query: query)
+        
+        operation.recordFetchedBlock = { record in
+            DispatchQueue.main.async {
+                self.arrayRelatos.append(record)
+                
+                //mandar o array pra compor as celulas
+                
+            }
+        }
+        operation.queryCompletionBlock = { cursor, error in
+            
+            DispatchQueue.main.async {
+                //mensagem de que nada foi encontrado
+            }
+            
+        }
+        
         
         
     }
     
-    func relatosPorPreço() {
+    func relatosPorPreço(preco: String) {
+        
+        arrayRelatos.removeAll()
+        
+        self.arrayRelatos.removeAll()
+        
+        // MARK: Mais importante
+        
+        let predicate = NSPredicate(format: "Preco == ", preco)
+        let query = CKQuery(recordType: "Relato", predicate: predicate)
+        query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        
+        let operation = CKQueryOperation(query: query)
+        
+        operation.recordFetchedBlock = { record in
+            DispatchQueue.main.async {
+                self.arrayRelatos.append(record)
+                
+                //mandar o array pra compor as celulas
+                
+            }
+        }
+        operation.queryCompletionBlock = { cursor, error in
+            
+            DispatchQueue.main.async {
+                //mensagem de que nada foi encontrado
+            }
+            
+        }
         
     }
     
@@ -122,9 +252,37 @@ class CloudKitViewController: UIViewController {
             func filtraMemoriasPorCodigo(codigo: String){
                 //quero que as memorias mostradas na collectionview do forum sejam sempre do mesmo tipo de codigo (transportado pelas telinhas
                 //se nao houver nenhuma com o codigo, quero mostrar uma imagem padrao de que nao ha nenhuma mensagem
+                self.arrayMemorias.removeAll()
+                
+                let predicate = NSPredicate(format: "codigo ==", codigo)
+                let query = CKQuery(recordType: "Memoria", predicate: predicate)
+                query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+                
+                let operation = CKQueryOperation(query: query)
+                
+                operation.recordFetchedBlock = { record in
+                    DispatchQueue.main.async {
+                        self.arrayMemorias.append(record)
+                    }
+                    
+                    
+                }
+                
+                operation.queryCompletionBlock = { cursor, error in
+                    
+                    DispatchQueue.main.async {
+                        //mensagem de que nada foi encontrado
+                    }
+                    
+                }
             }
             
             
+            
         }
+        
+        
+        
     }
+    
 }
