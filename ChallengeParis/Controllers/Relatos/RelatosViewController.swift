@@ -16,7 +16,9 @@ class RelatosViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        //self.view = primeiraView
+        let primeiraView = ExibeRelatosView()
+
+        self.view = primeiraView
          view.backgroundColor = .systemPurple
         
     }
@@ -26,7 +28,7 @@ class RelatosViewController: UIViewController {
         // et view = UIView()
         
         //atribuicao da view inicializada no inicio da funcao
-        self.view = primeiraView
+//        self.view = primeiraView
         self.navigationItem.title = "Search/Praia"
         self.navigationItem.titleView?.tintColor = .white
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -46,10 +48,25 @@ struct ViewController_Preview: PreviewProvider {
     static var previews: some View {
         // view controller using programmatic UI
         Group {
-            HomeViewController().showPreview().previewDevice("iPhone SE (3rd generation)")
-            HomeViewController().showPreview().previewDevice("iPhone SE (3rd generation)").previewInterfaceOrientation(.landscapeLeft)
+            RelatosViewController().showPreview().previewDevice("iPhone SE (3rd generation)")
+            RelatosViewController().showPreview().previewDevice("iPhone SE (3rd generation)").previewInterfaceOrientation(.landscapeLeft)
         }
     }
 }
 #endif
 
+extension RelatosViewController : UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if let cell = collectionView.cellForItem(at: indexPath) as? RelatosCollectionViewCell {
+            print("entrou aqui")
+            let label = cell
+//            navigationController?.pushViewController(RelatoExpandidoViewController(), animated: true)
+            navigationController?.showDetailViewController(RelatoExpandidoViewController(), sender: label)
+
+        }
+        
+    }
+    
+}

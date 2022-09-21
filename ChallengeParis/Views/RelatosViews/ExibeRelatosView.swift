@@ -155,6 +155,9 @@ class ExibeRelatosView: UIView {
         
     }
 }
+
+
+
 // MARK: - Preview
 #if DEBUG
 import SwiftUI
