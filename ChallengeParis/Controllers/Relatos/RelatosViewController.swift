@@ -19,6 +19,7 @@ class RelatosViewController: UIViewController {
         let primeiraView = ExibeRelatosView()
 
         self.view = primeiraView
+        primeiraView.relatosCollectionView.delegate = self
          view.backgroundColor = .systemPurple
         
     }

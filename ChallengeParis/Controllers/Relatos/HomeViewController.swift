@@ -153,6 +153,7 @@ class HomeViewController: UIViewController {
         //chamando os controles da collection
         collectionCategorias.dataSource = self
         collectionCategorias.delegate = self
+        searchBar.delegate = self
         
         
         view.backgroundColor = .systemPurple
