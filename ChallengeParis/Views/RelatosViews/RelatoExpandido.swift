@@ -10,38 +10,41 @@ import UIKit
 class RelatoExpandido: UIView {
     let backgroundView = UIImageView(image: UIImage(named: "background"))
     
-    let titleLabel = UILabel()
-    let subtitleLabel = UILabel()
+    let imageRelato = UIImageView()
+//    let subtitleLabel = UILabel()
+    let autorRelato = UILabel()
+    let idadeAutor = UILabel()
+    let relatoTexto = UILabel()
+
+
     
     let whiteView = UIView()
-    let compartilharRoleButton = UIButton(configuration: .filled())
+//    let compartilharRoleButton = UIButton(configuration: .filled())
     
-    let titleLabelContainer = UIView()
-    let subtitleLabelContainer = UIView()
+    let imageContainer = UIView()
+//    let subtitleLabelContainer = UIView()
     
     let compartilharRoleButtonContainer = UIView()
     
     let headerStackView = UIStackView()
     let buttonsStackView = UIStackView()
     
-    let precoBaratoButton = UIButton(configuration: .filled())
-    let precoMedioButton = UIButton(configuration: .filled())
-    let precoCaroButton = UIButton(configuration: .filled())
+    let precoBaratoButton = UIButton(configuration: .plain())
+    let precoMedioButton = UIButton(configuration: .plain())
+    let precoCaroButton = UIButton(configuration: .plain())
     // let precosContainer = UIView()
     let precosStackView = UIStackView()
-    
-    let nomeAutor = UITextField()
-    let idadeAutor = UITextField()
+//
+//    let nomeAutor = UITextField()
+////    let idadeAutor = UITextField()
     let tituloAniversario = UITextField()
     let localAniversario = UITextField()
     
     let categoriaAniversario = UIPickerView()
     let categoriaTextField = UITextField()
     
-    let anexarImagemAniver = UIButton()
     let categorias = ["Restaurante", "Praia", "Bar", "Cultural", "Casa", "Parque/Ar livre"]
     
-    let relatoTexto = UITextView()
     
     
     let scrollView = UIScrollView()
@@ -60,15 +63,10 @@ class RelatoExpandido: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        categoriaAniversario.dataSource = self
-        categoriaAniversario.delegate = self
-        categoriaTextField.inputView = categoriaAniversario
         
-        tituloAniversario.delegate = self
-        localAniversario.delegate = self
-        categoriaTextField.delegate = self
         
-        relatoTexto.delegate = self
+        
+//        relatoTexto.delegate = self
         
         setupViewsHierarchy()
         setupViewsAttributes()
@@ -91,7 +89,7 @@ class RelatoExpandido: UIView {
         
         buttonsStackView.backgroundColor = .white
         
-        headerStackView.addArrangedSubview(titleLabelContainer)
+        headerStackView.addArrangedSubview(imageContainer)
         
         precosStackView.addArrangedSubview(precoBaratoButton)
         precosStackView.addArrangedSubview(precoMedioButton)
@@ -100,20 +98,22 @@ class RelatoExpandido: UIView {
         
         
         
-        titleLabelContainer.addSubview(titleLabel)
-        titleLabelContainer.addSubview(subtitleLabel)
+        imageContainer.addSubview(imageRelato)
+//        imageContainer.addSubview(subtitleLabel)
         
-        compartilharRoleButtonContainer.addSubview(anexarImagemAniver)
-        compartilharRoleButtonContainer.addSubview(precosStackView)
-        
-        compartilharRoleButtonContainer.addSubview(nomeAutor)
+        compartilharRoleButtonContainer.addSubview(autorRelato)
         compartilharRoleButtonContainer.addSubview(idadeAutor)
+        
+        compartilharRoleButtonContainer.addSubview(precosStackView)
+        compartilharRoleButtonContainer.addSubview(relatoTexto)
+
+        
+//        compartilharRoleButtonContainer.addSubview(nomeAutor)
         compartilharRoleButtonContainer.addSubview(tituloAniversario)
         compartilharRoleButtonContainer.addSubview(localAniversario)
         compartilharRoleButtonContainer.addSubview(categoriaTextField)
-        compartilharRoleButtonContainer.addSubview(relatoTexto)
         
-        compartilharRoleButtonContainer.addSubview(compartilharRoleButton)
+//        compartilharRoleButtonContainer.addSubview(compartilharRoleButton)
         //compartilharRoleButtonContainer.addSubview(testView)
         
         // compartilharRoleButtonContainer.addSubview(tenhoCodigoButton)
@@ -134,26 +134,36 @@ class RelatoExpandido: UIView {
         
         headerStackView.axis = .vertical
         headerStackView.alignment = .fill
-        headerStackView.spacing = 1
+        headerStackView.spacing = 0
         headerStackView.distribution = .fillProportionally
         headerStackView.layer.masksToBounds = true
-        headerStackView.layer.cornerRadius = 20
+        headerStackView.layer.cornerRadius = -20
+        headerStackView.contentMode = .scaleAspectFit
+//        headerStackView.backgroundColor = .white
         
         
         precosStackView.axis = .horizontal
         precosStackView.alignment = .fill
-        precosStackView.spacing = 42
-        precosStackView.distribution = .fillEqually
+        precosStackView.spacing = 1
+        precosStackView.distribution = .fillProportionally
+        precosStackView.contentMode = .scaleAspectFit
         
-        titleLabel.text = "Foi o seu aniversário"
-        titleLabel.textColor = UIColor.white
-        titleLabel.textAlignment = .left
+        imageRelato.contentMode = .scaleAspectFill
+        imageRelato.image = UIImage(named: "Image")
         
-        subtitleLabel.text = "Diz aí pra gente como foi tua festa"
-        subtitleLabel.textColor = .white
-        subtitleLabel.numberOfLines = 0
-        subtitleLabel.sizeToFit()
-        subtitleLabel.textAlignment = .left
+        autorRelato.contentMode = .top
+        autorRelato.text = "autorRelato"
+        autorRelato.textColor = .label
+        autorRelato.textAlignment = .left
+        autorRelato.font.withSize(14)
+        
+        idadeAutor.contentMode = .top
+        idadeAutor.text = "idadeAutor"
+        idadeAutor.textColor = .label
+        idadeAutor.textAlignment = .left
+        idadeAutor.font.withSize(11)
+        
+
         
         buttonsStackView.layer.masksToBounds = true
         buttonsStackView.layer.cornerRadius = -20
@@ -163,33 +173,51 @@ class RelatoExpandido: UIView {
         buttonsStackView.spacing = 8
         //
         //
-        compartilharRoleButton.tintColor = .purple
-        compartilharRoleButton.setTitle("Compartilhar meu rolê!", for: .normal)
-        compartilharRoleButton.setTitleColor(.white, for: .normal)
-        compartilharRoleButton.titleLabel?.tintColor = .white
+//        compartilharRoleButton.tintColor = .purple
+//        compartilharRoleButton.setTitle("Compartilhar meu rolê!", for: .normal)
+//        compartilharRoleButton.setTitleColor(.white, for: .normal)
+//        compartilharRoleButton.titleLabel?.tintColor = .white
         
-        var  configuration = UIButton.Configuration.filled()
-        configuration.cornerStyle = .capsule
-        compartilharRoleButton.configuration = configuration
+//        var  configuration = UIButton.Configuration.filled()
+//        configuration.cornerStyle = .capsule
+//        compartilharRoleButton.configuration = configuration
         
         
-        precoBaratoButton.setTitle("$", for: .normal)
-        precoBaratoButton.tintColor = .purple
-        precoBaratoButton.setTitleColor(.white, for: .normal)
+        precoBaratoButton.setTitle("Local", for: .normal)
+        precoBaratoButton.tintColor = .white
+        precoBaratoButton.layer.borderWidth = 1
+        precoBaratoButton.layer.masksToBounds = true
+        precoBaratoButton.layer.cornerRadius = 10
+        precoBaratoButton.setTitleColor(.label, for: .normal)
         precoBaratoButton.setTitleShadowColor(.lightGray, for: .selected)
+        precoBaratoButton.contentMode = .scaleAspectFit
         
-        precoMedioButton.setTitle("$$", for: .normal)
-        precoMedioButton.tintColor = .purple
-        precoMedioButton.setTitleColor(.white, for: .normal)
+        precoMedioButton.setTitle("Categoria", for: .normal)
+        precoMedioButton.tintColor = .white
+        precoMedioButton.layer.borderWidth = 1
+        precoMedioButton.layer.masksToBounds = true
+        precoMedioButton.layer.cornerRadius = 10
+        precoMedioButton.setTitleColor(.label, for: .normal)
+        precoMedioButton.setTitleShadowColor(.lightGray, for: .selected)
+        precoMedioButton.contentMode = .scaleAspectFit
         
-        precoCaroButton.setTitle("$$$", for: .normal)
-        precoCaroButton.tintColor = .purple
-        precoCaroButton.setTitleColor(.white, for: .normal)
         
-        anexarImagemAniver.setImage(UIImage(named: "Image"), for: .normal)
+        precoCaroButton.setTitle("$$", for: .normal)
+        precoCaroButton.tintColor = .white
+        precoCaroButton.layer.borderWidth = 1
+        precoCaroButton.layer.masksToBounds = true
+        precoCaroButton.layer.cornerRadius = 10
+        precoCaroButton.setTitleColor(.label, for: .normal)
+        precoCaroButton.setTitleShadowColor(.lightGray, for: .selected)
+        precoCaroButton.contentMode = .scaleAspectFit
         
-        precosStackView.distribution = .fillEqually
-        precosStackView.spacing = 42
+       
+        
+        
+        
+        precosStackView.distribution = .fillProportionally
+        precosStackView.contentMode = .scaleAspectFit
+        precosStackView.spacing = 1
         
         tituloAniversario.placeholder = "Título do relato"
         tituloAniversario.tintColor = .label
@@ -198,20 +226,7 @@ class RelatoExpandido: UIView {
         tituloAniversario.layer.masksToBounds = true
         tituloAniversario.layer.cornerRadius = 10
         
-        nomeAutor.placeholder = "Seu nome"
-        nomeAutor.tintColor = .label
-        nomeAutor.textColor = .secondaryLabel
-        nomeAutor.textAlignment = .left
-        nomeAutor.layer.masksToBounds = true
-        nomeAutor.layer.cornerRadius = 10
-//        nomeAutor.backgroundColor = .lightGray
-        
-        idadeAutor.placeholder = "Sua idade"
-        idadeAutor.tintColor = .label
-        idadeAutor.textColor = .secondaryLabel
-        idadeAutor.textAlignment = .left
-        idadeAutor.layer.masksToBounds = true
-        idadeAutor.layer.cornerRadius = 10
+
         
         localAniversario.placeholder = "Local"
         localAniversario.tintColor = .label
@@ -231,17 +246,13 @@ class RelatoExpandido: UIView {
         
         //
         
-        relatoTexto.tintColor = .label
-        relatoTexto.textColor = .secondaryLabel
-        relatoTexto.textAlignment = .left
-        relatoTexto.contentMode = .scaleAspectFill
+        relatoTexto.text = "relatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTexto"
+        relatoTexto.textColor = .label
+        relatoTexto.textAlignment = .justified
+        relatoTexto.contentMode = .top
+        relatoTexto.numberOfLines = 0
         relatoTexto.sizeToFit()
-        relatoTexto.layer.masksToBounds = true
-        relatoTexto.layer.cornerRadius = 10
-        
-        relatoTexto.text = "Comecei meu dia.../ Eu comi.../ Também me reuni com.../ Fomos a... /Mais tarde, ... "
-        relatoTexto.textColor = UIColor.lightGray
-        relatoTexto.font?.withSize(16)
+        relatoTexto.font?.withSize(12)
         
         
         scrollView.keyboardDismissMode = .onDrag
@@ -259,24 +270,18 @@ class RelatoExpandido: UIView {
         
         
         
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        imageRelato.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: titleLabelContainer.topAnchor, constant: 24),
-            titleLabel.leadingAnchor.constraint(equalTo: titleLabelContainer.leadingAnchor, constant: 32),
-            titleLabel.trailingAnchor.constraint(equalTo: titleLabelContainer.trailingAnchor, constant: -74),
+            imageRelato.topAnchor.constraint(equalTo: imageContainer.topAnchor),
+            imageRelato.leadingAnchor.constraint(equalTo: imageContainer.leadingAnchor),
+            imageRelato.trailingAnchor.constraint(equalTo: imageContainer.trailingAnchor),
             //            titleLabel.bottomAnchor.constraint(equalTo: subtitleLabel.topAnchor, constant: )
         ])
         
-        subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            subtitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            subtitleLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8)
-            
-        ])
+        
         
         headerStackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([headerStackView.heightAnchor.constraint(equalToConstant: 72),
+        NSLayoutConstraint.activate([headerStackView.heightAnchor.constraint(equalTo: imageRelato.heightAnchor),
                                      headerStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
                                      headerStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
                                      headerStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
@@ -284,65 +289,73 @@ class RelatoExpandido: UIView {
                                     ])
         
         
-        anexarImagemAniver.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([anexarImagemAniver.topAnchor.constraint(equalTo: buttonsStackView.topAnchor, constant: 24),
-                                     anexarImagemAniver.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 67),
-                                     anexarImagemAniver.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -67),
-                                     anexarImagemAniver.heightAnchor.constraint(equalToConstant: 152)
+        autorRelato.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([autorRelato.topAnchor.constraint(equalTo: buttonsStackView.topAnchor, constant: 21),
+                                     autorRelato.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 28),
+                                     autorRelato.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -224),
+                                     autorRelato.heightAnchor.constraint(equalToConstant: 39)
                                     ])
         
-        precosStackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([precosStackView.topAnchor.constraint(equalTo: anexarImagemAniver.bottomAnchor, constant: 24),
-                                     precosStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 45),
-                                     precosStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45)
-                                     
-                                    ])
-        
-        nomeAutor.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([nomeAutor.topAnchor.constraint(equalTo: precosStackView.bottomAnchor, constant: 24),
-                                     nomeAutor.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 45),
-                                     nomeAutor.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45),
-                                     
-                                    ])
         
         idadeAutor.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([idadeAutor.topAnchor.constraint(equalTo: nomeAutor.bottomAnchor, constant: 24),
-                                     idadeAutor.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 45),
-                                     idadeAutor.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45),
+        NSLayoutConstraint.activate([idadeAutor.topAnchor.constraint(equalTo: autorRelato.bottomAnchor, constant: 8.14),
+                                     idadeAutor.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 28),
+                                     idadeAutor.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -224),
+                                     idadeAutor.heightAnchor.constraint(equalToConstant: 15)
+
                                      
-                                    ])
-        
-        tituloAniversario.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([tituloAniversario.topAnchor.constraint(equalTo: idadeAutor.bottomAnchor, constant: 24),
-                                     tituloAniversario.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 45),
-                                     tituloAniversario.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45),
-                                     
-                                    ])
-        
-        localAniversario.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([localAniversario.topAnchor.constraint(equalTo: tituloAniversario.bottomAnchor, constant: 24),
-                                     localAniversario.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 45),
-                                     localAniversario.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45)
-                                    ])
-        
-        
-        categoriaTextField.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([categoriaTextField.topAnchor.constraint(equalTo: localAniversario.bottomAnchor, constant: 24),
-                                     categoriaTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 45),
-                                     categoriaTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45)
                                     ])
         
         relatoTexto.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([relatoTexto.topAnchor.constraint(equalTo: categoriaTextField.bottomAnchor, constant: 24),
-                                     relatoTexto.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 45),
-                                     relatoTexto.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45),
-                                     relatoTexto.heightAnchor.constraint(equalToConstant: 152),
-                                     relatoTexto.bottomAnchor.constraint(equalTo: compartilharRoleButton.topAnchor, constant: 24)
+        NSLayoutConstraint.activate([relatoTexto.topAnchor.constraint(equalTo: idadeAutor.bottomAnchor, constant: 10),
+                                     relatoTexto.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 28),
+                                     relatoTexto.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
+//                                     relatoTexto.heightAnchor.constraint(equalToConstant: 205),
+                                     relatoTexto.bottomAnchor.constraint(equalTo: precosStackView.topAnchor, constant: 24)
                                     ])
+        
+        precosStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([precosStackView.topAnchor.constraint(equalTo: relatoTexto.bottomAnchor, constant: 30),
+                                     precosStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 28),
+                                     precosStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -100),
+                                     precosStackView.heightAnchor.constraint(equalToConstant: 30),
+                                     precosStackView.bottomAnchor.constraint(equalTo: compartilharRoleButtonContainer.bottomAnchor, constant: -52)
+
+                                    ])
+        
+//        nomeAutor.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([nomeAutor.topAnchor.constraint(equalTo: precosStackView.bottomAnchor, constant: 24),
+//                                     nomeAutor.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 45),
+//                                     nomeAutor.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45),
+//
+//                                    ])
+        
+//
+//        tituloAniversario.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([tituloAniversario.topAnchor.constraint(equalTo: idadeAutor.bottomAnchor, constant: 24),
+//                                     tituloAniversario.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 45),
+//                                     tituloAniversario.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45),
+//
+//                                    ])
+        
+//        localAniversario.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([localAniversario.topAnchor.constraint(equalTo: tituloAniversario.bottomAnchor, constant: 24),
+//                                     localAniversario.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 45),
+//                                     localAniversario.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45)
+//                                    ])
+        
+        
+//        categoriaTextField.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([categoriaTextField.topAnchor.constraint(equalTo: localAniversario.bottomAnchor, constant: 24),
+//                                     categoriaTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 45),
+//                                     categoriaTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45)
+//                                    ])
+        
+        
         
         
         buttonsStackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([buttonsStackView.topAnchor.constraint(equalTo: headerStackView.bottomAnchor, constant: 10),
+        NSLayoutConstraint.activate([buttonsStackView.topAnchor.constraint(equalTo: headerStackView.bottomAnchor),
                                      buttonsStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
                                      buttonsStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
                                      buttonsStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
@@ -357,15 +370,15 @@ class RelatoExpandido: UIView {
             compartilharRoleButtonContainer.bottomAnchor.constraint(equalTo: buttonsStackView.bottomAnchor, constant: 52)
         ])
         
-        compartilharRoleButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            compartilharRoleButton.topAnchor.constraint(equalTo: relatoTexto.bottomAnchor, constant: 24),
-            compartilharRoleButton.leadingAnchor.constraint(equalTo: compartilharRoleButtonContainer.leadingAnchor),
-            compartilharRoleButton.trailingAnchor.constraint(equalTo: compartilharRoleButtonContainer.trailingAnchor),
-            compartilharRoleButton.heightAnchor.constraint(equalToConstant: 48),
-            compartilharRoleButton.bottomAnchor.constraint(equalTo: compartilharRoleButtonContainer.bottomAnchor, constant: -52)
-        ])
-        
+//        compartilharRoleButton.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            compartilharRoleButton.topAnchor.constraint(equalTo: relatoTexto.bottomAnchor, constant: 24),
+//            compartilharRoleButton.leadingAnchor.constraint(equalTo: compartilharRoleButtonContainer.leadingAnchor),
+//            compartilharRoleButton.trailingAnchor.constraint(equalTo: compartilharRoleButtonContainer.trailingAnchor),
+//            compartilharRoleButton.heightAnchor.constraint(equalToConstant: 48),
+//            compartilharRoleButton.bottomAnchor.constraint(equalTo: compartilharRoleButtonContainer.bottomAnchor, constant: -52)
+//        ])
+//
         
         
         
@@ -430,31 +443,31 @@ class RelatoExpandido: UIView {
         return arrayPrecos[1]
     }
     
-    private func setupAdditionalConfiguration() {
-        //MARK: - Outras configurações
-        compartilharRoleButton.addTarget(self, action: #selector(tappedButton), for: .touchUpInside)
-    }
-    
+//    private func setupAdditionalConfiguration() {
+//        //MARK: - Outras configurações
+//        compartilharRoleButton.addTarget(self, action: #selector(tappedButton), for: .touchUpInside)
+//    }
+//
     @objc func tappedButton (sender: UIButton) {
         print("apertou o botão")
-        constructRelato()
+//        constructRelato()
     }
     
-    func constructRelato(){
-        var relato = Relatos()
-        relato.tituloRelato = tituloAniversario.text
-        relato.relatoTexto = relatoTexto.text
-        relato.codigo = turnRandomNumberIntoString()
-        relato.categoria = categoriaTextField.text
-        buttonSelection()
-        relato.preco = definePreco()
-        relato.Autor = nomeAutor.text
-        relato.idadeAutor = idadeAutor.text
-        relato.curtidas = 0
-        iCloud.AddRelato(relato: relato)
-        
-        
-    }
+//    func constructRelato(){
+//        var relato = Relatos()
+//        relato.tituloRelato = tituloAniversario.text
+//        relato.relatoTexto = relatoTexto.text
+//        relato.codigo = turnRandomNumberIntoString()
+//        relato.categoria = categoriaTextField.text
+//        buttonSelection()
+//        relato.preco = definePreco()
+//        relato.Autor = nomeAutor.text
+//        relato.idadeAutor = idadeAutor.text
+//        relato.curtidas = 0
+//        iCloud.AddRelato(relato: relato)
+//
+//
+//    }
 }
 // MARK: - Preview
 #if DEBUG
@@ -473,38 +486,3 @@ struct RelatoExpandido_Preview: PreviewProvider {
 }
 #endif
 
-extension RelatoExpandido: UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate {
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return categorias.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return categorias[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        categoriaTextField.text = categorias[row]
-        categoriaTextField.resignFirstResponder()
-    }
-    
- 
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if relatoTexto.textColor == UIColor.lightGray {
-            relatoTexto.text = nil
-            relatoTexto.textColor = UIColor.black
-        }
-    }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if relatoTexto.text.isEmpty {
-            relatoTexto.text = "Comecei meu dia.../ Eu comi.../ Também me reuni com.../ Fomos a... /Mais tarde, ... "
-            relatoTexto.textColor = UIColor.lightGray
-        }
-    }
-    
-}
