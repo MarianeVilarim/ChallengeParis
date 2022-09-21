@@ -31,9 +31,10 @@ class MemoriasCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(nome: String, memoria: String){
-        self.nomeLabel.text = nome
-        self.memoriaTexto.text = memoria
+    func setup(memoria: Memoria) {
+        let memoria = memoria
+        self.nomeLabel.text = memoria.nomePessoa
+        self.memoriaTexto.text = memoria.textoMemoria
     }
     
     func setViewHierarchy() {

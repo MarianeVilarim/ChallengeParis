@@ -198,7 +198,7 @@ extension ForumFestinhaView: UICollectionViewDelegate, UICollectionViewDataSourc
             print("passou na cel for item at")
             let titulo = arrayMemorias[indexPath.row].titulo
             let memoria = arrayMemorias[indexPath.row].texto
-            cell.setup(nome: titulo, memoria: memoria)
+//            cell.setup(nome: titulo, memoria: memoria)
             return cell
         }
         return UICollectionViewCell()

@@ -20,6 +20,8 @@ class HomeViewController: UIViewController {
         Categoria(image: "Casa", descricao: "Casa")
     ]
     
+   
+    
     
     //    var emAlta: [EmAlta]
     
@@ -361,7 +363,7 @@ extension HomeViewController: UISearchBarDelegate {
             if let text = searchBar.text {
                 // here is text from the search bar
                 print(text)
-                let relatosViewController = RelatosViewController()
+                let elatosViewController = RelatosViewController()
 
                 userInput = text
                 navigationController?.pushViewController(RelatosViewController(), animated: true)

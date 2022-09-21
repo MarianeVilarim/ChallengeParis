@@ -8,8 +8,9 @@
 import UIKit
 
 class RelatosCollectionViewCell: UICollectionViewCell {
-    var nomeLabel = UILabel()
-    var memoriaTexto = UILabel()
+    var tituloLabel = UILabel()
+    var autorLabel = UILabel()
+    var relatoTexto = UILabel()
     var likeButton = UIButton()
     var buttonENome = UIStackView()
     var stackETexto = UIStackView()
@@ -31,16 +32,18 @@ class RelatosCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(nome: String, memoria: String){
-        self.nomeLabel.text = nome
-        self.memoriaTexto.text = memoria
+    func setup(relato: Relatos){
+        let relato = relato
+        self.tituloLabel.text = relato.tituloRelato
+        self.relatoTexto.text = relato.relatoTexto
+        self.autorLabel.text = "Por \(relato.Autor)"
     }
     
     func setViewHierarchy() {
-        buttonENome.addArrangedSubview(nomeLabel)
+        buttonENome.addArrangedSubview(tituloLabel)
         buttonENome.addArrangedSubview(likeButton)
         stackETexto.addArrangedSubview(buttonENome)
-        stackETexto.addArrangedSubview(memoriaTexto)
+        stackETexto.addArrangedSubview(relatoTexto)
         addSubview(stackETexto)
         
     
@@ -56,8 +59,8 @@ class RelatosCollectionViewCell: UICollectionViewCell {
         stackETexto.spacing = 17
         stackETexto.contentMode = .scaleAspectFit
         
-        nomeLabel.textColor = .secondaryLabel
-        memoriaTexto.textColor = .secondaryLabel
+        tituloLabel.textColor = .secondaryLabel
+        relatoTexto.textColor = .secondaryLabel
         likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
         likeButton.setImage(UIImage(systemName: "heart.fill"), for: .selected)
         
@@ -69,7 +72,7 @@ class RelatosCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([buttonENome.topAnchor.constraint(equalTo: stackETexto.topAnchor, constant: 18),
                                      buttonENome.leadingAnchor.constraint(equalTo: stackETexto.leadingAnchor, constant: 16),
                                      buttonENome.trailingAnchor.constraint(equalTo: stackETexto.trailingAnchor, constant: -16),
-                                     buttonENome.bottomAnchor.constraint(equalTo: memoriaTexto.topAnchor, constant: 17)
+                                     buttonENome.bottomAnchor.constraint(equalTo: relatoTexto.topAnchor, constant: 17)
         ])
         
         stackETexto.translatesAutoresizingMaskIntoConstraints = false

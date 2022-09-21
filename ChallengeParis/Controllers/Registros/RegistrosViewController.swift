@@ -87,7 +87,9 @@ class RegistrosViewController: UIViewController {
     
     @objc func didUserTapRegistrarRole() {
         print("chamou")
-        navigationController?.pushViewController(ContaAniversarioViewController(), animated: true)
+        let contaAnivView = ContaAniversarioViewController()
+        contaAnivView.variavelzinha = "vitoria"
+        navigationController?.pushViewController(contaAnivView, animated: true)
     }
     
     @objc func didUserTapTenhoCodigo() {

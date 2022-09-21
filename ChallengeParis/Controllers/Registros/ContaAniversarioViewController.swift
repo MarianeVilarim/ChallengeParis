@@ -8,6 +8,8 @@
 import UIKit
 
 class ContaAniversarioViewController: UIViewController {
+    
+    var variavelzinha = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,6 +17,7 @@ class ContaAniversarioViewController: UIViewController {
         self.view = primeiraView
         
         primeiraView.compartilharRoleButton.addTarget(self, action: #selector(didUserTapButton), for: .touchUpInside)
+        print(variavelzinha)
       
         // Do any additional setup after loading the view.
     }

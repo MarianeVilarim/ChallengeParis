@@ -6,12 +6,17 @@
 //
 
 import UIKit
+import CloudKit
+
 
 class RelatosViewController: UIViewController {
 
     let primeiraView: UIView! = ExibeRelatosView()
 //    let Identifier: = "RelatosViewController"
+    let cloud = CloudKitViewController()
+    var array: [CKRecord] = []
     
+    var categoriaDescricoes = ["Restaurante","Praia","Bar","Parque","Cultural","Casa"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +39,30 @@ class RelatosViewController: UIViewController {
         self.navigationItem.titleView?.tintColor = .white
         navigationController?.navigationBar.prefersLargeTitles = true
 
+    }
+    
+    
+    func configuraArrayRelatos(parametro: String) {
+        if categoriaDescricoes.contains(parametro) {
+            let arrayCK = cloud.relatosPorCategoria(categoria: parametro)
+            transformaEmModel(array: arrayCK)
+
+        }
+        else {
+            let arrayCK = cloud.searchRelatosLocal(search: parametro)
+            transformaEmModel(array: arrayCK)
+
+
+        }
+        
+    }
+    
+    func transformaEmModel(array: [CKRecord]) {
+        self.array = array
+        
+        for i in 1...array.count {
+            array[i].value(forKey: "Titulo")
+        }
     }
     
     
