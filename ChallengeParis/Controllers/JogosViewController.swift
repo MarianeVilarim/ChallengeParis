@@ -9,7 +9,7 @@ import UIKit
 
 class JogosViewController: UIViewController {
 
-    let primeiraView: UIView! = PopUp()
+    let primeiraView: UIView! = JogosView()
 
     override func viewDidLoad() {
         super.viewDidLoad()

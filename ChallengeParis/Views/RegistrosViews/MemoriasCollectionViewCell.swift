@@ -60,7 +60,7 @@ class MemoriasCollectionViewCell: UICollectionViewCell {
         nomeLabel.numberOfLines = 0
         nomeLabel.sizeToFit()
         memoriaTexto.textColor = .secondaryLabel
-        memoriaTexto.numberOfLines = 0
+        memoriaTexto.numberOfLines = 2
         memoriaTexto.sizeToFit()
         likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
         likeButton.setImage(UIImage(systemName: "heart.fill"), for: .selected)

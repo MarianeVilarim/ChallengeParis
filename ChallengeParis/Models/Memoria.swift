@@ -34,4 +34,13 @@ class MemoriaManager: NSObject {
                                Memoria(nomePessoa: "Rafael", textoMemoria: "Queria pedir desculpas a quem eu possa ter ofendido... lembro de nada mas sei que foi massa!!", codigo: "1117", curtidas: 0)
                                
     ]
+    
+    func addMemoria(memoria: Memoria){
+        self.memorias.append(memoria)
+        
+    }
+    
+    func mandaMemorias() -> [Memoria]{
+        return self.memorias
+    }
 }

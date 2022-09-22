@@ -14,6 +14,8 @@ class RelatosViewController: UIViewController {
     var searchInput = ""
     var relatosExibir: [Relatos] = []
     var viewPrincipal = UIView()
+    
+    var salvos = false
 
     var categoria = ""
     

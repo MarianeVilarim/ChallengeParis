@@ -10,7 +10,8 @@ import UIKit
 class ForumFestinhaViewController: UIViewController {
     
     var codigoRelato = ""
-
+    var arrayMemorias: [Memoria] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let primeiraView = ForumFestinhaView()
@@ -19,25 +20,41 @@ class ForumFestinhaViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = .white
         
         primeiraView.memoriasCollectionView.delegate = self
+        primeiraView.memoriasCollectionView.dataSource = self
         
         self.navigationItem.titleView?.tintColor = .white
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(addTapped))
-      
+        
+        if codigoRelato != ""{
+            memoriasPorCodigo(codigo: codigoRelato)
+            primeiraView.memoriasCollectionView.reloadData()
+        }
+        
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func memoriasPorCodigo(codigo: String){
+        let memoriasMgmt = MemoriaManager()
+        let arrayMemorias = memoriasMgmt.mandaMemorias()
+        for i in 0...arrayMemorias.count-1 {
+            if arrayMemorias[i].codigo == codigo {
+                self.arrayMemorias.append(arrayMemorias[i])
+            }
+        }
     }
-    */
-
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
     @objc func addTapped(){
         
         navigationController?.pushViewController(ContaMemoriaViewController(), animated: true)
@@ -56,14 +73,37 @@ extension ForumFestinhaViewController: UICollectionViewDelegate {
             
             navigationController?.showDetailViewController(memoriaTelaCheia, sender: self)
             
-//            relatoExpandidoViewController.local = cell.local
-//            relatoExpandidoViewController.preco = cell.preco
-//            relatoExpandidoViewController.nomeAutor = cell.autorLabel.text!
-//            relatoExpandidoViewController.relatoTexto = cell.relatoTexto
-//            relatoExpandidoViewController.idadeAutor = cell.idadeAutor
-//            relatoExpandidoViewController.categoria = cell.categoria
-//            relatoExpandidoViewController.local = cell.local
-        
+            //            relatoExpandidoViewController.local = cell.local
+            //            relatoExpandidoViewController.preco = cell.preco
+            //            relatoExpandidoViewController.nomeAutor = cell.autorLabel.text!
+            //            relatoExpandidoViewController.relatoTexto = cell.relatoTexto
+            //            relatoExpandidoViewController.idadeAutor = cell.idadeAutor
+            //            relatoExpandidoViewController.categoria = cell.categoria
+            //            relatoExpandidoViewController.local = cell.local
+            
+        }
     }
 }
+extension ForumFestinhaViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return arrayMemorias.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemoriasCollectionViewCell.cellIdentifier, for: indexPath) as? MemoriasCollectionViewCell {
+            print("passou na cel for item at")
+            let array = arrayMemorias
+        
+
+//            let titulo = array[indexPath.row].tituloRelato
+//            let texto = array[indexPath.row].relatoTexto
+            let memoriaCompleta = array[indexPath.row]
+            cell.setup(memoria: memoriaCompleta)
+            return cell
+        }
+        return UICollectionViewCell()
+        
+    }
+    
+    
 }
