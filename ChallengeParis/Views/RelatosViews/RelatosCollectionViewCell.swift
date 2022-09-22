@@ -10,10 +10,12 @@ import UIKit
 class RelatosCollectionViewCell: UICollectionViewCell {
     var tituloLabel = UILabel()
     var autorLabel = UILabel()
-//    var relatoTexto = UILabel()
-    var likeButton = UIButton(configuration: .filled())
+    var likeButton = UIButton(configuration: .plain())
     var buttonENome = UIStackView()
     var stackETexto = UIStackView()
+    var imagemRelato = UIImageView()
+    var imagemStack = UIStackView()
+    var stackView = UIStackView()
     static let cellIdentifier = "MemoriasCell"
     
 //    var nomeAutor = ""
@@ -57,15 +59,24 @@ class RelatosCollectionViewCell: UICollectionViewCell {
         buttonENome.addArrangedSubview(likeButton)
         stackETexto.addArrangedSubview(buttonENome)
         stackETexto.addArrangedSubview(autorLabel)
-        addSubview(stackETexto)
+        stackView.addArrangedSubview(stackETexto)
+        stackView.addArrangedSubview(imagemStack)
+        addSubview(stackView)
+        
+        imagemStack.addArrangedSubview(imagemRelato)
+        
         
     
     }
     
     func setViewAtributes(){
         
+        stackView.axis = .vertical
+        stackETexto.spacing = 0
+        stackView.distribution = .equalSpacing
+        
         buttonENome.axis = .horizontal
-        buttonENome.spacing = 90
+        buttonENome.spacing = 80
         buttonENome.contentMode = .scaleAspectFit
         
         stackETexto.axis = .vertical
@@ -78,22 +89,32 @@ class RelatosCollectionViewCell: UICollectionViewCell {
         likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
         likeButton.setImage(UIImage(systemName: "heart.fill"), for: .selected)
         
+        imagemRelato.image = UIImage(named: "Image")
+//        imagemRelato.contentMode = .scaleAspectFit
+        
+        imagemStack.distribution = .fillProportionally
+        
         
     }
     
     func setConstraints(){
         buttonENome.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([buttonENome.topAnchor.constraint(equalTo: stackETexto.topAnchor, constant: 18),
-                                     buttonENome.leadingAnchor.constraint(equalTo: stackETexto.leadingAnchor, constant: 16),
-                                     buttonENome.trailingAnchor.constraint(equalTo: stackETexto.trailingAnchor, constant: -16),
-                                     buttonENome.bottomAnchor.constraint(equalTo: autorLabel.topAnchor, constant: 17)
+        NSLayoutConstraint.activate([buttonENome.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 18),
+                                     buttonENome.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 16),
+                                     buttonENome.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -16),
+//                                     buttonENome.bottomAnchor.constraint(equalTo: imagemStack.topAnchor, constant: 17)
         ])
         
-        stackETexto.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([stackETexto.topAnchor.constraint(equalTo: topAnchor),
-                                     stackETexto.leadingAnchor.constraint(equalTo: leadingAnchor),
-                                     stackETexto.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-                                     stackETexto.bottomAnchor.constraint(equalTo: bottomAnchor)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([stackView.topAnchor.constraint(equalTo: topAnchor),
+                                     stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+                                     stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+                                     stackView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+        
+//        imagemStack.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([imagemStack.topAnchor.constraint(equalTo: centerYAnchor),
+//                                     imagemStack.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+//                                     imagemStack.trailingAnchor.constraint(equalTo: stackView.trailingAnchor)])
     }
 }
