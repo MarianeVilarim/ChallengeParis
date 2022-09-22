@@ -9,14 +9,13 @@ import UIKit
 
 class JogosViewController: UIViewController {
 
-    let primeiraView: UIView! = CardsView()
+    let primeiraView: UIView! = PopUp()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //self.view = primeiraView
-         view.backgroundColor = .systemPurple
-        
+       
     }
 
     override func loadView() {

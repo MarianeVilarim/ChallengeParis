@@ -10,10 +10,10 @@ import UIKit
 class ContaAniversarioViewController: UIViewController {
     
     var variavelzinha = ""
+    let primeiraView = ContaAniversarioView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let primeiraView = ContaAniversarioView()
         self.view = primeiraView
         
         primeiraView.compartilharRoleButton.addTarget(self, action: #selector(didUserTapButton), for: .touchUpInside)
@@ -42,9 +42,23 @@ class ContaAniversarioViewController: UIViewController {
     */
 
     @objc func didUserTapButton() {
-        print("chamou")
-        navigationController?.pushViewController(GeraCodigoViewController(), animated: true)
-    }
+        
+        let areFieldsEmpty = primeiraView.areFieldsEmpty()
+        let popUp = PopUpViewController()
+
+        if areFieldsEmpty == true {
+            popUp.titleLabel = "Falha registrar seu rolê"
+            popUp.subtitleLabel = "Por favor, preencha todos os campos."
+        }
+        else {
+            primeiraView.constructRelato()
+           
+            navigationController?.present(popUp, animated: true)
+        }
+
+
+        
 }
 
 
+}

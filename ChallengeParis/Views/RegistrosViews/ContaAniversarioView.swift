@@ -434,9 +434,21 @@ class ContaAniversarioView: UIView {
         compartilharRoleButton.addTarget(self, action: #selector(tappedButton), for: .touchUpInside)
     }
     
+    func areFieldsEmpty() -> Bool {
+        if tituloAniversario.text != "" && relatoTexto.text != "" {
+            if nomeAutor.text != "" && relatoTexto.text != "Comecei meu dia.../ Eu comi.../ Também me reuni com.../ Fomos a... /Mais tarde, ... " {
+                if idadeAutor.text != "" && categoriaTextField.text != "" && localAniversario.text != ""{
+                    return false
+                    
+                }
+            }
+        }
+        return true
+    }
+    
     @objc func tappedButton (sender: UIButton) {
-        print("apertou o botão")
-        constructRelato()
+       
+        
     }
     
     func constructRelato(){
@@ -450,7 +462,9 @@ class ContaAniversarioView: UIView {
         relato.Autor = nomeAutor.text
         relato.idadeAutor = idadeAutor.text
         relato.curtidas = 0
-        iCloud.AddRelato(relato: relato)
+        
+        let relatosManager = RelatosManager()
+        relatosManager.addRelato(relato: relato)
         
         
     }

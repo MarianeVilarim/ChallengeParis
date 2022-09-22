@@ -66,7 +66,8 @@ class RelatosViewController: UIViewController {
     
     func setupRelatosSearch(search: String) {
         
-        let arrayRelatos = Relatos.MandaRelatos()
+        let relatosMgmt = RelatosManager()
+        let arrayRelatos = relatosMgmt.retornaRelatos()
         print("entrou aq")
         print(arrayRelatos.count)
         for i in 0...arrayRelatos.count-1 {
@@ -85,7 +86,8 @@ class RelatosViewController: UIViewController {
     }
     
     func setupRelatosCategoria(categoria: String) {
-        let arrayRelatos = Relatos.MandaRelatos()
+        let relatosMgmt = RelatosManager()
+        let arrayRelatos = relatosMgmt.retornaRelatos()
         for i in 0...arrayRelatos.count-1 {
            let categoriaRelato = arrayRelatos[i].categoria
             if categoria == categoriaRelato {

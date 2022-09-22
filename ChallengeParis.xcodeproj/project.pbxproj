@@ -55,6 +55,7 @@
 		BCCD830C28D123E200F64366 /* RelatosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCD830B28D123E200F64366 /* RelatosViewController.swift */; };
 		BCD5198E28DA34020007F30C /* CloudKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD5198D28DA34020007F30C /* CloudKitViewController.swift */; };
 		BCD5199228DA34FD0007F30C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCD5199128DA34FD0007F30C /* CloudKit.framework */; };
+		BCE4B93228DC8B71006A6307 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE4B93128DC8B71006A6307 /* PopUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +110,7 @@
 		BCD5198D28DA34020007F30C /* CloudKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitViewController.swift; sourceTree = "<group>"; };
 		BCD5198F28DA34F40007F30C /* ChallengeParis.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChallengeParis.entitlements; sourceTree = "<group>"; };
 		BCD5199128DA34FD0007F30C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		BCE4B93128DC8B71006A6307 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +258,7 @@
 				BCCD830928D1113F00F64366 /* SalvosViewController.swift */,
 				BC4F40E328DB49900091A15D /* Registros */,
 				BCD5198D28DA34020007F30C /* CloudKitViewController.swift */,
+				BCE4B93128DC8B71006A6307 /* PopUpViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				BC85E0D228CFCCDF00A11930 /* CardsView.swift in Sources */,
 				BC1832A328D2539500E14AA3 /* ContaAniversarioView.swift in Sources */,
 				BC1832AC28D4F98B00E14AA3 /* GeraCodigoViewController.swift in Sources */,
+				BCE4B93228DC8B71006A6307 /* PopUpViewController.swift in Sources */,
 				BC1832B028D675A800E14AA3 /* DigitaCodigoViewController.swift in Sources */,
 				BC7B0D2128D776A100913F2F /* MemoriasCollectionViewCell.swift in Sources */,
 				BC4F40DD28DB3DBE0091A15D /* CategoriasCollectionViewCell.swift in Sources */,
