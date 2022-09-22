@@ -451,7 +451,7 @@ class ContaAniversarioView: UIView {
         
     }
     
-    func constructRelato(){
+    func constructRelato() -> Relatos {
         var relato = Relatos()
         relato.tituloRelato = tituloAniversario.text
         relato.relatoTexto = relatoTexto.text
@@ -466,8 +466,17 @@ class ContaAniversarioView: UIView {
         let relatosManager = RelatosManager()
         relatosManager.addRelato(relato: relato)
         
-        
+        return relato
     }
+    
+    func codigoRelato() -> String {
+        let constructRelato = constructRelato()
+        var codigo = ""
+        codigo = constructRelato.codigo
+        
+        return codigo
+    }
+    
 }
 // MARK: - Preview
 #if DEBUG

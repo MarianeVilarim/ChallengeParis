@@ -8,6 +8,8 @@
 import UIKit
 
 class ForumFestinhaViewController: UIViewController {
+    
+    var codigoRelato = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +47,23 @@ class ForumFestinhaViewController: UIViewController {
 
 extension ForumFestinhaViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        if let cell = collectionView.cellForItem(at: indexPath) as? MemoriasCollectionViewCell {
+            print("entrou aqui")
+            
+            var memoriaTelaCheia = MemoriaExpandidaViewController()
+            memoriaTelaCheia.titlelabel = cell.nomeLabel.text!
+            memoriaTelaCheia.memoriaTexto = cell.memoriaTexto.text!
+            
+            navigationController?.showDetailViewController(memoriaTelaCheia, sender: self)
+            
+//            relatoExpandidoViewController.local = cell.local
+//            relatoExpandidoViewController.preco = cell.preco
+//            relatoExpandidoViewController.nomeAutor = cell.autorLabel.text!
+//            relatoExpandidoViewController.relatoTexto = cell.relatoTexto
+//            relatoExpandidoViewController.idadeAutor = cell.idadeAutor
+//            relatoExpandidoViewController.categoria = cell.categoria
+//            relatoExpandidoViewController.local = cell.local
         
     }
+}
 }

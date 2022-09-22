@@ -51,8 +51,8 @@ class ContaAniversarioViewController: UIViewController {
             popUp.subtitleLabel = "Por favor, preencha todos os campos."
         }
         else {
-            primeiraView.constructRelato()
-           
+            let codigoFestinha = primeiraView.codigoRelato()
+            popUp.codigoDaSalinha = codigoFestinha
             navigationController?.show(popUp, sender: self)
         }
 

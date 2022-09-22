@@ -32,7 +32,6 @@ class MemoriasCollectionViewCell: UICollectionViewCell {
     }
     
     func setup(memoria: Memoria) {
-        let memoria = memoria
         self.nomeLabel.text = memoria.nomePessoa
         self.memoriaTexto.text = memoria.textoMemoria
     }

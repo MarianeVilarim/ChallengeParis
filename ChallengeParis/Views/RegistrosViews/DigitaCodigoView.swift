@@ -14,7 +14,6 @@ class DigitaCodigoView: UIView, UITextFieldDelegate {
     let titleLabel = UILabel()
     let subtitleLabel = UILabel()
     
-    let whiteView = UIView()
     let compartilharRoleButton = UIButton(configuration: .filled())
   
     
@@ -22,7 +21,6 @@ class DigitaCodigoView: UIView, UITextFieldDelegate {
     let subtitleLabelContainer = UIView()
     
     let compartilharRoleButtonContainer = UIView()
-    let tenhoCodigoButtonContainer = UIView()
     
     let headerStackView = UIStackView()
     let buttonsStackView = UIStackView()
@@ -42,17 +40,13 @@ class DigitaCodigoView: UIView, UITextFieldDelegate {
         setupViewsHierarchy()
         setupViewsAttributes()
         setupConstraints()
-        displayCodigo.delegate = self
+
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return displayCodigo.resignFirstResponder()
-
-    }
     
     func setupViewsHierarchy() {
         addSubview(backgroundView)
@@ -69,14 +63,14 @@ class DigitaCodigoView: UIView, UITextFieldDelegate {
         titleLabelContainer.addSubview(titleLabel)
         titleLabelContainer.addSubview(subtitleLabel)
         
-        codigoEBotaoStackView.addArrangedSubview(displayCodigo)
+        buttonsStackView.addArrangedSubview(fecharECodigoStackView)
 //        codigoEBotaoStackView.addArrangedSubview(copiaCodigoButton)
     
         compartilharRoleButtonContainer.addSubview(fecharECodigoStackView)
         
         buttonsStackView.addArrangedSubview(compartilharRoleButtonContainer)
         
-        fecharECodigoStackView.addArrangedSubview(codigoEBotaoStackView)
+        fecharECodigoStackView.addArrangedSubview(displayCodigo)
         
         fecharECodigoStackView.addArrangedSubview(compartilharRoleButton)
     }
@@ -87,7 +81,7 @@ class DigitaCodigoView: UIView, UITextFieldDelegate {
         
         stackView.axis = .vertical
         stackView.alignment = .fill
-        stackView.spacing = 40
+        stackView.spacing = 20
         stackView.distribution = .fillEqually
         
         headerStackView.axis = .vertical
@@ -130,10 +124,14 @@ class DigitaCodigoView: UIView, UITextFieldDelegate {
 //        tenhoCodigoButton.backgroundColor = .white
         
 //        displayCodigo.text = defineCodigo()
-        displayCodigo.placeholder = "  Digita aqui teu código"
-        displayCodigo.textColor = .secondaryLabel
+        displayCodigo.placeholder = "      Digita aqui teu código"
+        displayCodigo.textColor = .label
         displayCodigo.textAlignment = .justified
         displayCodigo.contentMode = .scaleAspectFit
+        displayCodigo.layer.masksToBounds = true
+        displayCodigo.layer.cornerRadius = 10
+        displayCodigo.backgroundColor = .lightGray
+        
 //        displayCodigo.backgroundColor = .gray
         
         
@@ -202,15 +200,15 @@ class DigitaCodigoView: UIView, UITextFieldDelegate {
         ])
         
         
-        codigoEBotaoStackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([codigoEBotaoStackView.topAnchor.constraint(equalTo: compartilharRoleButtonContainer.topAnchor, constant: 16)
+//        codigoEBotaoStackView.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([codigoEBotaoStackView.topAnchor.constraint(equalTo: compartilharRoleButtonContainer.topAnchor, constant: 16)
                                   
 //                                     codigoEBotaoStackView.bottomAnchor.constraint(equalTo: compartilharRoleButton.topAnchor, constant: 104)
-        ])
+//        ])
         
         
         fecharECodigoStackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([fecharECodigoStackView.topAnchor.constraint(equalTo: compartilharRoleButtonContainer.topAnchor, constant: 106),
+        NSLayoutConstraint.activate([buttonsStackView.topAnchor.constraint(equalTo: compartilharRoleButtonContainer.topAnchor, constant: 20),
                                      fecharECodigoStackView.leadingAnchor.constraint(equalTo: compartilharRoleButtonContainer.leadingAnchor, constant: 43),
                                      fecharECodigoStackView.trailingAnchor.constraint(equalTo: compartilharRoleButtonContainer.trailingAnchor, constant: -43)
                                      
@@ -219,7 +217,7 @@ class DigitaCodigoView: UIView, UITextFieldDelegate {
         
         displayCodigo.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([displayCodigo.heightAnchor.constraint(equalToConstant: 40)])
-        
+//
 
         
     }

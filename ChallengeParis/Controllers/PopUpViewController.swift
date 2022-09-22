@@ -12,6 +12,7 @@ class PopUpViewController: UIViewController {
     var titleLabel = ""
     var subtitleLabel = ""
     var botaoSalinha = UIButton()
+    var codigoDaSalinha = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,9 @@ class PopUpViewController: UIViewController {
     
     @objc func didTapButton() {
         print("mandou ir pra outra viewC")
-        navigationController?.pushViewController(GeraCodigoViewController(), animated: true)
+        let geraCodigo = GeraCodigoViewController()
+        geraCodigo.codigoDaSalinha = self.codigoDaSalinha
+        navigationController?.pushViewController(geraCodigo, animated: true)
         
     }
     

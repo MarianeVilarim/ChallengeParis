@@ -9,15 +9,15 @@ import UIKit
 
 class GeraCodigoViewController: UIViewController {
     
-    var codigoDaSalinha: String!
-    
+    var codigoDaSalinha: String = ""
+    let primeiraView = GeraCodigoView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let iCloud = CloudKitViewController()
-        self.codigoDaSalinha = iCloud.codigoSalinha
+//        let iCloud = CloudKitViewController()
+//        self.codigoDaSalinha = iCloud.codigoSalinha
         
-        let primeiraView = GeraCodigoView()
         primeiraView.displayCodigo.text = codigoDaSalinha
         
         self.view = primeiraView
@@ -34,7 +34,9 @@ class GeraCodigoViewController: UIViewController {
 
     @objc func didUserTapButton() {
         print("chamou")
-        navigationController?.pushViewController(ForumFestinhaViewController(), animated: true)
+        var forumFestinha = ForumFestinhaViewController()
+        forumFestinha.codigoRelato = primeiraView.displayCodigo.text!
+        navigationController?.pushViewController(forumFestinha, animated: true)
     }
     
     

@@ -8,6 +8,9 @@
 import UIKit
 
 class MemoriaExpandidaViewController: UIViewController {
+    
+    var titlelabel = ""
+    var memoriaTexto = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()

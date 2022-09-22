@@ -7,20 +7,27 @@
 
 import UIKit
 
-class DigitaCodigoViewController: UIViewController {
+class DigitaCodigoViewController: UIViewController, UITextFieldDelegate {
+    
+    let primeiraView = DigitaCodigoView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let primeiraView = DigitaCodigoView()
         self.view = primeiraView
+        primeiraView.displayCodigo.delegate = self
         // Do any additional setup after loading the view.
         primeiraView.compartilharRoleButton.addTarget(self, action: #selector(didUserTapButton), for: .touchUpInside)
     }
     
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        self.view.endEditing(true)
-//    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return primeiraView.displayCodigo.resignFirstResponder()
+
+    }
 
     /*
     // MARK: - Navigation
@@ -33,6 +40,9 @@ class DigitaCodigoViewController: UIViewController {
     */
     @objc func didUserTapButton() {
         print("chamou")
-        navigationController?.pushViewController(ForumFestinhaViewController(), animated: true)
+        
+        let forumFestinha = ForumFestinhaViewController()
+        forumFestinha.codigoRelato = primeiraView.displayCodigo.text!
+        navigationController?.pushViewController(forumFestinha, animated: true)
     }
 }
