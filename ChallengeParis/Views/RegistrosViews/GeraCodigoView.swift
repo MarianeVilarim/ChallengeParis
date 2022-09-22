@@ -120,7 +120,7 @@ class GeraCodigoView: UIView {
         buttonsStackView.spacing = 8
         //
         //
-        compartilharRoleButton.tintColor = .purple
+        compartilharRoleButton.tintColor = .onboardingPurple
         compartilharRoleButton.setTitle("Fechar", for: .normal)
         compartilharRoleButton.setTitleColor(.white, for: .normal)
         compartilharRoleButton.titleLabel?.tintColor = .white

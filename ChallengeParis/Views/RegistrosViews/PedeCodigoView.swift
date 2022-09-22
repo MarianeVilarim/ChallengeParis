@@ -100,7 +100,7 @@ class PedeCodigoView: UIView {
         buttonsStackView.spacing = 8
 //
 //
-        compartilharRoleButton.tintColor = .purple
+        compartilharRoleButton.tintColor = .onboardingPurple
         compartilharRoleButton.setTitle("Compartilhar meu rolê!", for: .normal)
         compartilharRoleButton.setTitleColor(.white, for: .normal)
         compartilharRoleButton.titleLabel?.tintColor = .white
@@ -111,7 +111,7 @@ class PedeCodigoView: UIView {
 //
         tenhoCodigoButton.tintColor = .white
         tenhoCodigoButton.setTitle("Tenho um código", for: .normal)
-        tenhoCodigoButton.setTitleColor(.purple, for: .normal)
+        tenhoCodigoButton.setTitleColor(.onboardingPurple, for: .normal)
         tenhoCodigoButton.backgroundColor = .white
         
 //

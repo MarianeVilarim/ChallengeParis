@@ -53,7 +53,7 @@ class ContaAniversarioViewController: UIViewController {
         else {
             primeiraView.constructRelato()
            
-            navigationController?.present(popUp, animated: true)
+            navigationController?.show(popUp, sender: self)
         }
 
 

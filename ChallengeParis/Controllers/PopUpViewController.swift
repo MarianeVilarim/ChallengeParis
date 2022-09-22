@@ -24,14 +24,15 @@ class PopUpViewController: UIViewController {
             primeiraView.gerarCodigoButton.isHidden = true
 
         }
-        
+        primeiraView.gerarCodigoButton.isHidden = false
         primeiraView.gerarCodigoButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
 
         // Do any additional setup after loading the view.
     }
     
     @objc func didTapButton() {
-        navigationController?.pushViewController(ForumFestinhaViewController(), animated: true)
+        print("mandou ir pra outra viewC")
+        navigationController?.pushViewController(GeraCodigoViewController(), animated: true)
         
     }
     

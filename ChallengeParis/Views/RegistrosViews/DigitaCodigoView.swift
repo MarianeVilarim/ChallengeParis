@@ -115,7 +115,7 @@ class DigitaCodigoView: UIView, UITextFieldDelegate {
         buttonsStackView.spacing = 8
         //
         //
-        compartilharRoleButton.tintColor = .purple
+        compartilharRoleButton.tintColor = .onboardingPurple
         compartilharRoleButton.setTitle("Entrar", for: .normal)
         compartilharRoleButton.setTitleColor(.white, for: .normal)
         compartilharRoleButton.titleLabel?.tintColor = .white
