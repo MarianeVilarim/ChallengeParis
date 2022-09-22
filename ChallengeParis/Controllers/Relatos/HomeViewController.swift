@@ -337,8 +337,10 @@ extension HomeViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if let cell = collectionView.cellForItem(at: indexPath) as? CategoriasCollectionViewCell {
-            let label = cell.descricao
-            navigationController?.pushViewController(RelatosViewController(), animated: true)
+            let categoria = cell.descricao.text
+            let relatosViewController = RelatosViewController()
+            relatosViewController.categoria = categoria!
+            navigationController?.pushViewController(relatosViewController, animated: true)
 //            navigationController?.showDetailViewController(RelatosViewController(), sender: label)
 
         }
@@ -363,10 +365,11 @@ extension HomeViewController: UISearchBarDelegate {
             if let text = searchBar.text {
                 // here is text from the search bar
                 print(text)
-                let elatosViewController = RelatosViewController()
+                let relatosViewController = RelatosViewController()
 
                 userInput = text
-                navigationController?.pushViewController(RelatosViewController(), animated: true)
+                relatosViewController.searchInput = userInput
+                navigationController?.pushViewController(relatosViewController, animated: true)
 
 
                 // now you can call 'performSegue'

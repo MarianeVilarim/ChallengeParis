@@ -42,9 +42,8 @@ class ExibeRelatosView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-
-        relatosCollectionView.dataSource = self
-        relatosCollectionView.delegate = self
+        
+       
         layout.scrollDirection = UICollectionView.ScrollDirection.vertical
         layout.itemSize = CGSize(width: 346, height: 191)
 
@@ -174,24 +173,6 @@ struct ExibeRelatosView_Preview: PreviewProvider {
 }
 #endif
 
-extension ExibeRelatosView: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return arrayMemorias.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = relatosCollectionView.dequeueReusableCell(withReuseIdentifier: RelatosCollectionViewCell.cellIdentifier, for: indexPath) as? RelatosCollectionViewCell {
-            print("passou na cel for item at")
-            let titulo = arrayMemorias[indexPath.row].titulo
-            let memoria = arrayMemorias[indexPath.row].texto
-//            cell.setup(nome: titulo, memoria: memoria)
-            return cell
-        }
-        return UICollectionViewCell()
-        
-    }
-    
-    
-}
+
 
 

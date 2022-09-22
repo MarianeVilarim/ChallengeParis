@@ -11,6 +11,8 @@ class MemoriaExpandidaViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let primeiraView = MemoriaTelaCheiaView()
+        self.view = primeiraView
 
         // Do any additional setup after loading the view.
     }

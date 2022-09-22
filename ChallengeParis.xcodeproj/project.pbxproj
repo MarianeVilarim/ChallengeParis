@@ -126,13 +126,13 @@
 		BC1832A628D2540B00E14AA3 /* RegistrosViews */ = {
 			isa = PBXGroup;
 			children = (
-				BC85E0D328CFCD6F00A11930 /* ForumFestinhaView.swift */,
 				BC7B0D2028D776A100913F2F /* MemoriasCollectionViewCell.swift */,
 				BC1832A428D2540200E14AA3 /* ContaMemoriaView.swift */,
 				BC18329E28D2434500E14AA3 /* GeraCodigoView.swift */,
-				BC1832A028D2537E00E14AA3 /* DigitaCodigoView.swift */,
 				BC1832A228D2539500E14AA3 /* ContaAniversarioView.swift */,
 				BC1832A728D25AB300E14AA3 /* PedeCodigoView.swift */,
+				BC1832A028D2537E00E14AA3 /* DigitaCodigoView.swift */,
+				BC85E0D328CFCD6F00A11930 /* ForumFestinhaView.swift */,
 				BC7B0D2428D810B300913F2F /* MemoriaTelaCheiaView.swift */,
 				BC7B0D2628D810C900913F2F /* PopUp.swift */,
 			);

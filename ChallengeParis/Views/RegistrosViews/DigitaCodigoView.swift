@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DigitaCodigoView: UIView {
+class DigitaCodigoView: UIView, UITextFieldDelegate {
     
     let backgroundView = UIImageView(image: UIImage(named: "background"))
     
@@ -42,10 +42,16 @@ class DigitaCodigoView: UIView {
         setupViewsHierarchy()
         setupViewsAttributes()
         setupConstraints()
+        displayCodigo.delegate = self
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return displayCodigo.resignFirstResponder()
+
     }
     
     func setupViewsHierarchy() {
@@ -235,7 +241,6 @@ struct DigitaCodigoView_Preview: PreviewProvider {
     }
 }
 #endif
-
 
 
 

@@ -213,7 +213,7 @@ class RelatoExpandido: UIView {
                                      
                                     ])
         secondStackContainer.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([secondStackContainer.topAnchor.constraint(equalTo: headerStackView.bottomAnchor, constant:  -10),
+        NSLayoutConstraint.activate([secondStackContainer.topAnchor.constraint(equalTo: headerStackView.bottomAnchor, constant:  -20),
                                      secondStackContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
                                      secondStackContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
                                      secondStackContainer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 30)

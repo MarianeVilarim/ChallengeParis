@@ -46,5 +46,6 @@ class ForumFestinhaViewController: UIViewController {
 extension ForumFestinhaViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        
     }
 }

@@ -35,7 +35,7 @@ class RelatosCollectionViewCell: UICollectionViewCell {
     func setup(relato: Relatos){
         let relato = relato
         self.tituloLabel.text = relato.tituloRelato
-        self.relatoTexto.text = relato.relatoTexto
+        self.autorLabel.text = relato.Autor
         self.autorLabel.text = "Por \(relato.Autor)"
     }
     
@@ -60,7 +60,8 @@ class RelatosCollectionViewCell: UICollectionViewCell {
         stackETexto.contentMode = .scaleAspectFit
         
         tituloLabel.textColor = .secondaryLabel
-        relatoTexto.textColor = .secondaryLabel
+        autorLabel.textColor = .secondaryLabel
+        
         likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
         likeButton.setImage(UIImage(systemName: "heart.fill"), for: .selected)
         

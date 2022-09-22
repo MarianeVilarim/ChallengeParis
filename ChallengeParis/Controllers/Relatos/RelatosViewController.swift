@@ -11,7 +11,12 @@ import CloudKit
 
 class RelatosViewController: UIViewController {
 
-    let primeiraView: UIView! = ExibeRelatosView()
+    var searchInput = ""
+    var relatosExibir: [Relatos] = []
+    var viewPrincipal = UIView()
+
+    var categoria = ""
+    
 //    let Identifier: = "RelatosViewController"
     let cloud = CloudKitViewController()
     var array: [CKRecord] = []
@@ -22,10 +27,30 @@ class RelatosViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         let primeiraView = ExibeRelatosView()
-
-        self.view = primeiraView
+       
         primeiraView.relatosCollectionView.delegate = self
-         view.backgroundColor = .systemPurple
+        primeiraView.relatosCollectionView.dataSource = self
+        self.view = primeiraView
+
+        viewPrincipal = primeiraView
+        view.backgroundColor = .systemPurple
+        if searchInput != ""{
+            self.navigationItem.title = " Pesquisa por \(searchInput)"
+            setupRelatosSearch(search: searchInput)
+            primeiraView.relatosCollectionView.reloadData()
+            
+
+        }
+        
+        if categoria != "" {
+            self.navigationItem.title = "\(categoria)"
+            setupRelatosCategoria(categoria: categoria)
+            primeiraView.relatosCollectionView.reloadData()
+
+        }
+        self.navigationItem.titleView?.tintColor = .white
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         
     }
 
@@ -35,36 +60,45 @@ class RelatosViewController: UIViewController {
         
         //atribuicao da view inicializada no inicio da funcao
 //        self.view = primeiraView
-        self.navigationItem.title = "Search/Praia"
-        self.navigationItem.titleView?.tintColor = .white
-        navigationController?.navigationBar.prefersLargeTitles = true
-
-    }
-    
-    
-    func configuraArrayRelatos(parametro: String) {
-        if categoriaDescricoes.contains(parametro) {
-            let arrayCK = cloud.relatosPorCategoria(categoria: parametro)
-            transformaEmModel(array: arrayCK)
-
-        }
-        else {
-            let arrayCK = cloud.searchRelatosLocal(search: parametro)
-            transformaEmModel(array: arrayCK)
-
-
-        }
         
+
     }
     
-    func transformaEmModel(array: [CKRecord]) {
-        self.array = array
+    func setupRelatosSearch(search: String) {
         
-        for i in 1...array.count {
-            array[i].value(forKey: "Titulo")
+        let arrayRelatos = Relatos.MandaRelatos()
+        print("entrou aq")
+        print(arrayRelatos.count)
+        for i in 0...arrayRelatos.count-1 {
+           let texto = arrayRelatos[i].relatoTexto
+            
+            if texto != nil{
+                if texto!.contains(search) {
+                    relatosExibir.append(arrayRelatos[i])
+
+                }
+            }
+            
+        }
+       
+
+    }
+    
+    func setupRelatosCategoria(categoria: String) {
+        let arrayRelatos = Relatos.MandaRelatos()
+        for i in 0...arrayRelatos.count-1 {
+           let categoriaRelato = arrayRelatos[i].categoria
+            if categoria == categoriaRelato {
+                relatosExibir.append(arrayRelatos[i])
+
+            }
         }
     }
     
+    
+        
+    
+
     
 
 }
@@ -98,5 +132,29 @@ extension RelatosViewController : UICollectionViewDelegate {
         }
         
     }
+    
+}
+
+extension RelatosViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return relatosExibir.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RelatosCollectionViewCell.cellIdentifier, for: indexPath) as? RelatosCollectionViewCell {
+            print("passou na cel for item at")
+            let array = relatosExibir
+        
+
+//            let titulo = array[indexPath.row].tituloRelato
+//            let texto = array[indexPath.row].relatoTexto
+            let relatoCompleto = array[indexPath.row]
+            cell.setup(relato: relatoCompleto)
+            return cell
+        }
+        return UICollectionViewCell()
+        
+    }
+    
     
 }
