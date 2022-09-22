@@ -10,11 +10,18 @@ import UIKit
 class RelatosCollectionViewCell: UICollectionViewCell {
     var tituloLabel = UILabel()
     var autorLabel = UILabel()
-    var relatoTexto = UILabel()
-    var likeButton = UIButton()
+//    var relatoTexto = UILabel()
+    var likeButton = UIButton(configuration: .filled())
     var buttonENome = UIStackView()
     var stackETexto = UIStackView()
     static let cellIdentifier = "MemoriasCell"
+    
+//    var nomeAutor = ""
+    var idadeAutor = ""
+    var relatoTexto = ""
+    var preco = ""
+    var local = ""
+    var categoria = ""
     
     
     override init(frame: CGRect) {
@@ -33,17 +40,23 @@ class RelatosCollectionViewCell: UICollectionViewCell {
     }
     
     func setup(relato: Relatos){
-        let relato = relato
+//        let relato = relato
         self.tituloLabel.text = relato.tituloRelato
-        self.autorLabel.text = relato.Autor
-        self.autorLabel.text = "Por \(relato.Autor)"
+        self.autorLabel.text = "Por \(relato.Autor ?? "autor desconhecido")"
+        self.relatoTexto = relato.relatoTexto
+        self.local = relato.local
+        self.idadeAutor = relato.idadeAutor
+        self.preco = relato.preco
+        self.categoria = relato.categoria
+        
+        
     }
     
     func setViewHierarchy() {
         buttonENome.addArrangedSubview(tituloLabel)
         buttonENome.addArrangedSubview(likeButton)
         stackETexto.addArrangedSubview(buttonENome)
-        stackETexto.addArrangedSubview(relatoTexto)
+        stackETexto.addArrangedSubview(autorLabel)
         addSubview(stackETexto)
         
     
@@ -73,7 +86,7 @@ class RelatosCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([buttonENome.topAnchor.constraint(equalTo: stackETexto.topAnchor, constant: 18),
                                      buttonENome.leadingAnchor.constraint(equalTo: stackETexto.leadingAnchor, constant: 16),
                                      buttonENome.trailingAnchor.constraint(equalTo: stackETexto.trailingAnchor, constant: -16),
-                                     buttonENome.bottomAnchor.constraint(equalTo: relatoTexto.topAnchor, constant: 17)
+                                     buttonENome.bottomAnchor.constraint(equalTo: autorLabel.topAnchor, constant: 17)
         ])
         
         stackETexto.translatesAutoresizingMaskIntoConstraints = false

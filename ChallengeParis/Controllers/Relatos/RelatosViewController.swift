@@ -125,9 +125,20 @@ extension RelatosViewController : UICollectionViewDelegate {
         
         if let cell = collectionView.cellForItem(at: indexPath) as? RelatosCollectionViewCell {
             print("entrou aqui")
-            let label = cell
+            
+            let relatoExpandidoViewController = RelatoExpandidoViewController()
+            relatoExpandidoViewController.local = cell.local
+            relatoExpandidoViewController.preco = cell.preco
+            relatoExpandidoViewController.nomeAutor = cell.autorLabel.text!
+            relatoExpandidoViewController.relatoTexto = cell.relatoTexto
+            relatoExpandidoViewController.idadeAutor = cell.idadeAutor
+            relatoExpandidoViewController.categoria = cell.categoria
+            relatoExpandidoViewController.local = cell.local
+            
+            
+            
 //            navigationController?.pushViewController(RelatoExpandidoViewController(), animated: true)
-            navigationController?.showDetailViewController(RelatoExpandidoViewController(), sender: label)
+            navigationController?.showDetailViewController(relatoExpandidoViewController, sender: self)
 
         }
         

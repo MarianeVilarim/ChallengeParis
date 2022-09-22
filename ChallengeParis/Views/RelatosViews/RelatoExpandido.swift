@@ -23,9 +23,9 @@ class RelatoExpandido: UIView {
     let idadeAutor = UILabel()
     let relatoTexto = UILabel()
     let buttonsStackView = UIStackView()
-    let precoBaratoButton = UIButton(configuration: .plain())
-    let precoMedioButton = UIButton(configuration: .plain())
-    let precoCaroButton = UIButton(configuration: .plain())
+    let localButton = UIButton(configuration: .plain())
+    let categoriaButton = UIButton(configuration: .plain())
+    let precoButton = UIButton(configuration: .plain())
 
     let scrollView = UIScrollView()
     let contentView = UIView()
@@ -70,9 +70,9 @@ class RelatoExpandido: UIView {
         secondStackView.addArrangedSubview(buttonsStackView)
         
         
-        buttonsStackView.addArrangedSubview(precoBaratoButton)
-        buttonsStackView.addArrangedSubview(precoMedioButton)
-        buttonsStackView.addArrangedSubview(precoCaroButton)
+        buttonsStackView.addArrangedSubview(localButton)
+        buttonsStackView.addArrangedSubview(categoriaButton)
+        buttonsStackView.addArrangedSubview(precoButton)
 
         
 //        compartilharRoleButtonContainer.addSubview(nomeAutor)
@@ -147,33 +147,33 @@ class RelatoExpandido: UIView {
         
             
         
-        precoBaratoButton.setTitle("Local", for: .normal)
-        precoBaratoButton.tintColor = .white
-        precoBaratoButton.layer.borderWidth = 1
-        precoBaratoButton.layer.masksToBounds = true
-        precoBaratoButton.layer.cornerRadius = 10
-        precoBaratoButton.setTitleColor(.label, for: .normal)
-        precoBaratoButton.setTitleShadowColor(.lightGray, for: .selected)
-        precoBaratoButton.contentMode = .scaleAspectFit
+        localButton.setTitle("Local", for: .normal)
+        localButton.tintColor = .white
+        localButton.layer.borderWidth = 1
+        localButton.layer.masksToBounds = true
+        localButton.layer.cornerRadius = 10
+        localButton.setTitleColor(.label, for: .normal)
+        localButton.setTitleShadowColor(.lightGray, for: .selected)
+        localButton.contentMode = .scaleAspectFit
         
-        precoMedioButton.setTitle("Categoria", for: .normal)
-        precoMedioButton.tintColor = .white
-        precoMedioButton.layer.borderWidth = 1
-        precoMedioButton.layer.masksToBounds = true
-        precoMedioButton.layer.cornerRadius = 10
-        precoMedioButton.setTitleColor(.label, for: .normal)
-        precoMedioButton.setTitleShadowColor(.lightGray, for: .selected)
-        precoMedioButton.contentMode = .scaleAspectFit
+        categoriaButton.setTitle("Categoria", for: .normal)
+        categoriaButton.tintColor = .white
+        categoriaButton.layer.borderWidth = 1
+        categoriaButton.layer.masksToBounds = true
+        categoriaButton.layer.cornerRadius = 10
+        categoriaButton.setTitleColor(.label, for: .normal)
+        categoriaButton.setTitleShadowColor(.lightGray, for: .selected)
+        categoriaButton.contentMode = .scaleAspectFit
         
         
-        precoCaroButton.setTitle("$$", for: .normal)
-        precoCaroButton.tintColor = .white
-        precoCaroButton.layer.borderWidth = 1
-        precoCaroButton.layer.masksToBounds = true
-        precoCaroButton.layer.cornerRadius = 10
-        precoCaroButton.setTitleColor(.label, for: .normal)
-        precoCaroButton.setTitleShadowColor(.lightGray, for: .selected)
-        precoCaroButton.contentMode = .scaleAspectFit
+        precoButton.setTitle("$$", for: .normal)
+        precoButton.tintColor = .white
+        precoButton.layer.borderWidth = 1
+        precoButton.layer.masksToBounds = true
+        precoButton.layer.cornerRadius = 10
+        precoButton.setTitleColor(.label, for: .normal)
+        precoButton.setTitleShadowColor(.lightGray, for: .selected)
+        precoButton.contentMode = .scaleAspectFit
         
   
         scrollView.keyboardDismissMode = .onDrag
@@ -258,18 +258,18 @@ class RelatoExpandido: UIView {
     }
     
     func buttonSelection() {
-        if precoBaratoButton.isSelected {
-            precoMedioButton.isSelected = false
-            precoCaroButton.isSelected = false
+        if localButton.isSelected {
+            categoriaButton.isSelected = false
+            precoButton.isSelected = false
             
-        } else if precoMedioButton.isSelected {
-            precoBaratoButton.isSelected = false
-            precoCaroButton.isSelected = false
+        } else if categoriaButton.isSelected {
+            localButton.isSelected = false
+            precoButton.isSelected = false
 
 
-        }else if precoCaroButton.isSelected {
-            precoBaratoButton.isSelected = false
-            precoMedioButton.isSelected = false
+        }else if precoButton.isSelected {
+            localButton.isSelected = false
+            categoriaButton.isSelected = false
 
 
     }

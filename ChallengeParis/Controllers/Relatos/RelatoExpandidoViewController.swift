@@ -8,13 +8,26 @@
 import UIKit
 
 class RelatoExpandidoViewController: UIViewController {
+    
+    var nomeAutor = ""
+    var idadeAutor = ""
+    var relatoTexto = ""
+    var preco = ""
+    var local = ""
+    var categoria = ""
+    var titulo = ""
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let primeiraView = RelatoExpandido()
         self.view = primeiraView
-
-        // Do any additional setup after loading the view.
+        primeiraView.idadeAutor.text = self.idadeAutor
+        primeiraView.autorRelato.text = self.nomeAutor
+        primeiraView.relatoTexto.text = self.relatoTexto
+        primeiraView.localButton.setTitle(self.local, for: .normal)
+        primeiraView.categoriaButton.setTitle(self.categoria, for: .normal)
+        primeiraView.precoButton.setTitle(self.preco, for: .normal)
     }
     
 
