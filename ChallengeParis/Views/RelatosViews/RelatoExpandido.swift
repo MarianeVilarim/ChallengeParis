@@ -23,12 +23,13 @@ class RelatoExpandido: UIView {
     let idadeAutor = UILabel()
     let relatoTexto = UILabel()
     let buttonsStackView = UIStackView()
-    let localButton = UIButton(configuration: .plain())
-    let categoriaButton = UIButton(configuration: .plain())
-    let precoButton = UIButton(configuration: .plain())
+    let localButton = UIButton(configuration: .filled())
+    let categoriaButton = UIButton(configuration: .filled())
+    let precoButton = UIButton(configuration: .filled())
 
     let scrollView = UIScrollView()
     let contentView = UIView()
+    let buttonsContainer = UIView()
         
     
     
@@ -36,8 +37,9 @@ class RelatoExpandido: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        
+        categoriaButton.titleLabel?.font = UIFont.customFont(type: .regular, size: 12)
+        localButton.titleLabel?.font = UIFont.customFont(type: .regular, size: 12)
+        precoButton.titleLabel?.font = UIFont.customFont(type: .regular, size: 12)
         
 //        relatoTexto.delegate = self
         
@@ -67,13 +69,14 @@ class RelatoExpandido: UIView {
         secondStackView.addArrangedSubview(autorRelato)
         secondStackView.addArrangedSubview(idadeAutor)
         secondStackView.addArrangedSubview(relatoTexto)
-        secondStackView.addArrangedSubview(buttonsStackView)
+        secondStackView.addArrangedSubview(buttonsContainer)
         
         
         buttonsStackView.addArrangedSubview(localButton)
         buttonsStackView.addArrangedSubview(categoriaButton)
         buttonsStackView.addArrangedSubview(precoButton)
-
+        
+        buttonsContainer.addSubview(buttonsStackView)
         
 //        compartilharRoleButtonContainer.addSubview(nomeAutor)
 //        relatoContainer.addSubview(tituloAniversario)
@@ -110,26 +113,30 @@ class RelatoExpandido: UIView {
         
         buttonsStackView.axis = .horizontal
         buttonsStackView.alignment = .fill
-        buttonsStackView.spacing = 1
+        buttonsStackView.spacing = 5
         buttonsStackView.distribution = .fillProportionally
         
         
         secondStackView.axis = .vertical
-        secondStackView.alignment = .fill
+        secondStackView.alignment = .leading
         secondStackView.distribution = .fillProportionally
         secondStackView.backgroundColor = .white
         secondStackView.spacing = 10
         
-        imageRelato.contentMode = .scaleAspectFill
-        imageRelato.image = UIImage(named: "Image")
+        imageRelato.contentMode = .scaleAspectFit
+        imageRelato.image = UIImage(named: "Tres")
         
         autorRelato.contentMode = .top
         autorRelato.text = "autorRelato"
+        autorRelato.font = UIFont.customFont(type: .bold, size: 14)
+
         autorRelato.textColor = .label
         autorRelato.textAlignment = .left
         autorRelato.font.withSize(14)
         
         idadeAutor.contentMode = .top
+        idadeAutor.font = UIFont.customFont(type: .bold, size: 11)
+
         idadeAutor.text = "idadeAutor"
         idadeAutor.textColor = .label
         idadeAutor.textAlignment = .left
@@ -137,7 +144,8 @@ class RelatoExpandido: UIView {
         
         relatoTexto.text = "relatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTexto"
         relatoTexto.textColor = .label
-        relatoTexto.textAlignment = .justified
+        relatoTexto.textAlignment = .natural
+        relatoTexto.font = UIFont.customFont(type: .regular, size: 12)
         relatoTexto.contentMode = .top
         relatoTexto.numberOfLines = 0
         relatoTexto.sizeToFit()
@@ -148,7 +156,13 @@ class RelatoExpandido: UIView {
             
         
         localButton.setTitle("Local", for: .normal)
-        localButton.tintColor = .white
+        localButton.titleLabel?.font = UIFont.customFont(type: .bold, size: 10)
+        localButton.backgroundColor = .clear
+        localButton.layer.borderColor = UIColor(red: 74/255, green: 218/255, blue: 163/225, alpha: 1).cgColor
+        localButton.layer.borderWidth = 1
+        
+
+        localButton.tintColor = .clear
         localButton.layer.borderWidth = 1
         localButton.layer.masksToBounds = true
         localButton.layer.cornerRadius = 10
@@ -157,17 +171,23 @@ class RelatoExpandido: UIView {
         localButton.contentMode = .scaleAspectFit
         
         categoriaButton.setTitle("Categoria", for: .normal)
+        categoriaButton.titleLabel?.font = UIFont.customFont(type: .bold, size: 10)
+        categoriaButton.layer.borderColor = UIColor(red: 74/255, green: 218/255, blue: 163/225, alpha: 1).cgColor
+        categoriaButton.backgroundColor = .clear
         categoriaButton.tintColor = .white
         categoriaButton.layer.borderWidth = 1
         categoriaButton.layer.masksToBounds = true
         categoriaButton.layer.cornerRadius = 10
         categoriaButton.setTitleColor(.label, for: .normal)
-        categoriaButton.setTitleShadowColor(.lightGray, for: .selected)
         categoriaButton.contentMode = .scaleAspectFit
+        categoriaButton.titleLabel?.font = UIFont.customFont(type: .regular, size: 12)
         
         
         precoButton.setTitle("$$", for: .normal)
-        precoButton.tintColor = .white
+        precoButton.titleLabel?.font = UIFont.customFont(type: .bold, size: 10)
+        precoButton.layer.borderColor = UIColor(red: 74/255, green: 218/255, blue: 163/225, alpha: 1).cgColor
+
+        precoButton.tintColor = .clear
         precoButton.layer.borderWidth = 1
         precoButton.layer.masksToBounds = true
         precoButton.layer.cornerRadius = 10
@@ -193,8 +213,13 @@ class RelatoExpandido: UIView {
                                      backgroundView.bottomAnchor.constraint(equalTo: bottomAnchor)
                                     ])
         
+        buttonsStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+                                     buttonsStackView.heightAnchor.constraint(equalToConstant: 30),
+                                     buttonsStackView.bottomAnchor.constraint(equalTo: buttonsContainer.bottomAnchor, constant: -40),
+                                     buttonsStackView.topAnchor.constraint(equalTo: buttonsContainer.topAnchor, constant: 40)
         
-        
+        ])
         imageRelato.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             imageRelato.topAnchor.constraint(equalTo: imageContainer.topAnchor),
@@ -206,21 +231,21 @@ class RelatoExpandido: UIView {
         
         
         headerStackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([headerStackView.heightAnchor.constraint(equalToConstant: 150),
+        NSLayoutConstraint.activate([headerStackView.heightAnchor.constraint(equalToConstant: 300),
                                      headerStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
                                      headerStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
                                      headerStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
                                      
                                     ])
         secondStackContainer.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([secondStackContainer.topAnchor.constraint(equalTo: headerStackView.bottomAnchor, constant:  -20),
+        NSLayoutConstraint.activate([secondStackContainer.topAnchor.constraint(equalTo: headerStackView.bottomAnchor, constant:  -30),
                                      secondStackContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
                                      secondStackContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-                                     secondStackContainer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 30)
+                                     secondStackContainer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -50)
         ])
         
         secondStackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([secondStackView.topAnchor.constraint(equalTo: secondStackContainer.topAnchor, constant: 10),
+        NSLayoutConstraint.activate([secondStackView.topAnchor.constraint(equalTo: secondStackContainer.topAnchor, constant: 30),
                                      secondStackView.trailingAnchor.constraint(equalTo: secondStackContainer.trailingAnchor, constant: -28),
                                      secondStackView.leadingAnchor.constraint(equalTo: secondStackContainer.leadingAnchor, constant: 28),
                                      secondStackView.bottomAnchor.constraint(equalTo: secondStackContainer.bottomAnchor)
@@ -242,7 +267,9 @@ class RelatoExpandido: UIView {
                                      contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
                                      contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor)
                                     ])
-   
+        
+        
+    
     }
     
     func generateRandomNumber() -> Int {

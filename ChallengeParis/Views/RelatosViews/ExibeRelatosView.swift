@@ -45,8 +45,7 @@ class ExibeRelatosView: UIView {
         
        
         layout.scrollDirection = UICollectionView.ScrollDirection.vertical
-        layout.itemSize = CGSize(width: 346, height: 191)
-
+        layout.itemSize = CGSize(width: 300, height: 151)
         relatosCollectionView.setCollectionViewLayout(layout, animated: true)
         
         relatosCollectionView.register(RelatosCollectionViewCell.self, forCellWithReuseIdentifier: RelatosCollectionViewCell.cellIdentifier)

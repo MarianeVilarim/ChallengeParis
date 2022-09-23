@@ -39,16 +39,7 @@ class OnboardingPagingViewController: UIViewController{
         layout()
     }
 }
-
-// MARK: - PARA CLICAR NO BORA E IR PRA HOME
-//botao de bora esta como startButton
-// seria pra abertar e ir pra tela de home
-/*@objc func startTapped(_sender:UIButton){
-    let tabBar = MyTabBarController()
-    tabBar.modalPresentationStyle = .fullScreen
-    present(tabBar, animated: true, completion: nil)
-}
- */
+ 
 
 
 extension OnboardingPagingViewController{
@@ -87,21 +78,21 @@ extension OnboardingPagingViewController{
         startButton.layer.cornerRadius = 16
         
         //MARK: -  AQUI PRA IR PRA HOME Ó
-       // startButton.addTarget(self, action: #selector(startTapped(_:)), for: .primaryActionTriggered)
+        startButton.addTarget(self, action: #selector(startTapped), for: .touchUpInside)
+    
     }
     
     
     func layout(){
         // posicionamento da stack na tela
 
+        view.addSubview(stackView)
         stackView.addSubview(backgroundImage)
+        
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(subtitleLabel)
-       
-        
-        view.addSubview(stackView)
-        stackView.addSubview(startButton)
+        stackView.addArrangedSubview(startButton)
     
     
         NSLayoutConstraint.activate([
@@ -132,6 +123,23 @@ extension OnboardingPagingViewController{
         NSLayoutConstraint.activate([backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor), backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor), backgroundImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 152), backgroundImage.heightAnchor.constraint(equalToConstant: 539)])
     
     }
-    
+    // MARK: - PARA CLICAR NO BORA E IR PRA HOME
+    //botao de bora esta como startButton
+    // seria pra abertar e ir pra tela de home
+    @objc func startTapped(sender: UIButton){
+
+        let tabBarController = TabBarController()
+        let homeNavigation = UINavigationController (rootViewController: HomeViewController())
+        let jogosNavigation = UINavigationController (rootViewController: JogosViewController())
+        let registrosNavigation = UINavigationController (rootViewController: RegistrosViewController())
+        let salvosNavigation = UINavigationController (rootViewController: SalvosViewController())
+        tabBarController.viewControllers = [homeNavigation, jogosNavigation, registrosNavigation, salvosNavigation]
+
+
+        tabBarController.modalPresentationStyle = .fullScreen
+//
+        self.view.window?.rootViewController = tabBarController
+//    //    present(tabBarController, animated: true, completion: nil)
+    }
 }
 

@@ -43,7 +43,7 @@ extension DemoViewController{
         
      
         
-        let onboardingContent = [OnboardingInfo(titulo: "Encontre\nExperiências", texto: "Descubra como celebrar de forma inovadora no Recife", botaoVisivel: false, backgroundImage: UIImage(named: "Bg1")!, mainImage: UIImage(named: "Onb1")!), OnboardingInfo (titulo:"Anime seu\naniversário", texto: "Crie momentos divertidos\npara entrosar a galera", botaoVisivel: false, backgroundImage: UIImage(named: "Bg2")!, mainImage: UIImage(named: "Onb2")!), OnboardingInfo(titulo: "Anime seu\naniversário", texto: "Crie momentos divertidos para entrosar a galera", botaoVisivel: false, backgroundImage: UIImage(named: "Bg3")!, mainImage: UIImage(named: "Onb3")!), OnboardingInfo(titulo: "Vamos\nCelebrar?", texto: "Experimente novas formas\nde comemorar", botaoVisivel: true, backgroundImage: UIImage(named: "Bg4")!, mainImage: UIImage(named: "Onb4")!)]
+        let onboardingContent = [OnboardingInfo(titulo: "", texto: "Descubra como celebrar de forma inovadora no Recife", botaoVisivel: false, backgroundImage: UIImage(named: "Bg1")!, mainImage: UIImage(named: "Onb1")!), OnboardingInfo (titulo:"Anime seu\naniversário", texto: "Crie momentos divertidos\npara entrosar a galera", botaoVisivel: false, backgroundImage: UIImage(named: "Bg2")!, mainImage: UIImage(named: "Onb2")!), OnboardingInfo(titulo: "Anime seu\naniversário", texto: "Crie momentos divertidos para entrosar a galera", botaoVisivel: false, backgroundImage: UIImage(named: "Bg3")!, mainImage: UIImage(named: "Onb3")!), OnboardingInfo(titulo: "Vamos\nCelebrar?", texto: "", botaoVisivel: true, backgroundImage: UIImage(named: "Bg4")!, mainImage: UIImage(named: "Onb4")!)]
 
 
         

@@ -8,10 +8,12 @@
 import UIKit
 
 class ContaMemoriaViewController: UIViewController {
+    
+    var codigoDaSalinha = ""
+    let primeiraView = ContaMemoriaView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let primeiraView = ContaMemoriaView()
         self.view = primeiraView
         primeiraView.cabuetarButton.addTarget(self, action: #selector(didUserTapButton), for: .touchUpInside)
         
@@ -24,10 +26,11 @@ class ContaMemoriaViewController: UIViewController {
     }
     
     @objc func didUserTapButton() {
+        let memoria = primeiraView.constructMemoria(codigo: codigoDaSalinha)
         print("chamou")
-        let festinhaView = ForumFestinhaView()
-        festinhaView.memoriasCollectionView.reloadData()
-        navigationController?.pushViewController(ForumFestinhaViewController(), animated: true)
+        let festinhaView = ForumFestinhaViewController()
+        festinhaView.arrayMemorias.append(memoria)
+        navigationController?.pushViewController(festinhaView, animated: true)
     }
     /*
     // MARK: - Navigation

@@ -11,19 +11,44 @@ class ForumFestinhaViewController: UIViewController {
     
     var codigoRelato = ""
     var arrayMemorias: [Memoria] = []
+    var nomeSalinha = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let primeiraView = ForumFestinhaView()
         self.view = primeiraView
-        self.navigationItem.title = "Festinha de Fulana"
+        
+        let labelHomeView = UILabel()
+        let relatosMgmt = RelatosManager()
+        let relatosArray = relatosMgmt.retornaRelatos()
+        for i in 0...relatosArray.count-1  {
+            if relatosArray[i].codigo == codigoRelato {
+                nomeSalinha = relatosArray[i].Autor
+                labelHomeView.text = "Festinha de \(nomeSalinha)"
+                break
+                
+            } else {
+                labelHomeView.text = "Festinha de Mari"
+                
+            }
+        }
         self.navigationController?.navigationBar.tintColor = .white
+        
+            labelHomeView.backgroundColor = .clear
+            labelHomeView.numberOfLines = 2
+            labelHomeView.font = UIFont.customFont(type: .regular, size: 24)
+            labelHomeView.textAlignment = .center
+            labelHomeView.textColor = .white
+            self.navigationItem.titleView = labelHomeView
         
         primeiraView.memoriasCollectionView.delegate = self
         primeiraView.memoriasCollectionView.dataSource = self
         
         self.navigationItem.titleView?.tintColor = .white
-        navigationController?.navigationBar.prefersLargeTitles = true
+        let attributes = [NSAttributedString.Key.font: UIFont.customFont(type: .regular, size: 24)]
+        UINavigationBar.appearance().titleTextAttributes = attributes
+        navigationController?.navigationBar.prefersLargeTitles = false
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(addTapped))
         
         if codigoRelato != ""{
@@ -33,6 +58,8 @@ class ForumFestinhaViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    
+    
     
     
     func memoriasPorCodigo(codigo: String){
@@ -57,7 +84,10 @@ class ForumFestinhaViewController: UIViewController {
     
     @objc func addTapped(){
         
-        navigationController?.pushViewController(ContaMemoriaViewController(), animated: true)
+        var contaMemoriaViewController = ContaMemoriaViewController()
+        contaMemoriaViewController.codigoDaSalinha = self.codigoRelato
+        
+        navigationController?.pushViewController(contaMemoriaViewController, animated: true)
         
     }
 }
@@ -93,10 +123,10 @@ extension ForumFestinhaViewController: UICollectionViewDataSource {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemoriasCollectionViewCell.cellIdentifier, for: indexPath) as? MemoriasCollectionViewCell {
             print("passou na cel for item at")
             let array = arrayMemorias
-        
-
-//            let titulo = array[indexPath.row].tituloRelato
-//            let texto = array[indexPath.row].relatoTexto
+            
+            
+            //            let titulo = array[indexPath.row].tituloRelato
+            //            let texto = array[indexPath.row].relatoTexto
             let memoriaCompleta = array[indexPath.row]
             cell.setup(memoria: memoriaCompleta)
             return cell

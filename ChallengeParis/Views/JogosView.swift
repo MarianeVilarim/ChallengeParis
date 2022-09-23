@@ -8,6 +8,7 @@
 import UIKit
 
 class JogosView: UIView {
+    
 
     /*
     // Only override draw() if you perform custom drawing.

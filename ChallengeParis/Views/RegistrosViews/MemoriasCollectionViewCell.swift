@@ -49,7 +49,7 @@ class MemoriasCollectionViewCell: UICollectionViewCell {
     func setViewAtributes(){
         
         buttonENome.axis = .horizontal
-        buttonENome.spacing = 90
+        buttonENome.spacing = 100
         buttonENome.contentMode = .scaleAspectFit
         
         stackETexto.axis = .vertical
@@ -57,9 +57,11 @@ class MemoriasCollectionViewCell: UICollectionViewCell {
         stackETexto.contentMode = .scaleAspectFit
         
         nomeLabel.textColor = .secondaryLabel
+        nomeLabel.font = UIFont.customFont(type: .regular, size: 22)
         nomeLabel.numberOfLines = 0
         nomeLabel.sizeToFit()
         memoriaTexto.textColor = .secondaryLabel
+        memoriaTexto.font = UIFont.customFont(type: .regular, size: 16)
         memoriaTexto.numberOfLines = 2
         memoriaTexto.sizeToFit()
         likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
@@ -72,7 +74,7 @@ class MemoriasCollectionViewCell: UICollectionViewCell {
         buttonENome.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([buttonENome.topAnchor.constraint(equalTo: stackETexto.topAnchor, constant: 18),
                                      buttonENome.leadingAnchor.constraint(equalTo: stackETexto.leadingAnchor, constant: 16),
-                                     buttonENome.trailingAnchor.constraint(equalTo: stackETexto.trailingAnchor, constant: -16),
+                                     buttonENome.trailingAnchor.constraint(equalTo: stackETexto.trailingAnchor),
                                      buttonENome.bottomAnchor.constraint(equalTo: memoriaTexto.topAnchor, constant: 17)
         ])
         

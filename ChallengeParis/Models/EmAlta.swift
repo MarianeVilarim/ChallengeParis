@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct EmAlta {
+    
+    let usuario: String
+    let descricao: String
+    let imagemEmAlta: String
+}

@@ -89,10 +89,11 @@ class PopUp: UIView {
         self.backgroundColor = .onboardingPurple
         
         titleLabel.contentMode = .left
-        titleLabel.text = "Obrigade por compartilhar!"
+        titleLabel.text = "Obrigade por /n compartilhar!"
         titleLabel.textColor = .label
         titleLabel.numberOfLines = 0
         titleLabel.sizeToFit()
+        titleLabel.font = UIFont.customFont(type: .bold, size: 24)
         
         
         subtitleLabel.contentMode = .left
@@ -100,6 +101,7 @@ class PopUp: UIView {
         subtitleLabel.textColor = .label
         subtitleLabel.numberOfLines = 0
         subtitleLabel.sizeToFit()
+        subtitleLabel.font = UIFont.customFont(type: .regular, size: 16)
         
         
         
@@ -111,6 +113,7 @@ class PopUp: UIView {
         gerarCodigoButton.setTitle("Gerar código", for: .normal)
         gerarCodigoButton.tintColor = .purple
         gerarCodigoButton.setTitleColor(.white, for: .normal)
+        gerarCodigoButton.titleLabel?.font = UIFont.customFont(type: .regular, size: 12)
         
         titleLabelContainer.contentMode = .left
         subtitleLabelContainer.contentMode = .scaleAspectFill

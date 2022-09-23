@@ -45,6 +45,10 @@ class RelatosCollectionViewCell: UICollectionViewCell {
 //        let relato = relato
         self.tituloLabel.text = relato.tituloRelato
         self.autorLabel.text = "Por \(relato.Autor ?? "autor desconhecido")"
+        self.tituloLabel.font = UIFont.customFont(type: .bold, size: 16)
+        self.autorLabel.font = UIFont.customFont(type: .regular, size: 12)
+
+
         self.relatoTexto = relato.relatoTexto
         self.local = relato.local
         self.idadeAutor = relato.idadeAutor
@@ -72,25 +76,30 @@ class RelatosCollectionViewCell: UICollectionViewCell {
     func setViewAtributes(){
         
         stackView.axis = .vertical
-        stackETexto.spacing = 0
+//        stackETexto.spacing = 05
         stackView.distribution = .equalSpacing
+        stackView.contentMode = .scaleAspectFit
+        stackView.spacing = 15
         
         buttonENome.axis = .horizontal
-        buttonENome.spacing = 80
-        buttonENome.contentMode = .scaleAspectFit
+        buttonENome.spacing = 60
+        buttonENome.contentMode = .scaleAspectFill
         
         stackETexto.axis = .vertical
-        stackETexto.spacing = 17
+        stackETexto.spacing = 0
         stackETexto.contentMode = .scaleAspectFit
         
-        tituloLabel.textColor = .secondaryLabel
-        autorLabel.textColor = .secondaryLabel
+        tituloLabel.textColor = .label
+        autorLabel.textColor = .label
         
         likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
         likeButton.setImage(UIImage(systemName: "heart.fill"), for: .selected)
         
-        imagemRelato.image = UIImage(named: "Image")
+        imagemRelato.image = UIImage(named: "Caldinho")
 //        imagemRelato.contentMode = .scaleAspectFit
+        imagemStack.layer.masksToBounds = true
+        imagemStack.layer.cornerRadius = 10
+        imagemRelato.layer.masksToBounds = true
         
         imagemStack.distribution = .fillProportionally
         
@@ -100,8 +109,8 @@ class RelatosCollectionViewCell: UICollectionViewCell {
     func setConstraints(){
         buttonENome.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([buttonENome.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 18),
-                                     buttonENome.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 16),
-                                     buttonENome.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -16),
+                                     buttonENome.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 8),
+                                     buttonENome.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -8),
 //                                     buttonENome.bottomAnchor.constraint(equalTo: imagemStack.topAnchor, constant: 17)
         ])
         
@@ -112,8 +121,8 @@ class RelatosCollectionViewCell: UICollectionViewCell {
                                      stackView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
         
-//        imagemStack.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([imagemStack.topAnchor.constraint(equalTo: centerYAnchor),
+        imagemStack.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([imagemStack.bottomAnchor.constraint(equalTo: stackView.bottomAnchor)])
 //                                     imagemStack.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
 //                                     imagemStack.trailingAnchor.constraint(equalTo: stackView.trailingAnchor)])
     }

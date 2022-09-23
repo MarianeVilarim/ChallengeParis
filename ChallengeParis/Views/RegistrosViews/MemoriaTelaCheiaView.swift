@@ -131,12 +131,15 @@ class MemoriaTelaCheiaView: UIView {
         autorRelato.text = "autorRelato"
         autorRelato.textColor = .label
         autorRelato.textAlignment = .left
+        autorRelato.font = UIFont.customFont(type: .regular, size: 12)
         autorRelato.font.withSize(14)
         
         idadeAutor.contentMode = .top
-        idadeAutor.text = "idadeAutor"
+        idadeAutor.text = ""
         idadeAutor.textColor = .label
         idadeAutor.textAlignment = .left
+        autorRelato.font = UIFont.customFont(type: .regular, size: 12)
+
         idadeAutor.font.withSize(11)
         
         relatoTexto.text = "relatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTextorelatoTexto"

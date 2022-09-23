@@ -8,13 +8,21 @@
 import UIKit
 
 class JogosViewController: UIViewController {
+ 
+    
 
-    let primeiraView: UIView! = JogosView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        let primeiraView = CardsView()
+        view.backgroundColor = .white
+
+//        self.view = primeiraView
+//        primeiraView.cardsCollectionView.dataSource = self
         // Do any additional setup after loading the view.
         //self.view = primeiraView
+//        primeiraView.backgroundColor = .white
+//        primeiraView.alpha = 1
        
     }
 
@@ -23,10 +31,10 @@ class JogosViewController: UIViewController {
         // et view = UIView()
         
         //atribuicao da view inicializada no inicio da funcao
-        self.view = primeiraView
         self.navigationItem.title = "Bora Entrosar?"
         self.navigationItem.titleView?.tintColor = .white
         navigationController?.navigationBar.prefersLargeTitles = true
+       
 
     }
     
@@ -49,5 +57,7 @@ struct JogosViewController_Preview: PreviewProvider {
     }
 }
 #endif
+
+
 
 

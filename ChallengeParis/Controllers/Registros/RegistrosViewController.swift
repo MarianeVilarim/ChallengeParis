@@ -29,8 +29,9 @@ class RegistrosViewController: UIViewController {
         
         primeiraView.compartilharRoleButton.addTarget(self, action: #selector(didUserTapRegistrarRole), for: .touchUpInside)
         primeiraView.tenhoCodigoButton.addTarget(self, action: #selector(didUserTapTenhoCodigo), for: .touchUpInside)
-      
-        
+        self.navigationController?.navigationBar.tintColor = .white
+
+
     }
 
     override func loadView() {

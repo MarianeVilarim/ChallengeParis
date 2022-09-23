@@ -10,36 +10,35 @@ import UIKit
 import CloudKit
 
 class CloudKitViewController: UIViewController {
-    let privateDatabase = CKContainer(identifier: "br.ufpe.cin.academy.mvpc.VouComerSeuBolo").privateCloudDatabase
+    let privateDatabase = CKContainer(identifier: "iCloud.VouComerSeuBolo").publicCloudDatabase
     var codigoSalinha: String = ""
     
     var arrayRelatos: [CKRecord] = []
     var arrayMemorias: [CKRecord] = []
     
     
-    
     func AddRelato(relato: Relatos){
-        
-        //tentando verificar se existe um relato igual no sistema
-        let predicate = NSPredicate(format: "Relato == ", relato.relatoTexto)
-        let query = CKQuery(recordType: "Relato", predicate: predicate)
-        let operation = CKQueryOperation(query: query)
-        
-        var existed = false
-        operation.recordFetchedBlock = { record in
-            DispatchQueue.main.async {
-                existed = true
-                
-            }
-        }
-        
-        operation.queryCompletionBlock = { cursor, error in
-            DispatchQueue.main.async {
-                
-                if existed{
-                    //quero que exiba a tela de popup com mensagem de erro
-                }
-                else{
+//
+//        //tentando verificar se existe um relato igual no sistema
+//        let predicate = NSPredicate(format: "Relato == ", relato.relatoTexto)
+//        let query = CKQuery(recordType: "Relato", predicate: predicate)
+//        let operation = CKQueryOperation(query: query)
+//
+//        var existed = false
+//        operation.recordFetchedBlock = { record in
+//            DispatchQueue.main.async {
+//                existed = true
+//
+//            }
+//        }
+//
+//        operation.queryCompletionBlock = { cursor, error in
+//            DispatchQueue.main.async {
+//
+//                if existed{
+//                    //quero que exiba a tela de popup com mensagem de erro
+//                }
+//                else{
                     
                     let record = CKRecord(recordType: "Relato")
                     record.setValue(relato.relatoTexto, forKey: "Relato")
@@ -55,11 +54,14 @@ class CloudKitViewController: UIViewController {
                             
                             if error == nil {
                                 //quero redirecionar pra tela de exibir codigo
+                                print("salvou")
                                 self.codigoSalinha = relato.codigo
                                 
                                 
                                 
                             } else {
+                                print("n rolou")
+                                print(error)
                                 //                                                           let alert
                             }
                         }
@@ -67,9 +69,8 @@ class CloudKitViewController: UIViewController {
                     }
                     
                 }
-            }
-        }
-    }
+            
+      
     
     
     //    func addGeneratedNumber() {

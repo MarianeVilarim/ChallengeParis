@@ -20,6 +20,8 @@ class ContaMemoriaView: UIView {
     let cabuetarButton = UIButton(configuration: .filled())
     var memoria = Memoria()
     
+    var codigoSalinha = ""
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setViewHierarchy()
@@ -70,8 +72,10 @@ class ContaMemoriaView: UIView {
         
         titleLabel.textColor = .white
         titleLabel.text = "Cabueta aí!"
+        titleLabel.font = UIFont.customFont(type: .regular, size: 24)
         
         subtitleLabel.textColor = .white
+        subtitleLabel.font = UIFont.customFont(type: .regular, size: 16)
         subtitleLabel.text = "Dá teu buzu do que rolou na festa"
         
         nomeTextField.placeholder = "Seu nome"
@@ -79,8 +83,11 @@ class ContaMemoriaView: UIView {
         nomeTextField.layer.cornerRadius = 10
         nomeTextField.backgroundColor = .lightGray
         nomeTextField.textColor = .secondaryLabel
+        nomeTextField.font = UIFont.customFont(type: .regular, size: 15)
+
         
         memoriaTextView.layer.masksToBounds = true
+        memoriaTextView.font = UIFont.customFont(type: .regular, size: 16)
         memoriaTextView.layer.cornerRadius = 10
         memoriaTextView.backgroundColor = .lightGray
         memoriaTextView.text = "O que o aniversariante deveria saber? Fato engraçado que poucos viram?"
@@ -158,13 +165,14 @@ class ContaMemoriaView: UIView {
         ])
     }
     
-    func constructMemoria() {
+    func constructMemoria(codigo: String) -> Memoria {
         self.memoria.nomePessoa = nomeTextField.text
         self.memoria.textoMemoria = memoriaTextView.text
         self.memoria.curtidas = 0
-        self.memoria.codigo = ""
-        let iCloud = CloudKitViewController()
-        iCloud.addMemoria(memoria: memoria)
+        self.memoria.codigo = codigo
+//        let iCloud = CloudKitViewController()
+//        iCloud.addMemoria(memoria: memoria)
+        return memoria
     }
     
     private func setupAdditionalConfiguration() {
@@ -173,7 +181,7 @@ class ContaMemoriaView: UIView {
     }
     
     @objc func tappedButton (sender: UIButton) {
-        constructMemoria()
+//        constructMemoria()
        
         
     }

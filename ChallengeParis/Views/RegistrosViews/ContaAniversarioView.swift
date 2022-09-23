@@ -145,10 +145,14 @@ class ContaAniversarioView: UIView {
         precosStackView.distribution = .fillEqually
         
         titleLabel.text = "Foi o seu aniversário"
+        titleLabel.font = UIFont.customFont(type: .bold, size: 24)
+
         titleLabel.textColor = UIColor.white
         titleLabel.textAlignment = .left
         
         subtitleLabel.text = "Diz aí pra gente como foi tua festa"
+        subtitleLabel.font = UIFont.customFont(type: .regular, size: 16)
+
         subtitleLabel.textColor = .white
         subtitleLabel.numberOfLines = 0
         subtitleLabel.sizeToFit()
@@ -162,7 +166,7 @@ class ContaAniversarioView: UIView {
         buttonsStackView.spacing = 8
         //
         //
-        compartilharRoleButton.tintColor = .purple
+        compartilharRoleButton.tintColor = .onboardingPurple
         compartilharRoleButton.setTitle("Compartilhar meu rolê!", for: .normal)
         compartilharRoleButton.setTitleColor(.white, for: .normal)
         compartilharRoleButton.titleLabel?.tintColor = .white
@@ -173,16 +177,16 @@ class ContaAniversarioView: UIView {
         
         
         precoBaratoButton.setTitle("$", for: .normal)
-        precoBaratoButton.tintColor = .purple
+        precoBaratoButton.tintColor = .onboardingPurple
         precoBaratoButton.setTitleColor(.white, for: .normal)
         precoBaratoButton.setTitleShadowColor(.lightGray, for: .selected)
         
         precoMedioButton.setTitle("$$", for: .normal)
-        precoMedioButton.tintColor = .purple
+        precoMedioButton.tintColor = .onboardingPurple
         precoMedioButton.setTitleColor(.white, for: .normal)
         
         precoCaroButton.setTitle("$$$", for: .normal)
-        precoCaroButton.tintColor = .purple
+        precoCaroButton.tintColor = .onboardingPurple
         precoCaroButton.setTitleColor(.white, for: .normal)
         
         anexarImagemAniver.setImage(UIImage(named: "Image"), for: .normal)
@@ -191,13 +195,17 @@ class ContaAniversarioView: UIView {
         precosStackView.spacing = 42
         
         tituloAniversario.placeholder = "Título do relato"
-        tituloAniversario.tintColor = .label
+        tituloAniversario.tintColor = .onboardingPurple
         tituloAniversario.textColor = .secondaryLabel
         tituloAniversario.textAlignment = .left
         tituloAniversario.layer.masksToBounds = true
         tituloAniversario.layer.cornerRadius = 10
+        tituloAniversario.font = UIFont.customFont(type: .regular, size: 15)
+
         
         nomeAutor.placeholder = "Seu nome"
+        nomeAutor.font = UIFont.customFont(type: .regular, size: 15)
+
         nomeAutor.tintColor = .label
         nomeAutor.textColor = .secondaryLabel
         nomeAutor.textAlignment = .left
@@ -206,6 +214,8 @@ class ContaAniversarioView: UIView {
 //        nomeAutor.backgroundColor = .lightGray
         
         idadeAutor.placeholder = "Sua idade"
+        idadeAutor.font = UIFont.customFont(type: .regular, size: 15)
+
         idadeAutor.tintColor = .label
         idadeAutor.textColor = .secondaryLabel
         idadeAutor.textAlignment = .left
@@ -218,6 +228,8 @@ class ContaAniversarioView: UIView {
         localAniversario.textAlignment = .left
         localAniversario.layer.masksToBounds = true
         localAniversario.layer.cornerRadius = 10
+        localAniversario.font = UIFont.customFont(type: .regular, size: 15)
+
         
         
         categoriaTextField.placeholder = "Categoria"
@@ -226,6 +238,8 @@ class ContaAniversarioView: UIView {
         categoriaTextField.textAlignment = .left
         categoriaTextField.layer.masksToBounds = true
         categoriaTextField.layer.cornerRadius = 10
+        categoriaTextField.font = UIFont.customFont(type: .regular, size: 15)
+
         
         
         //
@@ -240,8 +254,8 @@ class ContaAniversarioView: UIView {
         
         relatoTexto.text = "Comecei meu dia.../ Eu comi.../ Também me reuni com.../ Fomos a... /Mais tarde, ... "
         relatoTexto.textColor = UIColor.lightGray
-        relatoTexto.font?.withSize(16)
-        
+        relatoTexto.font = UIFont.customFont(type: .regular, size: 15)
+
         
         scrollView.keyboardDismissMode = .onDrag
         
@@ -471,6 +485,8 @@ class ContaAniversarioView: UIView {
     
     func codigoRelato() -> String {
         let constructRelato = constructRelato()
+        let cloud = CloudKitViewController()
+        cloud.AddRelato(relato: constructRelato)
         var codigo = ""
         codigo = constructRelato.codigo
         

@@ -82,15 +82,16 @@ class PedeCodigoView: UIView {
 
         
         titleLabel.text = "Fala para a galera!"
+        titleLabel.font = UIFont.customFont(type: .bold, size: 24)
         titleLabel.textColor = UIColor.white
         titleLabel.textAlignment = .left
         
         subtitleLabel.text = "Inspire outras pessoas contando sobre o seu dia especial e ganhe um espaço para registrar as memórias dos amigos"
+        subtitleLabel.font = UIFont.customFont(type: .extralight, size: 16)
         subtitleLabel.textColor = .white
         subtitleLabel.numberOfLines = 0
         subtitleLabel.sizeToFit()
         subtitleLabel.textAlignment = .left
-        subtitleLabel.font = .preferredFont(forTextStyle: .body)
         
         buttonsStackView.layer.masksToBounds = true
         buttonsStackView.layer.cornerRadius = 20
@@ -101,10 +102,13 @@ class PedeCodigoView: UIView {
 //
 //
         compartilharRoleButton.tintColor = .onboardingPurple
+       
+
         compartilharRoleButton.setTitle("Compartilhar meu rolê!", for: .normal)
         compartilharRoleButton.setTitleColor(.white, for: .normal)
         compartilharRoleButton.titleLabel?.tintColor = .white
-    
+        compartilharRoleButton.titleLabel?.font = UIFont.customFont(type: .regular, size: 16)
+        
         var  configuration = UIButton.Configuration.filled()
         configuration.cornerStyle = .capsule
         compartilharRoleButton.configuration = configuration
@@ -113,6 +117,8 @@ class PedeCodigoView: UIView {
         tenhoCodigoButton.setTitle("Tenho um código", for: .normal)
         tenhoCodigoButton.setTitleColor(.onboardingPurple, for: .normal)
         tenhoCodigoButton.backgroundColor = .white
+        tenhoCodigoButton.titleLabel?.font = UIFont.customFont(type: .regular, size: 16)
+
         
 //
 

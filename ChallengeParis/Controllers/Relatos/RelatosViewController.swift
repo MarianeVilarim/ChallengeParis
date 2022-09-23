@@ -16,28 +16,32 @@ class RelatosViewController: UIViewController {
     var viewPrincipal = UIView()
     
     var salvos = false
-
+    var local = ""
     var categoria = ""
+    var preco = ""
     
 //    let Identifier: = "RelatosViewController"
-    let cloud = CloudKitViewController()
-    var array: [CKRecord] = []
+//    let cloud = CloudKitViewController()
+//    var array: [CKRecord] = []
     
     var categoriaDescricoes = ["Restaurante","Praia","Bar","Parque","Cultural","Casa"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
         let primeiraView = ExibeRelatosView()
-       
+        self.navigationItem.titleView?.tintColor = .white
+
         primeiraView.relatosCollectionView.delegate = self
         primeiraView.relatosCollectionView.dataSource = self
         self.view = primeiraView
+        let labelHomeView = UILabel()
 
         viewPrincipal = primeiraView
         view.backgroundColor = .systemPurple
         if searchInput != ""{
-            self.navigationItem.title = " Pesquisa por \(searchInput)"
+            labelHomeView.text = " Pesquisa por \(searchInput)"
             setupRelatosSearch(search: searchInput)
             primeiraView.relatosCollectionView.reloadData()
             
@@ -45,29 +49,41 @@ class RelatosViewController: UIViewController {
         }
         
         if categoria != "" {
-            self.navigationItem.title = "\(categoria)"
+            labelHomeView.text = "\(categoria)"
             setupRelatosCategoria(categoria: categoria)
             primeiraView.relatosCollectionView.reloadData()
 
         }
+        
+        if categoria != "" {
+            labelHomeView.text = "\(local)"
+            relatosPorLocal(lugar: local)
+            primeiraView.relatosCollectionView.reloadData()
+
+        }
+        
+        if preco != ""{
+            labelHomeView.text = "\(preco)"
+            relatosPorPreco(valor: preco)
+            primeiraView.relatosCollectionView.reloadData()
+        }
+        labelHomeView.backgroundColor = .clear
+        labelHomeView.numberOfLines = 2
+        labelHomeView.font = UIFont.customFont(type: .regular, size: 24)
+        labelHomeView.textAlignment = .center
+        labelHomeView.textColor = .white
+        self.navigationItem.titleView = labelHomeView
         self.navigationItem.titleView?.tintColor = .white
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = false
         
         
     }
 
-    override func loadView() {
-        //atribuicao da view que irá ser atribuida como view raiz no view controller
-        // et view = UIView()
-        
-        //atribuicao da view inicializada no inicio da funcao
-//        self.view = primeiraView
-        
-
-    }
+    
     
     func setupRelatosSearch(search: String) {
         
+        let search = search.lowercased()
         let relatosMgmt = RelatosManager()
         let arrayRelatos = relatosMgmt.retornaRelatos()
         print("entrou aq")
@@ -86,6 +102,29 @@ class RelatosViewController: UIViewController {
        
 
     }
+    
+    func relatosPorPreco(valor: String) {
+        let relatosMgmt = RelatosManager()
+        let arrayRelatos = relatosMgmt.retornaRelatos()
+        for i in 0...arrayRelatos.count-1 {
+           let precoRelato = arrayRelatos[i].preco
+            if valor == precoRelato {
+                relatosExibir.append(arrayRelatos[i])
+            }
+        }
+    }
+    
+    func relatosPorLocal(lugar: String) {
+        let relatosMgmt = RelatosManager()
+        let arrayRelatos = relatosMgmt.retornaRelatos()
+        for i in 0...arrayRelatos.count-1 {
+            let lugarRelato = arrayRelatos[i].local
+            if lugar == lugarRelato {
+                relatosExibir.append(arrayRelatos[i])
+            }
+        }
+    }
+    
     
     func setupRelatosCategoria(categoria: String) {
         let relatosMgmt = RelatosManager()

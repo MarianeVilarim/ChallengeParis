@@ -20,26 +20,34 @@ class HomeViewController: UIViewController {
         Categoria(image: "Casa", descricao: "Casa")
     ]
     
-   
+    var emAlta: [EmAlta] = [
+        EmAlta(usuario: "Juca Juliano", descricao: "Open de Caldinho", imagemEmAlta: "Caldinho"),
+        EmAlta(usuario: "Thaynara Neves", descricao: "Bloco Flutuante", imagemEmAlta: "Bloco"),
+        EmAlta(usuario: "Luana Vieira", descricao: "Frevo na Areia", imagemEmAlta: "Frevo"),
+    ]
     
     
-    //    var emAlta: [EmAlta]
+    
+        
     
     //    let primeiraView: UIView! = UIView()
     //label "descubra" que já está sendo configurada já na variavél anonima.
     //Variavel anonima é necessária fechar as chaves com o parenteses no final
     //ex.: lazy var variavelAnonima {   }()
+    var primeiraView = HomeView()
+    
     lazy var descubraLabel: UILabel = {
         let label = UILabel()
-        label.text = "Descubra histórias"
-        label.font = UIFont(name: "Sora", size: 24)
+        label.text = ""
+        label.font = UIFont.customFont(type: .regular, size: 24)
         label.textColor = .white
         label.textAlignment = .left
         label.numberOfLines = 0
-        
-        for name in UIFont.familyNames{
-        }
-        
+        label.sizeToFit()
+    
+//        for name in UIFont.familyNames{
+//        }
+//
         return label
     }()
     
@@ -47,11 +55,12 @@ class HomeViewController: UIViewController {
     lazy var aniversariosLabel: UILabel = {
         let label = UILabel()
         //        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "de aniversários"
-        label.font = UIFont(name: "Sora", size: 24)
+        label.text = "Descubra histórias \n de aniversários"
+        label.font = UIFont.customFont(type: .regular, size: 24)
         label.textColor = .white
         label.textAlignment = .left
         label.numberOfLines = 0
+        label.sizeToFit()
         
         return label
     }()
@@ -74,14 +83,21 @@ class HomeViewController: UIViewController {
         
         return searchBar
         
+    }()
+    
+    var viewBranca: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 20
         
+        return view
     }()
     
     lazy var categoriasLabel: UILabel = {
         let label = UILabel()
         
         label.text = "Categorias"
-        label.font = UIFont(name: "Sora", size: 22)
+        label.font = UIFont.customFont(type: .regular, size: 22)
         label.textColor = .systemGray
         label.textAlignment = .left
         label.numberOfLines = 0
@@ -139,13 +155,68 @@ class HomeViewController: UIViewController {
         var collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.register(EmAltaCollectionViewCell.self, forCellWithReuseIdentifier: EmAltaCollectionViewCell.identifier)
         collection.showsHorizontalScrollIndicator = false
-        collection.backgroundColor = .red
+        collection.backgroundColor = .clear
         
         return collection
         
     }()
     
+    let stackViewPresente: UIStackView = {
+
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.distribution = .fillEqually
+        stack.alignment = .top
+        stack.spacing = -30
+        return stack
+    }()
     
+    let containerPresente = UIView()
+    
+    
+    let imagemPresente: UIImageView = {
+        let image = UIImage (named: "Desenho")
+        
+        return UIImageView (image: image)
+    }()
+    
+    let stackViewBotao: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.contentMode = .scaleAspectFill
+        stack.distribution = .fillEqually
+//        stack.spacing = 6
+        
+        return stack
+    }()
+    
+    lazy var botao: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Tenho um código", for: .normal)
+        button.titleLabel?.font = UIFont.customFont(type: .regular, size: 16)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = UIColor(named: "roxo")
+//        button.layer.borderWidth = 1
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(self.botaoTenhoCodigo(sender:)), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    @objc func botaoTenhoCodigo(sender:UIButton){
+        redirectToView()
+        print ("Eu tenho um código")
+    }
+    
+    var background: UIImageView = {
+        
+        let back = UIImageView()
+        back.image = UIImage (named: "background")
+        
+        return back
+    }()
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -156,16 +227,25 @@ class HomeViewController: UIViewController {
         collectionCategorias.dataSource = self
         collectionCategorias.delegate = self
         searchBar.delegate = self
-        
-        
-        view.backgroundColor = .systemPurple
+        self.navigationItem.titleView?.tintColor = .white
+        self.navigationController?.navigationBar.tintColor = .white
+
+        containerPresente.contentMode = .center
         
         collectionViewEmAlta.dataSource = self
-        //collectionViewEmAlta.delegate = self
+        collectionViewEmAlta.delegate = self
         
+        let labelHomeView = UILabel()
+        labelHomeView.backgroundColor = .clear
+        labelHomeView.numberOfLines = 2
+        labelHomeView.font = UIFont.customFont(type: .regular, size: 24)
+        labelHomeView.textAlignment = .center
+        labelHomeView.textColor = .white
+        self.navigationItem.titleView = labelHomeView
         
         self.setupHierarquia()
         self.configConstraints()
+        
         
         // MARK: AQUI
         
@@ -175,14 +255,21 @@ class HomeViewController: UIViewController {
         //        searchController.searchResultsUpdater = self
         //        searchController.searchBar.placeholder = "Comida tailandesa"
         //        searchController.searchBar.frame = CGRect(x: 0, y: 250 , width: self.searchController.searchBar.frame.size.width, height: 44.0);
+        
+    }
+    
+    func redirectToView() {
+        navigationController?.pushViewController(DigitaCodigoViewController(), animated: true)
     }
     
     
     func setupHierarquia(){
         //Adicionando as view criadas em uma ordem de camadas, ou seja, qual deve aparecer primeiro
+        self.view.addSubview(self.background)
         self.view.addSubview(self.descubraLabel)
         self.view.addSubview(self.aniversariosLabel)
         self.view.addSubview(self.searchBar)
+        self.view.addSubview(self.viewBranca)
         self.view.addSubview(self.categoriasLabel)
         self.view.addSubview(self.collectionCategorias)
         self.view.addSubview(self.emAltaLabel)
@@ -191,16 +278,31 @@ class HomeViewController: UIViewController {
         self.view.addSubview(self.collectionViewEmAlta)
         
         
+        stackViewPresente.addArrangedSubview(imagemPresente)
+        containerPresente.addSubview(stackViewPresente)
+        stackViewBotao.addArrangedSubview(containerPresente)
+        stackViewBotao.addArrangedSubview(botao)
+        
+        self.view.addSubview(stackViewBotao)
         
     }
     //configurando as constrains dos componentes adicionados a home
     private func configConstraints(){
         
+        background.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.background.topAnchor.constraint(equalTo: self.view.topAnchor),
+            self.background.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.background.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.background.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        ])
+        
+        
         //Label descubra histórias
         descubraLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.descubraLabel.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 110),
+            self.descubraLabel.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             // self.descubraLabel.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -509),
             self.descubraLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 23),
             self.descubraLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -23)
@@ -234,7 +336,7 @@ class HomeViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             
-            self.categoriasLabel.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 24),
+            self.categoriasLabel.topAnchor.constraint(equalTo: viewBranca.topAnchor, constant: 24),
             //            self.aniversariosLabel.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -500),
             self.categoriasLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 23),
             self.categoriasLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -23)
@@ -269,13 +371,44 @@ class HomeViewController: UIViewController {
             self.collectionViewEmAlta.heightAnchor.constraint(equalToConstant: 120)
         ])
         
-    }
-    
-    
-    
-    func updateSearchResults(for searchController: UISearchController) {
         
+        viewBranca.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+        
+            self.viewBranca.topAnchor.constraint(equalTo: searchBar.bottomAnchor,constant: 37),
+            self.viewBranca.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.viewBranca.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.viewBranca.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        
+        
+        ])
+        
+        stackViewPresente.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.stackViewPresente.topAnchor.constraint(equalTo: containerPresente.topAnchor),
+            self.stackViewPresente.leadingAnchor.constraint(equalTo: containerPresente.leadingAnchor, constant: 116),
+            self.stackViewPresente.trailingAnchor.constraint(equalTo: containerPresente.trailingAnchor, constant: -116),
+            self.containerPresente.bottomAnchor.constraint(equalTo: containerPresente.bottomAnchor, constant: -44)
+
+        ])
+//
+        stackViewBotao.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.stackViewBotao.topAnchor.constraint(equalTo: collectionViewEmAlta.bottomAnchor, constant: 15),
+            self.stackViewBotao.heightAnchor.constraint(equalToConstant: 100),
+            self.stackViewBotao.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 42),
+            self.stackViewBotao.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -42),
+            self.stackViewBotao.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -90)
+//
+        ])
+
     }
+    
+    
+    
+//    func updateSearchResults(for searchController: UISearchController) {
+//
+//    }
     
     // MARK: - Inicializar as views
     
@@ -304,7 +437,7 @@ extension HomeViewController: UICollectionViewDataSource {
         if collectionView == collectionCategorias {
             return categorias.count
         } else if collectionView == collectionViewEmAlta{
-            return 3
+            return emAlta.count
         } else {
             return 1
         }
@@ -320,7 +453,8 @@ extension HomeViewController: UICollectionViewDataSource {
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmAltaCollectionViewCell.identifier, for: indexPath) as! EmAltaCollectionViewCell
-            
+            let model = emAlta[indexPath.row]
+            cell.draw(model)
             
             return cell
         }

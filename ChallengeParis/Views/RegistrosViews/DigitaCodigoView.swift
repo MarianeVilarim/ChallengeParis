@@ -93,13 +93,15 @@ class DigitaCodigoView: UIView, UITextFieldDelegate {
         titleLabel.text = "Digite seu código!"
         titleLabel.textColor = UIColor.white
         titleLabel.textAlignment = .left
+        titleLabel.font = UIFont.customFont(type: .regular, size: 24)
+
         
         subtitleLabel.text = "Chegou a hora de cabuetar o rolê"
         subtitleLabel.textColor = .white
+        subtitleLabel.font = UIFont.customFont(type: .regular, size: 16)
         subtitleLabel.numberOfLines = 0
         subtitleLabel.sizeToFit()
         subtitleLabel.textAlignment = .left
-        subtitleLabel.font = .preferredFont(forTextStyle: .body)
         
         buttonsStackView.layer.masksToBounds = true
         buttonsStackView.layer.cornerRadius = 20

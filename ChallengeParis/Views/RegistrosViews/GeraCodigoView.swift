@@ -104,8 +104,10 @@ class GeraCodigoView: UIView {
         titleLabel.text = "Código ativo!"
         titleLabel.textColor = UIColor.white
         titleLabel.textAlignment = .left
+        titleLabel.font = UIFont.customFont(type: .regular, size: 24)
         
         subtitleLabel.text = "Manda para o teu amigo fofoqueiro"
+        subtitleLabel.font = UIFont.customFont(type: .regular, size: 24)
         subtitleLabel.textColor = .white
         subtitleLabel.numberOfLines = 0
         subtitleLabel.sizeToFit()

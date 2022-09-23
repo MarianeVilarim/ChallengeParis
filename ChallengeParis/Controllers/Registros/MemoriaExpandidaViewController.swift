@@ -11,11 +11,16 @@ class MemoriaExpandidaViewController: UIViewController {
     
     var titlelabel = ""
     var memoriaTexto = ""
+    var idadeLabel = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let primeiraView = MemoriaTelaCheiaView()
         self.view = primeiraView
+        
+        primeiraView.autorRelato.text = self.titlelabel
+        primeiraView.relatoTexto.text = self.memoriaTexto
+        primeiraView.idadeAutor.text = self.idadeLabel
 
         // Do any additional setup after loading the view.
     }
